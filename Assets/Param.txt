@@ -1,0 +1,64 @@
+//プレイヤーのパラメータ
+[Player]
+//最大HP
+MAX_HP = 10
+//移動速度
+SPEED = 10
+//プレイヤー１のスポーン位置
+SPAWN_POS_1 = 750 750
+//プレイヤー２のスポーン位置
+SPAWN_POS_2 = 1250 750
+//プレイヤーの半径
+RADIUS = 24
+//アイテムの持つ位置（どのくらいずらすか）
+ITEM_OFFSET = 20
+
+
+//敵のパラメータ
+[Enemy]
+//移動速度
+SPEED = 8
+//敵の半径
+RADIUS = 24
+
+
+//ギミックのパラメータ
+[Gimmick]
+//インタラクト可能な範囲（半径）
+INTERACT_LENGHT = 60
+
+
+//武器１（銃）のパラメータ
+[Weapon1]
+//武器の弾数
+BULLET_NUMBER = 20
+//弾の速度
+BULLET_SPEED = 40
+//攻撃の半径
+ATTACK_RADIUS = 5
+
+
+//武器２（爆弾）のパラメータ
+[Weapon2]
+//武器の使用可能回数
+BOMB_NUMBER = 2
+//攻撃の範囲
+ATTACK_RANGE = 600
+//攻撃の半径
+ATTACK_RADIUS = 80
+//落下までの時間
+FALL_TIME = 2
+//エイムの速度
+AIM_SPEED = 10
+
+
+//武器３（剣）のパラメータ
+[Weapon3]
+//武器の使用可能回数
+SWORD_NUMBER = 5
+//攻撃の半径
+ATTACK_RADIUS = 50
+//攻撃時の移動距離
+MOVE_DISTANCE = 200
+//移動にかかる時間
+MOVE_TIME = 0.1

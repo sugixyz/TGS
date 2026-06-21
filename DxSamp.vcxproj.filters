@@ -1,0 +1,274 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Engine">
+      <UniqueIdentifier>{efcbc5cd-dbc5-47dd-a54d-dd013a7b060f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Tool">
+      <UniqueIdentifier>{07cef613-38c0-4e48-b6fe-712de03980de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Object">
+      <UniqueIdentifier>{543918ab-5138-4172-a386-f9ca7cc68983}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Scene">
+      <UniqueIdentifier>{e873ece5-55f1-4fc6-9b68-db049a31138d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Collid">
+      <UniqueIdentifier>{957b21fe-b248-4bf8-9b26-5ad0018f739e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ui">
+      <UniqueIdentifier>{2d10f277-badb-4ffc-a53d-7d96b3be3afd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Player">
+      <UniqueIdentifier>{0d439d13-a99f-4f51-9f1f-48fdb9df62b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AiDirector">
+      <UniqueIdentifier>{27d2045d-0163-4deb-99ea-10f382590e13}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="StageObject">
+      <UniqueIdentifier>{5660c4d8-57d1-4a8f-8f87-6f0e335d255c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Gimmick">
+      <UniqueIdentifier>{3c675bdd-0158-4b4c-90c6-785b764cdee8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Item">
+      <UniqueIdentifier>{cf258fa9-cf11-475e-96dc-62dc641f7b06}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Item\Weapon">
+      <UniqueIdentifier>{7d4bea07-eb41-4043-b703-089ca6c65393}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Attack">
+      <UniqueIdentifier>{e34e77f9-d2de-4341-bb3a-fcd2281f6aea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Enemy">
+      <UniqueIdentifier>{211cb208-96e7-48f1-954a-bace38d7c6a4}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Script\Engine\Tool\CsvReader.cpp">
+      <Filter>Engine\Tool</Filter>
+    </ClCompile>
+    <ClCompile Include="Script\Engine\Tool\DataHolder.cpp">
+      <Filter>Engine\Tool</Filter>
+    </ClCompile>
+    <ClCompile Include="Script\Engine\Tool\Input.cpp">
+      <Filter>Engine\Tool</Filter>
+    </ClCompile>
+    <ClCompile Include="Script\theMain.cpp" />
+    <ClCompile Include="Script\Engine\Scene\BootScene.cpp">
+      <Filter>Engine\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Script\Engine\Scene\ClearScene.cpp">
+      <Filter>Engine\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Script\Engine\Scene\GameOver.cpp">
+      <Filter>Engine\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Script\Engine\Scene\PlayScene.cpp">
+      <Filter>Engine\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Script\Engine\Scene\ResultScene.cpp">
+      <Filter>Engine\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Script\Engine\Scene\SceneFactory.cpp">
+      <Filter>Engine\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Script\Engine\Scene\SceneManager.cpp">
+      <Filter>Engine\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Script\Engine\Scene\TitleScene.cpp">
+      <Filter>Engine\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Script\Engine\Object\ObjectManager.cpp">
+      <Filter>Engine\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Script\Engine\Collid\CollidManager.cpp">
+      <Filter>Engine\Collid</Filter>
+    </ClCompile>
+    <ClCompile Include="Script\SourceCode\Ui.cpp">
+      <Filter>Ui</Filter>
+    </ClCompile>
+    <ClCompile Include="Script\SourceCode\Player.cpp">
+      <Filter>Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Script\SourceCode\AiDirector.cpp">
+      <Filter>AiDirector</Filter>
+    </ClCompile>
+    <ClCompile Include="Script\Engine\Tool\ParamLoader.cpp">
+      <Filter>Engine\Tool</Filter>
+    </ClCompile>
+    <ClCompile Include="Script\SourceCode\Base.cpp">
+      <Filter>StageObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Script\SourceCode\StageObject.cpp">
+      <Filter>StageObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Script\SourceCode\MaterialWarehouse.cpp">
+      <Filter>Gimmick</Filter>
+    </ClCompile>
+    <ClCompile Include="Script\SourceCode\CraftTable.cpp">
+      <Filter>Gimmick</Filter>
+    </ClCompile>
+    <ClCompile Include="Script\SourceCode\Material.cpp">
+      <Filter>Item</Filter>
+    </ClCompile>
+    <ClCompile Include="Script\SourceCode\Table.cpp">
+      <Filter>Gimmick</Filter>
+    </ClCompile>
+    <ClCompile Include="Script\SourceCode\Weapon1.cpp">
+      <Filter>Item\Weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="Script\SourceCode\Bullet.cpp">
+      <Filter>Attack</Filter>
+    </ClCompile>
+    <ClCompile Include="Script\SourceCode\Enemy.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Script\SourceCode\Weapon2.cpp">
+      <Filter>Item\Weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="Script\SourceCode\Bomb.cpp">
+      <Filter>Attack</Filter>
+    </ClCompile>
+    <ClCompile Include="Script\SourceCode\Slash.cpp">
+      <Filter>Attack</Filter>
+    </ClCompile>
+    <ClCompile Include="Script\SourceCode\Weapon3.cpp">
+      <Filter>Item\Weapon</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Script\Engine\Tool\CsvReader.h">
+      <Filter>Engine\Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\Engine\Tool\DataHolder.h">
+      <Filter>Engine\Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\Engine\Tool\Input.h">
+      <Filter>Engine\Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\Engine\Tool\Math2D.h">
+      <Filter>Engine\Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\Engine\globals.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\Engine\Scene\BootScene.h">
+      <Filter>Engine\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\Engine\Scene\ClearScene.h">
+      <Filter>Engine\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\Engine\Scene\GameOver.h">
+      <Filter>Engine\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\Engine\Scene\PlayScene.h">
+      <Filter>Engine\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\Engine\Scene\ResultScene.h">
+      <Filter>Engine\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\Engine\Scene\SceneBase.h">
+      <Filter>Engine\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\Engine\Scene\SceneFactory.h">
+      <Filter>Engine\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\Engine\Scene\SceneManager.h">
+      <Filter>Engine\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\Engine\Scene\TitleScene.h">
+      <Filter>Engine\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\Engine\Object\Character.h">
+      <Filter>Engine\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\Engine\Object\GameObject.h">
+      <Filter>Engine\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\Engine\Object\ObjectManager.h">
+      <Filter>Engine\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\Engine\Tool\Time.h">
+      <Filter>Engine\Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\Engine\Tool\Lerp.h">
+      <Filter>Engine\Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\Engine\Tool\Event.h">
+      <Filter>Engine\Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\Engine\Collid\CollidManager.h">
+      <Filter>Engine\Collid</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\Engine\Collid\Collider.h">
+      <Filter>Engine\Collid</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\SourceCode\Ui.h">
+      <Filter>Ui</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\SourceCode\Player.h">
+      <Filter>Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\Engine\Tool\ParamLoader.h">
+      <Filter>Engine\Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\SourceCode\AiDirector.h">
+      <Filter>AiDirector</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\SourceCode\StageObject.h">
+      <Filter>StageObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\SourceCode\Gimmick.h">
+      <Filter>Gimmick</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\SourceCode\Base.h">
+      <Filter>StageObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\Engine\Tool\Math3D.h">
+      <Filter>Engine\Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\SourceCode\MaterialWarehouse.h">
+      <Filter>Gimmick</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\SourceCode\CraftTable.h">
+      <Filter>Gimmick</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\SourceCode\Table.h">
+      <Filter>Gimmick</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\SourceCode\Item.h">
+      <Filter>Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\SourceCode\Material.h">
+      <Filter>Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\SourceCode\Weapon.h">
+      <Filter>Item\Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\SourceCode\Weapon1.h">
+      <Filter>Item\Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\SourceCode\Attack.h">
+      <Filter>Attack</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\SourceCode\Bullet.h">
+      <Filter>Attack</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\SourceCode\Enemy.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\SourceCode\Weapon2.h">
+      <Filter>Item\Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\SourceCode\Bomb.h">
+      <Filter>Attack</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\SourceCode\Weapon3.h">
+      <Filter>Item\Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\SourceCode\Slash.h">
+      <Filter>Attack</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
