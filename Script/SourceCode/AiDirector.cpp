@@ -14,7 +14,7 @@ AiDirector::AiDirector()
 {
 	new Player(0);
 	new Player(1);
-	new Enemy(Vector2(WIN_WIDTH / 2, WIN_HEIGHT / 4));
+	new Enemy(Vector2(0,-4));
 	CreateStageObject();
 	CreateBase();
 }

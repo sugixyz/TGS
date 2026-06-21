@@ -50,7 +50,7 @@ void Player::Draw()
 
 	//Vector2 dirPos = { x + direction.x * radius,y + direction.y * radius };
 	//DrawLine(x, y, dirPos.x, dirPos.y, COL_RED);
-
+	
 	Convert2Dto3D();
 	DrawModel();
 }
