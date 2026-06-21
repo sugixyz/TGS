@@ -7,6 +7,11 @@ MaterialWarehouse::MaterialWarehouse(Vector2 pos,int id)
 	position = pos;
 	materialId = id;
 
+	char path[50];
+	sprintf_s(path, sizeof(path), "Assets/StageObject/StageObject%02d.mv1", id);
+	hModel = MV1LoadModel(path);
+	assert(hModel > 0);
+
 	uint32_t mask = (uint32_t)Layer::PLAYER;
 	SetCenterCircle(INTERACT_LENGHT, Layer::GIMMICK, mask);
 }
@@ -16,12 +21,15 @@ MaterialWarehouse::~MaterialWarehouse()
 
 void MaterialWarehouse::Draw()
 {
-	unsigned int col = COL_WHITE;
-	if(materialId == 1)col = COL_YELLOW;
-	if(materialId == 2)col = COL_BLUE;
-	float x = position.x - 64 / 2;
-	float y = position.y - 64 / 2;
-	DrawBox(x, y, x + 64, y + 64, col, TRUE);
+	//unsigned int col = COL_WHITE;
+	//if(materialId == 1)col = COL_YELLOW;
+	//if(materialId == 2)col = COL_BLUE;
+	//float x = position.x - 64 / 2;
+	//float y = position.y - 64 / 2;
+	//DrawBox(x, y, x + 64, y + 64, col, TRUE);
+
+	Convert2Dto3D();
+	DrawModel();
 }
 
 Item* MaterialWarehouse::Interact(Item* item)

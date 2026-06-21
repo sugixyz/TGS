@@ -187,7 +187,6 @@
     <ClInclude Include="Script\Engine\Tool\Input.h" />
     <ClInclude Include="Script\Engine\Tool\Lerp.h" />
     <ClInclude Include="Script\Engine\Tool\Math2D.h" />
-    <ClInclude Include="Script\Engine\Tool\Math3D.h" />
     <ClInclude Include="Script\Engine\Tool\ParamLoader.h" />
     <ClInclude Include="Script\Engine\Tool\Time.h" />
     <ClInclude Include="Script\SourceCode\AiDirector.h" />

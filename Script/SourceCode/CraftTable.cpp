@@ -8,6 +8,9 @@ CraftTable::CraftTable(Vector2 pos)
 	:Gimmick(Tag::GIMMICK)
 {
 	position = pos;
+	char path[50] = "Assets/StageObject/CraftTable.mv1";
+	hModel = MV1LoadModel(path);
+	assert(hModel > 0);
 
 	uint32_t mask = (uint32_t)Layer::PLAYER;
 	SetCenterCircle(INTERACT_LENGHT, Layer::GIMMICK, mask);
@@ -18,9 +21,12 @@ CraftTable::~CraftTable()
 
 void CraftTable::Draw()
 {
-	float x = position.x - 64 / 2;
-	float y = position.y - 64 / 2;
-	DrawBox(x, y, x + 64, y + 64, COL_CYAN, TRUE);
+	//float x = position.x - 64 / 2;
+	//float y = position.y - 64 / 2;
+	//DrawBox(x, y, x + 64, y + 64, COL_CYAN, TRUE);
+
+	Convert2Dto3D();
+	DrawModel();
 }
 
 Item* CraftTable::Interact(Item* item)

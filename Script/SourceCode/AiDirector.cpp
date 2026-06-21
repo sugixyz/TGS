@@ -46,18 +46,13 @@ void AiDirector::CreateStageObject()
 		if (ss >> key >> eq)
 		{
 			if (key == "OBJ_NUM") { ss >> objNum; }
-			else if (key == "BASE_BLOCK") { ss >> BASE_BLOCK; }
-			else if (key == "BASE_OFFSET_Y")
-			{
-				ss >> BASE_OFFSET_Y;
-				break;
-			}
+			else if (key == "BASE_BLOCK") { ss >> BASE_BLOCK; break; }
 		}
 	}
 	int id = 0;
-	Vector3 pos;
-	Vector3 rot;
-	Vector3 sca;
+	VECTOR pos;
+	VECTOR rot;
+	VECTOR sca;
 	//オブジェクトの数分ループ
 	for (int i = 0; i < objNum; i++)
 	{

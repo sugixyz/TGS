@@ -4,7 +4,7 @@
 class StageObject : public GameObject
 {
 public:
-	StageObject(Vector3 pos, Vector3 rot, Vector3 sca, int id);
+	StageObject(VECTOR pos, VECTOR rot, VECTOR sca, int id);
 	~StageObject();
 	void Draw() override;
 private:

@@ -70,9 +70,13 @@ void Update()
 
 void Draw()
 {
+	SetCameraPositionAndTarget_UpVecY(VECTOR(0.0f, 100.0f, -0.2f), VECTOR(0.0f, 0.0f, 0.0f));
+	SetCameraNearFar(0.f, 1000.0f);
 	ObjectManager::Draw();
 	CollidManager::Draw();
 	SceneManager::Draw();
+	int model = MV1LoadModel("Assets/StageObject/StageObject01.mv1");
+	MV1DrawModel(model);
 }
 
 void Release()

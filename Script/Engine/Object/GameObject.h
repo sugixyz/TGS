@@ -8,11 +8,11 @@
 #include"../Scene/SceneManager.h"
 #include"../globals.h"
 #include"../Tool/Math2D.h"
-#include"../Tool/Math3D.h"
 #include"../Tool/Input.h"
 #include "DxLib.h"
 #include"../Collid/Collider.h"
 #include<assert.h>
+#include<cstdio>
 
 /// <summary>
 /// これを継承したクラスのインスタンスは、ObjectManagerで管理され、
@@ -42,6 +42,31 @@ public:
 	/// 毎フレームの描画処理のために呼ばれます
 	/// </summary>
 	virtual void Draw() {}
+
+	/// <summary>
+	/// ２Dの座標、方向ベクトルを３D描画用に変換
+	/// </summary>
+	virtual void Convert2Dto3D()
+	{
+		position3 = { position.x,0.0f,position.y };
+		rotation3.y = atan2f(direction.x, direction.y);
+	}
+
+	void DrawModel()
+	{
+		MATRIX mTrans = MGetTranslate(position3);
+		MATRIX mRotX = MGetRotX(rotation3.x);
+		MATRIX mRotY = MGetRotY(rotation3.y);
+		MATRIX mRotZ = MGetRotZ(rotation3.z);
+		MATRIX mScale = MGetScale(scale3);
+		MATRIX mat = mScale;
+		MMult(mat, mRotZ);
+		MMult(mat, mRotX);
+		MMult(mat, mRotY);
+		MMult(mat, mTrans);
+		MV1SetMatrix(hModel, mat);
+		MV1DrawModel(hModel);
+	}
 
 	/// <summary>
 	/// 自分のインスタンスを削除する時に呼び出してください
@@ -187,15 +212,15 @@ private:
 protected:
 	//コライダー
 	Collider myCollider;
-	//画像保存用ハンドル
-	int hImage = -1;
+	//モデル保存用ハンドル
+	int hModel = -1;
 	//位置 コリジョン処理の関係でGameObjectに移動
 	Vector2 position;
 	//方向
 	Vector2 direction;
 
 	//3D描画用の変数
-	Vector3 position3;
-	Vector3 rotation3;
-	Vector3 scale3;
+	VECTOR position3;
+	VECTOR rotation3;
+	VECTOR scale3;
 };
