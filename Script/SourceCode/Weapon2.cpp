@@ -13,6 +13,7 @@ Weapon2::Weapon2()
 {
 	type = ItemType::WEAPON2;
 	life = BOMB_NUMBER;
+	AIM_SPEED *= gDeltaTime;
 }
 
 Weapon2::~Weapon2()

@@ -48,8 +48,8 @@ public:
 	/// </summary>
 	virtual void Convert2Dto3D()
 	{
-		position3 = { position.x,0.0f,position.y };
-		rotation3.y = atan2f(direction.x, direction.y);
+		position3 = { position.x,0.0f,-position.y };
+		rotation3.y = atan2f(direction.x, -direction.y);
 	}
 
 	void DrawModel()
@@ -60,10 +60,10 @@ public:
 		MATRIX mRotZ = MGetRotZ(rotation3.z);
 		MATRIX mScale = MGetScale(scale3);
 		MATRIX mat = mScale;
-		MMult(mat, mRotZ);
-		MMult(mat, mRotX);
-		MMult(mat, mRotY);
-		MMult(mat, mTrans);
+		mat = MMult(mat, mRotZ);
+		mat = MMult(mat, mRotX);
+		mat = MMult(mat, mRotY);
+		mat = MMult(mat, mTrans);
 		MV1SetMatrix(hModel, mat);
 		MV1DrawModel(hModel);
 	}
@@ -220,7 +220,7 @@ protected:
 	Vector2 direction;
 
 	//3D描画用の変数
-	VECTOR position3;
-	VECTOR rotation3;
-	VECTOR scale3;
+	VECTOR position3 = { 0,0,0 };
+	VECTOR rotation3 = { 0,0,0 };
+	VECTOR scale3 = { 1,1,1 };
 };
