@@ -59,7 +59,9 @@ void Initialize()
 {
 	ObjectManager::Initialize();
 	SceneManager::Initialize();
-	SetUseLighting(false);
+	//SetUseLighting(false);
+	SetLightAmbColor(GetColorF(1.0f, 1.0f, 1.0f, 1.0f));
+	SetLightDirection(VGet(0.0f, -10.0f, -0.001f));
 }
 
 void Update()
@@ -74,7 +76,7 @@ void Update()
 void Draw()
 {
 	SetCameraPositionAndTarget_UpVecY(VECTOR(0.0f, 10.0f, -0.001f), VECTOR(0.0f, 0.0f, 0.0f));
-	SetCameraNearFar(0.0f, 1000.0f);
+	SetCameraNearFar(0.1f, 1000.0f);
 	ObjectManager::Draw();
 	CollidManager::Draw();
 	SceneManager::Draw();

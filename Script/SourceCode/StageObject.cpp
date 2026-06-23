@@ -32,5 +32,5 @@ void StageObject::Draw()
 	//	DrawBox(x, y, x + WIN_WIDTH, y + WIN_HEIGHT / 2 +36, COL_GRAY, TRUE);
 	//}
 
-	//DrawModel();
+	DrawModel();
 }

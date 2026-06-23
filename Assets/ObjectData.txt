@@ -8,15 +8,15 @@ BASE_OFFSET_Y = 504;
 //ID 1：地面　2：ベース（拠点）
 //地面のパラメータ
 ID = 1
-POS = 0 0 0
+POS = -12 0 10
 ROT = 0 0 0
 SCA = 1 1 1
 
 //拠点のパラメータ
 ID = 2
-POS = 0 504 0
+POS = -11 0 1
 ROT = 0 0 0
-SCA = 1 1 1
+SCA = 1.4 1 1
 
 //CSVの横
 X_SIZE = 30
