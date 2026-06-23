@@ -34,6 +34,8 @@ void DxInit()
 	SetGraphMode(SCREEN_WIDHT, SCREEN_HEIGHT, 32);
 	SetWindowSizeExtendRate(1.0);
 	SetBackgroundColor(BGCOLOR[0],BGCOLOR[1],BGCOLOR[2]);
+	SetUseZBuffer3D(TRUE);
+	SetWriteZBuffer3D(TRUE);
 
 	// ＤＸライブラリ初期化処理
 	if (DxLib_Init() == -1)
@@ -57,6 +59,7 @@ void Initialize()
 {
 	ObjectManager::Initialize();
 	SceneManager::Initialize();
+	SetUseLighting(false);
 }
 
 void Update()
@@ -70,7 +73,7 @@ void Update()
 
 void Draw()
 {
-	SetCameraPositionAndTarget_UpVecY(VECTOR(0.0f, 10.0f, -8.0f), VECTOR(0.0f, 0.0f, 0.0f));
+	SetCameraPositionAndTarget_UpVecY(VECTOR(0.0f, 10.0f, -5.0f), VECTOR(0.0f, 0.0f, 0.0f));
 	SetCameraNearFar(0.f, 1000.0f);
 	ObjectManager::Draw();
 	CollidManager::Draw();

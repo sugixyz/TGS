@@ -11,6 +11,7 @@ Weapon1::Weapon1()
 {
 	type = ItemType::WEAPON1;
 	life = BULLET_NUMBER;
+	BULLET_SPEED *= gDeltaTime;
 }
 
 Weapon1::~Weapon1()
