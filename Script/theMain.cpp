@@ -73,8 +73,8 @@ void Update()
 
 void Draw()
 {
-	SetCameraPositionAndTarget_UpVecY(VECTOR(0.0f, 10.0f, -5.0f), VECTOR(0.0f, 0.0f, 0.0f));
-	SetCameraNearFar(0.f, 1000.0f);
+	SetCameraPositionAndTarget_UpVecY(VECTOR(0.0f, 10.0f, -0.001f), VECTOR(0.0f, 0.0f, 0.0f));
+	SetCameraNearFar(0.0f, 1000.0f);
 	ObjectManager::Draw();
 	CollidManager::Draw();
 	SceneManager::Draw();

@@ -21,9 +21,9 @@ CraftTable::~CraftTable()
 
 void CraftTable::Draw()
 {
-	//float x = position.x - 64 / 2;
-	//float y = position.y - 64 / 2;
-	//DrawBox(x, y, x + 64, y + 64, COL_CYAN, TRUE);
+	float x = position.x - 64 / 2;
+	float y = position.y - 64 / 2;
+	DrawBox(x, y, x + 64, y + 64, COL_CYAN, TRUE);
 
 	Convert2Dto3D();
 	DrawModel();

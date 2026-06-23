@@ -48,7 +48,9 @@ public:
 	/// </summary>
 	virtual void Convert2Dto3D()
 	{
-		position3 = { position.x,0.0f,-position.y };
+		position3.x = (position.x - WIN_WIDTH / 2) / 100.0f;
+		position3.y = 0;
+		position3.z = -(position.y - WIN_HEIGHT / 2) / 100.0f;
 		rotation3.y = atan2f(direction.x, -direction.y);
 	}
 

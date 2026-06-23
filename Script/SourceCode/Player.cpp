@@ -17,7 +17,7 @@ Player::Player(int index)
 	hp = MAX_HP;
 	radius = RADIUS;
 	direction = Math2D::UP;
-	SPEED *= gDeltaTime;
+
 	char path[50];
 	sprintf_s(path, sizeof(path), "Assets/Player/Player%02d.mv1", id + 1);
 	hModel = MV1LoadModel(path);
@@ -44,16 +44,13 @@ void Player::Update()
 
 void Player::Draw()
 {
-	Convert2Dto3D();
-	DrawModel();
+	int x = (int)position.x;
+	int y = (int)position.y;
 
-	//int x = (int)position.x * 100;
-	//int y = (int)position.y * 100;
+	DrawCircle(x, y, radius, COL_WHITE, TRUE);
 
-	//DrawCircle(x, y, 100, COL_WHITE, TRUE);
-
-	//Vector2 dirPos = { x + direction.x * 100,y + direction.y * 100};
-	//DrawLine(x, y, dirPos.x, dirPos.y, COL_RED);
+	Vector2 dirPos = { x + direction.x * radius,y + direction.y * radius };
+	DrawLine(x, y, dirPos.x, dirPos.y, COL_RED);
 	
 	Convert2Dto3D();
 	DrawModel();
@@ -69,7 +66,7 @@ void Player::Move()
 		direction = Math2D::Normalize(stick);
 		if (Math2D::Length(stick) >= 0.5f)
 		{
-			velocity = direction * SPEED;
+			velocity = direction * SPEED * gDeltaTime;
 		}
 	}
 	else

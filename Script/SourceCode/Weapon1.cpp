@@ -11,7 +11,6 @@ Weapon1::Weapon1()
 {
 	type = ItemType::WEAPON1;
 	life = BULLET_NUMBER;
-	BULLET_SPEED *= gDeltaTime;
 }
 
 Weapon1::~Weapon1()
@@ -48,7 +47,7 @@ void Weapon1::Attack(Player* owner)
 	if (Input::IsPadDown(Pad::A, owner->GetId()))
 	{
 		//弾を生成
-		new Bullet(position, direction * BULLET_SPEED, ATTACK_RADIUS);
+		new Bullet(position, direction * BULLET_SPEED * gDeltaTime, ATTACK_RADIUS);
 		life--;
 		if (life <= 0)
 		{

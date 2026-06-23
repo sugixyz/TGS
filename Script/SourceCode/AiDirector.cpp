@@ -14,7 +14,7 @@ AiDirector::AiDirector()
 {
 	new Player(0);
 	new Player(1);
-	new Enemy(Vector2(0,-4));
+	new Enemy(Vector2(WIN_WIDTH / 2, WIN_HEIGHT / 4));
 	CreateStageObject();
 	CreateBase();
 }
@@ -46,7 +46,12 @@ void AiDirector::CreateStageObject()
 		if (ss >> key >> eq)
 		{
 			if (key == "OBJ_NUM") { ss >> objNum; }
-			else if (key == "BASE_BLOCK") { ss >> BASE_BLOCK; break; }
+			else if (key == "BASE_BLOCK") { ss >> BASE_BLOCK; }
+			else if(key == "BASE_OFFSET_Y")
+			{
+				ss >> BASE_OFFSET_Y;
+				break;
+			}
 		}
 	}
 	int id = 0;

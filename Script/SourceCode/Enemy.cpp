@@ -27,9 +27,9 @@ void Enemy::Update()
 
 void Enemy::Draw()
 {
-	//float x = position.x;
-	//float y = position.y;
-	//DrawCircle(x, y, radius, COL_MAGENTA, TRUE);
+	float x = position.x;
+	float y = position.y;
+	DrawCircle(x, y, radius, COL_MAGENTA, TRUE);
 
 	Convert2Dto3D();
 	DrawModel();

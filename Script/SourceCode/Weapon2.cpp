@@ -13,7 +13,6 @@ Weapon2::Weapon2()
 {
 	type = ItemType::WEAPON2;
 	life = BOMB_NUMBER;
-	AIM_SPEED *= gDeltaTime;
 }
 
 Weapon2::~Weapon2()
@@ -48,8 +47,8 @@ void Weapon2::Attack(Player * owner)
 	if (stick != Vector2(0, 0))
 	{
 		//スティックの方向に攻撃位置を変化させる
-		attackPos += Math2D::Normalize(stick) * AIM_SPEED;
-			range = Math2D::Length(attackPos - position);
+		attackPos += Math2D::Normalize(stick) * AIM_SPEED * gDeltaTime;
+		range = Math2D::Length(attackPos - position);
 		Vector2 dir = Math2D::Normalize(attackPos - position);
 		if (range > ATTACK_RANGE)
 		{
