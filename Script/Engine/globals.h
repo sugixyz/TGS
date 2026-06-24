@@ -27,3 +27,12 @@ const int COL_CYAN = GetColor(0, 255, 255);
 const int COL_MAGENTA = GetColor(255, 0, 255);
 //黄色
 const int COL_YELLOW = GetColor(255, 255, 0);
+
+
+enum Mode
+{
+	DEBUG,
+	NORMAL,
+	DOUBLE_MODE
+};
+extern Mode mode;

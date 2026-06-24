@@ -28,7 +28,14 @@ void Slash::Update()
 
 void Slash::Draw()
 {
-	DrawCircle(position.x, position.y, radius, COL_BLACK, TRUE);
+	if (mode == DEBUG || mode == DOUBLE_MODE)
+	{
+		DrawCircle(position.x, position.y, radius, COL_BLACK, TRUE);
+	}
+	if (mode == NORMAL || mode == DOUBLE_MODE)
+	{
+
+	}
 }
 
 void Slash::Move()

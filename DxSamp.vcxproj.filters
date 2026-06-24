@@ -19,9 +19,6 @@
     <Filter Include="Ui">
       <UniqueIdentifier>{2d10f277-badb-4ffc-a53d-7d96b3be3afd}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Player">
-      <UniqueIdentifier>{0d439d13-a99f-4f51-9f1f-48fdb9df62b4}</UniqueIdentifier>
-    </Filter>
     <Filter Include="AiDirector">
       <UniqueIdentifier>{27d2045d-0163-4deb-99ea-10f382590e13}</UniqueIdentifier>
     </Filter>
@@ -45,6 +42,9 @@
     </Filter>
     <Filter Include="Camera">
       <UniqueIdentifier>{cc214b14-7db4-4be7-b724-1efa8b9ca0a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Player">
+      <UniqueIdentifier>{0d439d13-a99f-4f51-9f1f-48fdb9df62b4}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

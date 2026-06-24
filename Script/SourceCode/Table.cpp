@@ -18,12 +18,18 @@ Table::~Table()
 
 void Table::Draw()
 {
-	float x = position.x - 64 / 2;
-	float y = position.y - 64 / 2;
-	DrawBox(x, y, x + 64, y + 64, COL_MAGENTA, TRUE);
+	if (mode == DEBUG || mode == DOUBLE_MODE)
+	{
+		float x = position.x - 64 / 2;
+		float y = position.y - 64 / 2;
+		DrawBox(x, y, x + 64, y + 64, COL_MAGENTA, TRUE);
+	}
 
-	Convert2Dto3D();
-	DrawModel();
+	if (mode == NORMAL || mode == DOUBLE_MODE)
+	{
+		Convert2Dto3D();
+		DrawModel();
+	}
 }
 
 Item* Table::Interact(Item* item)

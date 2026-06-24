@@ -24,6 +24,7 @@ namespace
 
 float gDeltaTime = 0.0f; // フレーム間の時間差
 Timer gGameTimer;
+Mode mode = Mode::DEBUG;
 
 void DxInit()
 {
@@ -71,6 +72,7 @@ void Update()
 		ObjectManager::Update();
 		CollidManager::Update();
 	}
+	if (Input::IsKeyDown(KEY_INPUT_F1))ChangeMode();
 }
 
 void Draw()
@@ -85,6 +87,13 @@ void Draw()
 void Release()
 {
 
+}
+
+void ChangeMode()
+{
+	if (mode == DEBUG)mode = NORMAL;
+	else if (mode == NORMAL)mode = DOUBLE_MODE;
+	else if (mode == DOUBLE_MODE)mode = DEBUG;
 }
 
 int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _In_ LPSTR lpCmdLine, _In_ int nCmdShow)

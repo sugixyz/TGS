@@ -19,9 +19,16 @@ void Bomb::Update()
 
 void Bomb::Draw()
 {
-	float x = position.x;
-	float y = position.y;
-	DrawCircle(x, y, 15, COL_BLACK, TRUE);
+	if (mode == DEBUG || mode == DOUBLE_MODE)
+	{
+		float x = position.x;
+		float y = position.y;
+		DrawCircle(x, y, 15, COL_BLACK, TRUE);
+	}
+	if (mode == NORMAL || mode == DOUBLE_MODE)
+	{
+
+	}
 }
 
 void Bomb::Move()

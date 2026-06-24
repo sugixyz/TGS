@@ -13,12 +13,19 @@ Material::~Material()
 
 void Material::Draw()
 {
-	float x = position.x;
-	float y = position.y;
+	if (mode == DEBUG || mode == DOUBLE_MODE)
+	{
+		float x = position.x;
+		float y = position.y;
 
-	unsigned int col = COL_WHITE;
-	if (type & ItemType::MATERIAL1)col = COL_BLACK;
-	else if (type & ItemType::MATERIAL2)col = COL_RED;
+		unsigned int col = COL_WHITE;
+		if (type & ItemType::MATERIAL1)col = COL_BLACK;
+		else if (type & ItemType::MATERIAL2)col = COL_RED;
 
-	DrawCircle(x, y, 10, col, TRUE);
+		DrawCircle(x, y, 10, col, TRUE);
+	}
+	if (mode == NORMAL || mode == DOUBLE_MODE)
+	{
+
+	}
 }

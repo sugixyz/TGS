@@ -19,18 +19,24 @@ StageObject::~StageObject()
 
 void StageObject::Draw()
 {
-	//if (objId == 1)
-	//{
-	//	float x = position3.x;
-	//	float y = position3.y;
-	//	DrawBox(x, y, x + WIN_WIDTH, y + WIN_HEIGHT / 2,GetColor(0,100,0), TRUE);
-	//}
-	//else if (objId == 2)
-	//{
-	//	float x = position3.x;
-	//	float y = position3.y;
-	//	DrawBox(x, y, x + WIN_WIDTH, y + WIN_HEIGHT / 2 +36, COL_GRAY, TRUE);
-	//}
+	if (mode == DEBUG || mode == DOUBLE_MODE)
+	{
+		if (objId == 1)
+		{
+			float x = position3.x;
+			float y = position3.y;
+			DrawBox(x, y, x + WIN_WIDTH, y + WIN_HEIGHT / 2,GetColor(0,100,0), TRUE);
+		}
+		else if (objId == 2)
+		{
+			float x = position3.x;
+			float y = position3.y;
+			DrawBox(x, y, x + WIN_WIDTH, y + WIN_HEIGHT / 2 +36, COL_GRAY, TRUE);
+		}
+	}
 
-	DrawModel();
+	if (mode == NORMAL || mode == DOUBLE_MODE)
+	{
+		DrawModel();
+	}
 }

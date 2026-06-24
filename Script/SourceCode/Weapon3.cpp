@@ -19,24 +19,32 @@ Weapon3::~Weapon3()
 
 void Weapon3::Draw()
 {
-	float sizeHalf = 10;
-	Vector2 p1 = Vector2(position.x - sizeHalf, position.y - sizeHalf);
-	Vector2 p2 = Vector2(position.x + sizeHalf, position.y + sizeHalf);
-
-	DrawBox(p1.x, p1.y, p2.x, p2.y, COL_BLUE, TRUE);
-
-	if (isAttack)
+	if (mode == DEBUG || mode == DOUBLE_MODE)
 	{
-		float x = position.x;
-		float y = position.y;
-		DrawCircle(x, y, ATTACK_RADIUS, COL_RED, TRUE);
-		Vector2 move = position + direction * MOVE_DISTANCE;
-		x = move.x;
-		y = move.y;
-		DrawCircle(x, y, ATTACK_RADIUS, COL_RED, TRUE);
-		Vector2 p1 = position;
-		Vector2 p2 = move;
-		DrawLine(p1.x, p1.y, p2.x, p2.y, COL_RED, ATTACK_RADIUS * 2);
+		float sizeHalf = 10;
+		Vector2 p1 = Vector2(position.x - sizeHalf, position.y - sizeHalf);
+		Vector2 p2 = Vector2(position.x + sizeHalf, position.y + sizeHalf);
+
+		DrawBox(p1.x, p1.y, p2.x, p2.y, COL_BLUE, TRUE);
+
+		if (isAttack)
+		{
+			float x = position.x;
+			float y = position.y;
+			DrawCircle(x, y, ATTACK_RADIUS, COL_RED, TRUE);
+			Vector2 move = position + direction * MOVE_DISTANCE;
+			x = move.x;
+			y = move.y;
+			DrawCircle(x, y, ATTACK_RADIUS, COL_RED, TRUE);
+			Vector2 p1 = position;
+			Vector2 p2 = move;
+			DrawLine(p1.x, p1.y, p2.x, p2.y, COL_RED, ATTACK_RADIUS * 2);
+		}
+	}
+
+	if (mode == NORMAL || mode == DOUBLE_MODE)
+	{
+
 	}
 }
 

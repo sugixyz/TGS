@@ -44,16 +44,21 @@ void Player::Update()
 
 void Player::Draw()
 {
-	int x = (int)position.x;
-	int y = (int)position.y;
+	if (mode == DEBUG || mode == DOUBLE_MODE)
+	{
+		int x = (int)position.x;
+		int y = (int)position.y;
 
-	DrawCircle(x, y, radius, COL_WHITE, TRUE);
+		DrawCircle(x, y, radius, COL_WHITE, TRUE);
 
-	Vector2 dirPos = { x + direction.x * radius,y + direction.y * radius };
-	DrawLine(x, y, dirPos.x, dirPos.y, COL_RED);
-	
-	Convert2Dto3D();
-	DrawModel();
+		Vector2 dirPos = { x + direction.x * radius,y + direction.y * radius };
+		DrawLine(x, y, dirPos.x, dirPos.y, COL_RED);
+	}
+	if (mode == NORMAL || mode == DOUBLE_MODE)
+	{
+		Convert2Dto3D();
+		DrawModel();
+	}
 }
 
 void Player::Move()

@@ -20,17 +20,25 @@ Weapon2::~Weapon2()
 
 void Weapon2::Draw()
 {
-	float sizeHalf = 10;
-	Vector2 p1 = Vector2(position.x - sizeHalf, position.y - sizeHalf);
-	Vector2 p2 = Vector2(position.x + sizeHalf, position.y + sizeHalf);
-
-	DrawBox(p1.x, p1.y, p2.x, p2.y, COL_GREEN, TRUE);
-
-	if (isAttack)
+	if (mode == DEBUG || mode == DOUBLE_MODE)
 	{
-		float x = attackPos.x;
-		float y = attackPos.y;
-		DrawCircle(x, y, ATTACK_RADIUS, COL_RED, TRUE);
+		float sizeHalf = 10;
+		Vector2 p1 = Vector2(position.x - sizeHalf, position.y - sizeHalf);
+		Vector2 p2 = Vector2(position.x + sizeHalf, position.y + sizeHalf);
+
+		DrawBox(p1.x, p1.y, p2.x, p2.y, COL_GREEN, TRUE);
+
+		if (isAttack)
+		{
+			float x = attackPos.x;
+			float y = attackPos.y;
+			DrawCircle(x, y, ATTACK_RADIUS, COL_RED, TRUE);
+		}
+	}
+
+	if (mode == NORMAL || mode == DOUBLE_MODE)
+	{
+
 	}
 }
 
