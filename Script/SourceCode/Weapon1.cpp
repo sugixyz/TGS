@@ -24,13 +24,13 @@ void Weapon1::Draw()
 		Vector2 p1 = Vector2(position.x - sizeHalf, position.y - sizeHalf);
 		Vector2 p2 = Vector2(position.x + sizeHalf, position.y + sizeHalf);
 
-		DrawBox(p1.x, p1.y, p2.x, p2.y, COL_RED, TRUE);
+		DrawBoxAA(p1.x, p1.y, p2.x, p2.y, COL_RED, TRUE);
 
 		if (isAttack)
 		{
 			Vector2 start = position;
 			Vector2 end = start + direction * Math2D::Length(Vector2(WIN_WIDTH, WIN_HEIGHT));
-			DrawLine(start.x, start.y, end.x, end.y, COL_RED, ATTACK_RADIUS);
+			DrawLineAA(start.x, start.y, end.x, end.y, COL_RED, ATTACK_RADIUS);
 		}
 	}
 	if (mode == NORMAL || mode == DOUBLE_MODE)

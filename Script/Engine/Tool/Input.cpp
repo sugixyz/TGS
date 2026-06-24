@@ -112,7 +112,7 @@ int Input::IsKeepPadDown(int padCode, int padId)
 
 Vector2 Input::GetStick(int padId)
 {
-	return CangeNumberToRate(Vector2(stickX[padId], stickY[padId]));
+	return CangeNumberToRate(Vector2((float)stickX[padId], (float)stickY[padId]));
 }
 
 void Input::AssociateKey(int id,int& bit)

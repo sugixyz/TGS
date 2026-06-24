@@ -28,7 +28,7 @@ void MaterialWarehouse::Draw()
 		if (materialId == 2)col = COL_BLUE;
 		float x = position.x - 64 / 2;
 		float y = position.y - 64 / 2;
-		DrawBox(x, y, x + 64, y + 64, col, TRUE);
+		DrawBoxAA(x, y, x + 64, y + 64, col, TRUE);
 	}
 
 	if (mode == NORMAL || mode == DOUBLE_MODE)

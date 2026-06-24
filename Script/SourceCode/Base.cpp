@@ -7,7 +7,7 @@ Base::Base(Vector2 pos, int blockSize)
 	position = pos;
 
 	uint32_t mask = (uint32_t)Layer::PLAYER | (uint32_t)Layer::PLAYER_ATTACK | (uint32_t)Layer::ENEMY_ATTACK;
-	SetCenterBox(blockSize / 2, Layer::STAGE, mask);
+	SetCenterBox(blockSize / 2.0f, Layer::STAGE, mask);
 }
 
 Base::~Base()

@@ -99,7 +99,7 @@ struct Timer
 	/// <returns>フレーム時間を超えた瞬間にtrue</returns>
 	bool isExpired(int frame)
 	{
-		float prevCount = counter - 1;
+		int prevCount = counter - 1;
 
 		//前回の時間と今回の時間でtimeを跨いでいるか
 		return (prevCount < frame) && (frame <= counter);

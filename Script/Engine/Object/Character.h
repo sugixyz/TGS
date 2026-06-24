@@ -49,5 +49,5 @@ protected:
 	//速度
 	Vector2 velocity;
 	//半径
-	int radius;
+	float radius;
 };

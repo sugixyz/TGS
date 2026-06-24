@@ -25,13 +25,13 @@ void StageObject::Draw()
 		{
 			float x = position3.x;
 			float y = position3.y;
-			DrawBox(x, y, x + WIN_WIDTH, y + WIN_HEIGHT / 2,GetColor(0,100,0), TRUE);
+			DrawBoxAA(x, y, x + WIN_WIDTH, y + WIN_HEIGHT / 2,GetColor(0,100,0), TRUE);
 		}
 		else if (objId == 2)
 		{
 			float x = position3.x;
 			float y = position3.y;
-			DrawBox(x, y, x + WIN_WIDTH, y + WIN_HEIGHT / 2 +36, COL_GRAY, TRUE);
+			DrawBoxAA(x, y, x + WIN_WIDTH, y + WIN_HEIGHT / 2 +36, COL_GRAY, TRUE);
 		}
 	}
 

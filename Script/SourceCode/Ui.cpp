@@ -58,14 +58,14 @@ void Ui::Draw()
 	float y = DRAW_POS.y + (fontSize + OFFSET_Y) * id;
 	if (intVal != nullptr)
 	{
-		DrawFormatString(x, y, color, "%s %d", title.c_str(), *intVal);
+		DrawFormatString((int)x, (int)y, color, "%s %d", title.c_str(), *intVal);
 	}
 	else if (floatVal != nullptr)
 	{
-		DrawFormatString(x, y, color, "%s %f", title.c_str(), *floatVal);
+		DrawFormatString((int)x, (int)y, color, "%s %f", title.c_str(), *floatVal);
 	}
 	else
 	{
-		DrawFormatString(x, y, color, "%s", title.c_str());
+		DrawFormatString((int)x, (int)y, color, "%s", title.c_str());
 	}
 }

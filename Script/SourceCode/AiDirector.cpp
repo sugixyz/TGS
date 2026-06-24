@@ -104,8 +104,8 @@ void AiDirector::CreateBase()
 
 	for (int y = 0; y < map.size(); y++) {
 		for (int x = 0; x < map[y].size(); x++) {
-			Vector2 pos = Vector2(x, y) * BASE_BLOCK;
-			pos += Vector2(BASE_BLOCK / 2, BASE_BLOCK / 2);
+			Vector2 pos = Vector2((float)x, (float)y) * (float)BASE_BLOCK;
+			pos += Vector2(BASE_BLOCK / 2.0f, BASE_BLOCK / 2.0f);
 			pos.y += BASE_OFFSET_Y;
 			if (map[y][x] != -1)new Base(pos, BASE_BLOCK);
 			if (map[y][x] == 1 || map[y][x] == 2)

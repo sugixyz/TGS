@@ -30,7 +30,7 @@ void Slash::Draw()
 {
 	if (mode == DEBUG || mode == DOUBLE_MODE)
 	{
-		DrawCircle(position.x, position.y, radius, COL_BLACK, TRUE);
+		DrawCircleAA(position.x, position.y, radius, COL_BLACK, TRUE);
 	}
 	if (mode == NORMAL || mode == DOUBLE_MODE)
 	{

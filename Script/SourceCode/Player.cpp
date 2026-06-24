@@ -46,13 +46,13 @@ void Player::Draw()
 {
 	if (mode == DEBUG || mode == DOUBLE_MODE)
 	{
-		int x = (int)position.x;
-		int y = (int)position.y;
+		float x = position.x;
+		float y = position.y;
 
-		DrawCircle(x, y, radius, COL_WHITE, TRUE);
+		DrawCircleAA(x, y, radius, COL_WHITE, TRUE);
 
 		Vector2 dirPos = { x + direction.x * radius,y + direction.y * radius };
-		DrawLine(x, y, dirPos.x, dirPos.y, COL_RED);
+		DrawLineAA(x, y, dirPos.x, dirPos.y, COL_RED);
 	}
 	if (mode == NORMAL || mode == DOUBLE_MODE)
 	{

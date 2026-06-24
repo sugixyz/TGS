@@ -31,7 +31,7 @@ void Enemy::Draw()
 	{
 		float x = position.x;
 		float y = position.y;
-		DrawCircle(x, y, radius, COL_MAGENTA, TRUE);
+		DrawCircleAA(x, y, radius, COL_MAGENTA, TRUE);
 	}
 
 	if (mode == NORMAL || mode == DOUBLE_MODE)
