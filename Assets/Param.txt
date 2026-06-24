@@ -9,7 +9,7 @@ SPAWN_POS_1 = 750 750
 //プレイヤー２のスポーン位置
 SPAWN_POS_2 = 1250 750
 //プレイヤーの半径
-RADIUS = 24
+RADIUS = 25
 //アイテムの持つ位置（どのくらいずらすか）
 ITEM_OFFSET = 20
 
@@ -19,7 +19,7 @@ ITEM_OFFSET = 20
 //移動速度
 SPEED = 400
 //敵の半径
-RADIUS = 24
+RADIUS = 25
 
 
 //ギミックのパラメータ

@@ -35,18 +35,21 @@ void CollidManager::Update()
 
 void CollidManager::Draw()
 {
-	//当たり判定を実行したいオブジェクト毎のリスト
-	auto players = FindTagObjects(Tag::PLAYER);
-	auto stages = FindTagObjects(Tag::STAGE);
-	auto gimmicks = FindTagObjects(Tag::GIMMICK);
-	auto attacks = FindTagObjects(Tag::ATTACK);
-	auto enemys = FindTagObjects(Tag::ENEMY);
+	if (mode == DEBUG || mode == DOUBLE_MODE)
+	{
+		//当たり判定を実行したいオブジェクト毎のリスト
+		auto players = FindTagObjects(Tag::PLAYER);
+		auto stages = FindTagObjects(Tag::STAGE);
+		auto gimmicks = FindTagObjects(Tag::GIMMICK);
+		auto attacks = FindTagObjects(Tag::ATTACK);
+		auto enemys = FindTagObjects(Tag::ENEMY);
 
-	for (auto p : players)DrawCollider(p);
-	for (auto s : stages)DrawCollider(s);
-	for (auto g : gimmicks)DrawCollider(g);
-	for (auto a : attacks)DrawCollider(a);
-	for (auto e : enemys)DrawCollider(e);
+		for (auto p : players)DrawCollider(p);
+		for (auto s : stages)DrawCollider(s);
+		for (auto g : gimmicks)DrawCollider(g);
+		for (auto a : attacks)DrawCollider(a);
+		for (auto e : enemys)DrawCollider(e);
+	}
 }
 
 void CollidManager::Collision(const std::vector<GameObject*> listA, const std::vector<GameObject*> listB)

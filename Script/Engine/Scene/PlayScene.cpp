@@ -28,6 +28,11 @@ void PlayScene::Update()
 	{
 		gGameTimer.Switch();
 	}
+
+	if (Input::IsKeyDown(KEY_INPUT_F1))
+	{
+		ChangeMode();
+	}
 }
 
 void PlayScene::Draw()
@@ -36,3 +41,9 @@ void PlayScene::Draw()
 	DrawString(100, 20, "Push [N]Key To Title", 0xffffff);
 }
 
+void PlayScene::ChangeMode()
+{
+	if (mode == DEBUG)mode = NORMAL;
+	else if (mode == NORMAL)mode = DOUBLE_MODE;
+	else if (mode == DOUBLE_MODE)mode = DEBUG;
+}

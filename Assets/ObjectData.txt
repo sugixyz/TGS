@@ -1,7 +1,7 @@
 //ステージオブジェクトの数
 OBJ_NUM = 3
 //拠点のCSV毎のサイズ
-BASE_BLOCK = 64
+BASE_BLOCK = 100
 //拠点のY位置のずれ
 BASE_OFFSET_Y = 504;
 
@@ -14,12 +14,12 @@ SCA = 1 1 1
 
 //拠点のパラメータ
 ID = 2
-POS = -11 0 1
+POS = -9.5 0 1
 ROT = 0 0 0
-SCA = 1.4 1 1
+SCA = 1 1 1
 
 //CSVの横
-X_SIZE = 30
+X_SIZE = 16
 //CSVの縦
 Y_SIZE = 9
 
