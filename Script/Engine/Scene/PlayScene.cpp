@@ -1,6 +1,7 @@
 ﻿#include "PlayScene.h"
 #include"../../SourceCode/Ui.h"
 #include"../../SourceCode/AiDirector.h"
+#include"../../SourceCode/Camera.h"
 /// <summary>
 /// プレイ中の画面の遷移をする
 /// </summary>
@@ -11,6 +12,7 @@ PlayScene::PlayScene()
 
 	new Ui("タイマー", &gGameTimer.timer);
 	new AiDirector();
+	new Camera();
 }
 
 PlayScene::~PlayScene()

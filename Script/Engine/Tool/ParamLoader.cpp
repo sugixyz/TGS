@@ -5,6 +5,7 @@
 #include"../../SourceCode/Weapon1.h"
 #include"../../SourceCode/Weapon2.h"
 #include"../../SourceCode/Weapon3.h"
+#include"../../SourceCode/Camera.h"
 
 void Loader::AllClassParamLoad()
 {
@@ -72,6 +73,11 @@ void Loader::AllClassParamLoad()
 				else if (key == "ATTACK_RADIUS")	{ ss >> Weapon3::ATTACK_RADIUS; }
 				else if (key == "MOVE_DISTANCE")	{ ss >> Weapon3::MOVE_DISTANCE; }
 				else if (key == "MOVE_TIME")		{ ss >> Weapon3::MOVE_TIME; }
+			}
+			else if (currentSection == "Camera")
+			{
+				if (key == "CAM_POS") { ss >> Camera::CAM_POS.x >> Camera::CAM_POS.y >> Camera::CAM_POS.z; }
+				else if (key == "CAM_TARGET") { ss >> Camera::CAM_TARGET.x >> Camera::CAM_TARGET.y >> Camera::CAM_TARGET.z; }
 			}
 		}
 	}

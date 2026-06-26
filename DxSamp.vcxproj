@@ -151,6 +151,7 @@
     <ClCompile Include="Script\SourceCode\Base.cpp" />
     <ClCompile Include="Script\SourceCode\Bomb.cpp" />
     <ClCompile Include="Script\SourceCode\Bullet.cpp" />
+    <ClCompile Include="Script\SourceCode\Camera.cpp" />
     <ClCompile Include="Script\SourceCode\CraftTable.cpp" />
     <ClCompile Include="Script\SourceCode\Enemy.cpp" />
     <ClCompile Include="Script\SourceCode\Material.cpp" />
@@ -194,6 +195,7 @@
     <ClInclude Include="Script\SourceCode\Base.h" />
     <ClInclude Include="Script\SourceCode\Bomb.h" />
     <ClInclude Include="Script\SourceCode\Bullet.h" />
+    <ClInclude Include="Script\SourceCode\Camera.h" />
     <ClInclude Include="Script\SourceCode\CraftTable.h" />
     <ClInclude Include="Script\SourceCode\Enemy.h" />
     <ClInclude Include="Script\SourceCode\Gimmick.h" />

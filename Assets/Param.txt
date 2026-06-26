@@ -62,3 +62,11 @@ ATTACK_RADIUS = 50
 MOVE_DISTANCE = 200
 //移動にかかる時間
 MOVE_TIME = 0.1
+
+
+//カメラのパラメータ
+[Camera]
+//カメラの位置
+CAM_POS = 0 10 -5
+//カメラのターゲット
+CAM_TARGET = 0 0 0
