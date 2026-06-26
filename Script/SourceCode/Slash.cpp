@@ -1,4 +1,4 @@
-#include "Slash.h"
+﻿#include "Slash.h"
 
 Slash::Slash(GameObject* pl,Vector2 move, float rad, float sec)
 	:Attack(Tag::ATTACK)
@@ -30,7 +30,7 @@ void Slash::Draw()
 {
 	if (mode == DEBUG || mode == DOUBLE_MODE)
 	{
-		DrawCircleAA(position.x, position.y, radius, COL_BLACK, TRUE);
+		DrawCircle((int)position.x, (int)position.y, (int)radius, COL_BLACK, TRUE);
 	}
 	if (mode == NORMAL || mode == DOUBLE_MODE)
 	{

@@ -23,7 +23,7 @@ void Bomb::Draw()
 	{
 		float x = position.x;
 		float y = position.y;
-		DrawCircleAA(x, y, 15, COL_BLACK, TRUE);
+		DrawCircle((int)x, (int)y, (int)15, COL_BLACK, TRUE);
 	}
 	if (mode == NORMAL || mode == DOUBLE_MODE)
 	{

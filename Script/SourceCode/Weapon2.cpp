@@ -32,7 +32,7 @@ void Weapon2::Draw()
 		{
 			float x = attackPos.x;
 			float y = attackPos.y;
-			DrawCircleAA(x, y, ATTACK_RADIUS, COL_RED, TRUE);
+			DrawCircle((int)x, (int)y, (int)ATTACK_RADIUS, COL_RED, TRUE);
 		}
 	}
 

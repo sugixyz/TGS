@@ -49,7 +49,7 @@ void Player::Draw()
 		float x = position.x;
 		float y = position.y;
 
-		DrawCircleAA(x, y, radius, COL_WHITE, TRUE);
+		DrawCircle((int)x, (int)y, (int)radius, COL_WHITE, TRUE);
 
 		Vector2 dirPos = { x + direction.x * radius,y + direction.y * radius };
 		DrawLineAA(x, y, dirPos.x, dirPos.y, COL_RED);

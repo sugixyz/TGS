@@ -185,14 +185,14 @@ void CollidManager::DrawCollider(GameObject* obj)
 		//if (Math2D::LengthSq(p1 - p2) <= 0.000f)
 		if (p1 == p2)
 		{
-			DrawCircleAA(p1.x, p1.y, col.radius, DEBUG_COL, FALSE);
+			DrawCircle((int)p1.x, (int)p1.y, (int)col.radius, DEBUG_COL, FALSE);
 		}
 		//それ以外は2つの円と線分で
 		else
 		{
 			DrawLineAA(p1.x, p1.y, p2.x, p2.y, DEBUG_COL);
-			DrawCircleAA(p1.x, p1.y, col.radius, DEBUG_COL, FALSE);
-			DrawCircleAA(p2.x, p2.y, col.radius, DEBUG_COL, FALSE);
+			DrawCircle((int)p1.x, (int)p1.y, (int)col.radius, DEBUG_COL, FALSE);
+			DrawCircle((int)p2.x, (int)p2.y, (int)col.radius, DEBUG_COL, FALSE);
 		}
 	}
 	if (obj->HasBox())

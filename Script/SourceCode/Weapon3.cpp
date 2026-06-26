@@ -1,4 +1,4 @@
-#include "Weapon3.h"
+﻿#include "Weapon3.h"
 #include"Player.h"
 #include"Slash.h"
 
@@ -31,11 +31,11 @@ void Weapon3::Draw()
 		{
 			float x = position.x;
 			float y = position.y;
-			DrawCircleAA(x, y, ATTACK_RADIUS, COL_RED, TRUE);
+			DrawCircle((int)x, (int)y, (int)ATTACK_RADIUS, COL_RED, TRUE);
 			Vector2 move = position + direction * MOVE_DISTANCE;
 			x = move.x;
 			y = move.y;
-			DrawCircleAA(x, y, ATTACK_RADIUS, COL_RED, TRUE);
+			DrawCircle((int)x, (int)y, (int)ATTACK_RADIUS, COL_RED, TRUE);
 			Vector2 p1 = position;
 			Vector2 p2 = move;
 			DrawLineAA(p1.x, p1.y, p2.x, p2.y, COL_RED, ATTACK_RADIUS * 2);

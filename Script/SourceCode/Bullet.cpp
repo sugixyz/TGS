@@ -27,7 +27,7 @@ void Bullet::Draw()
 	{
 		float x = position.x;
 		float y = position.y;
-		DrawCircleAA(x, y, radius, COL_BLACK, TRUE);
+		DrawCircle((int)x, (int)y, (int)radius, COL_BLACK, TRUE);
 	}
 	if (mode == NORMAL || mode == DOUBLE_MODE)
 	{

@@ -22,7 +22,7 @@ void Material::Draw()
 		if (type & ItemType::MATERIAL1)col = COL_BLACK;
 		else if (type & ItemType::MATERIAL2)col = COL_RED;
 
-		DrawCircleAA(x, y, 10, col, TRUE);
+		DrawCircle((int)x, (int)y, (int)10, col, TRUE);
 	}
 	if (mode == NORMAL || mode == DOUBLE_MODE)
 	{
