@@ -20,7 +20,7 @@ public:
 	Item(Tag tag)
 		:GameObject(tag)
 	{}
-	~Item() {}
+	virtual ~Item() {}
 	/// <summary>
 	/// アイテムのタイプを取得
 	/// </summary>

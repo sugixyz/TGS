@@ -2,6 +2,7 @@
 #include"../../SourceCode/Ui.h"
 #include"../../SourceCode/AiDirector.h"
 #include"../../SourceCode/Camera.h"
+#include"../../SourceCode/DirectionalLight.h"
 /// <summary>
 /// プレイ中の画面の遷移をする
 /// </summary>
@@ -13,6 +14,7 @@ PlayScene::PlayScene()
 	new Ui("タイマー", &gGameTimer.timer);
 	new AiDirector();
 	new Camera();
+	new DirectionalLight();
 }
 
 PlayScene::~PlayScene()

@@ -9,7 +9,7 @@ public:
 	Gimmick(Tag tag)
 		:GameObject(tag)
 	{}
-	~Gimmick() {}
+	virtual ~Gimmick() {}
 	virtual Item* Interact(Item* item) 
 	{
 		return nullptr;

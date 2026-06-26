@@ -7,7 +7,7 @@ public:
 	Attack(Tag tag)
 		:Character(tag)
 	{}
-	~Attack() {}
+	virtual ~Attack() {}
 	/// <summary>
 	/// ウィンドウの範囲外に行っていないか
 	/// </summary>

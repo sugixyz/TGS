@@ -153,7 +153,7 @@
     <ClCompile Include="Script\SourceCode\Bullet.cpp" />
     <ClCompile Include="Script\SourceCode\Camera.cpp" />
     <ClCompile Include="Script\SourceCode\CraftTable.cpp" />
-    <ClCompile Include="Script\SourceCode\Enemy.cpp" />
+    <ClCompile Include="Script\SourceCode\DirectionalLight.cpp" />
     <ClCompile Include="Script\SourceCode\Material.cpp" />
     <ClCompile Include="Script\SourceCode\MaterialWarehouse.cpp" />
     <ClCompile Include="Script\SourceCode\Player.cpp" />
@@ -197,9 +197,11 @@
     <ClInclude Include="Script\SourceCode\Bullet.h" />
     <ClInclude Include="Script\SourceCode\Camera.h" />
     <ClInclude Include="Script\SourceCode\CraftTable.h" />
+    <ClInclude Include="Script\SourceCode\DirectionalLight.h" />
     <ClInclude Include="Script\SourceCode\Enemy.h" />
     <ClInclude Include="Script\SourceCode\Gimmick.h" />
     <ClInclude Include="Script\SourceCode\Item.h" />
+    <ClInclude Include="Script\SourceCode\Light.h" />
     <ClInclude Include="Script\SourceCode\Material.h" />
     <ClInclude Include="Script\SourceCode\MaterialWarehouse.h" />
     <ClInclude Include="Script\SourceCode\Player.h" />

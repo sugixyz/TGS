@@ -14,14 +14,6 @@ RADIUS = 25
 ITEM_OFFSET = 20
 
 
-//敵のパラメータ
-[Enemy]
-//移動速度
-SPEED = 400
-//敵の半径
-RADIUS = 25
-
-
 //ギミックのパラメータ
 [Gimmick]
 //インタラクト可能な範囲（半径）
@@ -70,3 +62,11 @@ MOVE_TIME = 0.1
 CAM_POS = 0 10 -5
 //カメラのターゲット
 CAM_TARGET = 0 0 0
+
+
+//平行光源のパラメータ
+[DirectionalLight]
+//光源の方向
+DIRECTION = 0 -10 -5
+//光源の色
+COLOR = 1 1 1

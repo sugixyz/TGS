@@ -60,8 +60,6 @@ void Initialize()
 {
 	ObjectManager::Initialize();
 	SceneManager::Initialize();
-	//SetLightAmbColor(GetColorF(.0f, 1.0f, .0f, 0.0f));
-	SetLightDirection(VGet(0.0f, -10.0f, -5.001f));
 }
 
 void Update()

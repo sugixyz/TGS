@@ -1,11 +1,11 @@
 ﻿#include "ParamLoader.h"
 #include"../../SourceCode/Player.h"
-#include"../../SourceCode/Enemy.h"
 #include"../../SourceCode/Gimmick.h"
 #include"../../SourceCode/Weapon1.h"
 #include"../../SourceCode/Weapon2.h"
 #include"../../SourceCode/Weapon3.h"
 #include"../../SourceCode/Camera.h"
+#include"../../SourceCode/DirectionalLight.h"
 
 void Loader::AllClassParamLoad()
 {
@@ -44,11 +44,6 @@ void Loader::AllClassParamLoad()
 				else if (key == "RADIUS")		{ ss >> Player::RADIUS; }
 				else if (key == "ITEM_OFFSET")	{ ss >> Player::ITEM_OFFSET; }
 			}
-			else if (currentSection == "Enemy")
-			{
-				if		(key == "SPEED")	{ ss >> Enemy::SPEED; }
-				else if (key == "RADIUS")	{ ss >> Enemy::RADIUS; }
-			}
 			else if (currentSection == "Gimmick")
 			{
 				if (key == "INTERACT_LENGHT") { ss >> Gimmick::INTERACT_LENGHT; }
@@ -76,8 +71,21 @@ void Loader::AllClassParamLoad()
 			}
 			else if (currentSection == "Camera")
 			{
-				if (key == "CAM_POS") { ss >> Camera::CAM_POS.x >> Camera::CAM_POS.y >> Camera::CAM_POS.z; }
-				else if (key == "CAM_TARGET") { ss >> Camera::CAM_TARGET.x >> Camera::CAM_TARGET.y >> Camera::CAM_TARGET.z; }
+				if		(key == "CAM_POS")		{ ss >> Camera::CAM_POS.x >> Camera::CAM_POS.y >> Camera::CAM_POS.z; }
+				else if (key == "CAM_TARGET")	{ ss >> Camera::CAM_TARGET.x >> Camera::CAM_TARGET.y >> Camera::CAM_TARGET.z; }
+			}
+			else if (currentSection == "DirectionalLight")
+			{
+				if		(key == "DIRECTION") {
+					ss	>> DirectionalLight::DIRECTION.x
+						>> DirectionalLight::DIRECTION.y
+						>> DirectionalLight::DIRECTION.z;
+				}
+				else if (key == "COLOR") {
+					ss	>> DirectionalLight::COLOR.x 
+						>> DirectionalLight::COLOR.y
+						>> DirectionalLight::COLOR.z;
+				}
 			}
 		}
 	}

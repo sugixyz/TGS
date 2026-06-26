@@ -9,7 +9,7 @@ public:
 	Character(Tag tag)
 	:GameObject(tag)
 	{}
-	~Character() {}
+	virtual ~Character() {}
 	/// <summary>
 	/// 速度の設定
 	/// </summary>

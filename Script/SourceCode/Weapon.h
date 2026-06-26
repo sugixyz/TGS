@@ -10,7 +10,7 @@ public:
 		:Item(tag)
 	{
 	}
-	~Weapon() {}
+	virtual ~Weapon() {}
 	/// <summary>
 	/// 攻撃用の仮想関数
 	/// </summary>
