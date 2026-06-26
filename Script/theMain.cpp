@@ -1,4 +1,5 @@
-﻿#include "DxLib.h"
+﻿#define _CRTDBG_MAP_ALLOC
+#include "DxLib.h"
 #include "Engine/globals.h"
 #include "Engine/Tool/Input.h"
 #include"Engine/Object/ObjectManager.h"

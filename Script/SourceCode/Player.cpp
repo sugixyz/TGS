@@ -31,7 +31,9 @@ Player::Player(int index)
 }
 
 Player::~Player()
-{}
+{
+	MV1DeleteModel(hModel);
+}
 
 void Player::Update()
 {

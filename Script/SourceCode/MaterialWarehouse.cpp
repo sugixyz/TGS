@@ -17,7 +17,9 @@ MaterialWarehouse::MaterialWarehouse(Vector2 pos,int id)
 }
 
 MaterialWarehouse::~MaterialWarehouse()
-{}
+{
+	MV1DeleteModel(hModel);
+}
 
 void MaterialWarehouse::Draw()
 {

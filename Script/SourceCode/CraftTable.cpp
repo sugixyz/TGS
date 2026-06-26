@@ -17,7 +17,9 @@ CraftTable::CraftTable(Vector2 pos)
 }
 
 CraftTable::~CraftTable()
-{}
+{
+	MV1DeleteModel(hModel);
+}
 
 void CraftTable::Draw()
 {

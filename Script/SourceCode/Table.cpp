@@ -14,7 +14,9 @@ Table::Table(Vector2 pos)
 }
 
 Table::~Table()
-{}
+{
+	MV1DeleteModel(hModel);
+}
 
 void Table::Draw()
 {

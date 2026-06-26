@@ -15,7 +15,9 @@ StageObject::StageObject(VECTOR pos, VECTOR rot, VECTOR sca, int id)
 }
 
 StageObject::~StageObject()
-{}
+{
+	MV1DeleteModel(hModel);
+}
 
 void StageObject::Draw()
 {
