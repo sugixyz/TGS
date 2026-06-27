@@ -46,6 +46,9 @@
     <Filter Include="Player">
       <UniqueIdentifier>{0d439d13-a99f-4f51-9f1f-48fdb9df62b4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Light">
+      <UniqueIdentifier>{3b33ccb8-1bf5-4b1c-ac6e-1cf4bc91acd9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Script\Engine\Tool\CsvReader.cpp">
@@ -124,9 +127,6 @@
     <ClCompile Include="Script\SourceCode\Bullet.cpp">
       <Filter>Attack</Filter>
     </ClCompile>
-    <ClCompile Include="Script\SourceCode\Enemy.cpp">
-      <Filter>Enemy</Filter>
-    </ClCompile>
     <ClCompile Include="Script\SourceCode\Weapon2.cpp">
       <Filter>Item\Weapon</Filter>
     </ClCompile>
@@ -139,7 +139,15 @@
     <ClCompile Include="Script\SourceCode\Weapon3.cpp">
       <Filter>Item\Weapon</Filter>
     </ClCompile>
-    <ClCompile Include="Script\SourceCode\Camera.cpp" />
+    <ClCompile Include="Script\SourceCode\Camera.cpp">
+      <Filter>Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="Script\SourceCode\DirectionalLight.cpp">
+      <Filter>Light</Filter>
+    </ClCompile>
+    <ClCompile Include="Script\SourceCode\PointLight.cpp">
+      <Filter>Light</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Script\Engine\Tool\CsvReader.h">
@@ -273,6 +281,15 @@
     </ClInclude>
     <ClInclude Include="Script\SourceCode\Camera.h">
       <Filter>Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\SourceCode\Light.h">
+      <Filter>Light</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\SourceCode\DirectionalLight.h">
+      <Filter>Light</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\SourceCode\PointLight.h">
+      <Filter>Light</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

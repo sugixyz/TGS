@@ -3,6 +3,7 @@
 #include"../../SourceCode/AiDirector.h"
 #include"../../SourceCode/Camera.h"
 #include"../../SourceCode/DirectionalLight.h"
+#include"../../SourceCode/PointLight.h"
 /// <summary>
 /// プレイ中の画面の遷移をする
 /// </summary>
@@ -15,6 +16,7 @@ PlayScene::PlayScene()
 	new AiDirector();
 	new Camera();
 	new DirectionalLight();
+	new PointLight(VGet(0, 0, 0), 5);
 }
 
 PlayScene::~PlayScene()

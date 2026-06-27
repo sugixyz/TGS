@@ -157,6 +157,7 @@
     <ClCompile Include="Script\SourceCode\Material.cpp" />
     <ClCompile Include="Script\SourceCode\MaterialWarehouse.cpp" />
     <ClCompile Include="Script\SourceCode\Player.cpp" />
+    <ClCompile Include="Script\SourceCode\PointLight.cpp" />
     <ClCompile Include="Script\SourceCode\Slash.cpp" />
     <ClCompile Include="Script\SourceCode\StageObject.cpp" />
     <ClCompile Include="Script\SourceCode\Table.cpp" />
@@ -205,6 +206,7 @@
     <ClInclude Include="Script\SourceCode\Material.h" />
     <ClInclude Include="Script\SourceCode\MaterialWarehouse.h" />
     <ClInclude Include="Script\SourceCode\Player.h" />
+    <ClInclude Include="Script\SourceCode\PointLight.h" />
     <ClInclude Include="Script\SourceCode\Slash.h" />
     <ClInclude Include="Script\SourceCode\StageObject.h" />
     <ClInclude Include="Script\SourceCode\Table.h" />
