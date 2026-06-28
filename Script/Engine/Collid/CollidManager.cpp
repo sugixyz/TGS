@@ -27,10 +27,10 @@ void CollidManager::Update()
 	Collision(players, attacks);
 	//プレイヤーと敵
 	Collision(players, enemys);
-	//ステージとアタック
-	Collision(stages, attacks);
-	//敵とアタック
-	Collision(enemys, attacks);
+	//アタックとステージ
+	Collision(attacks,stages);
+	//アタックと敵
+	Collision(attacks,enemys);
 }
 
 void CollidManager::Draw()
