@@ -23,11 +23,16 @@ Player::Player(int index)
 	hModel = MV1LoadModel(path);
 	assert(hModel > 0);
 
+	//自分自身のコライダー
 	uint32_t mask = (uint32_t)Layer::STAGE |
 		(uint32_t)Layer::GIMMICK |
 		(uint32_t)Layer::ENEMY |
 		(uint32_t)Layer::ENEMY_ATTACK;
 	SetCenterCircle(Layer::PLAYER, mask);
+
+
+	//デバッグ　テストコライダー
+	GameObject::SetCenterCircle(150.0f, Layer::PLAYER, (uint32_t)Layer::GIMMICK);
 }
 
 Player::~Player()
@@ -85,7 +90,7 @@ void Player::Move()
 	ItemMove();
 }
 
-void Player::OnCollision(GameObject * other)
+void Player::OnCollision(Layer myLeyer, GameObject* other, Layer otherLayer)
 {
 	if (other->GetTag() == Tag::STAGE)
 	{
@@ -119,7 +124,7 @@ void Player::MoveAttack(Vector2 move,float sec)
 
 void Player::CollisionWall(GameObject* wall)
 {
-	Collider wallCol = wall->GetCollider();
+	Collider wallCol = wall->GetCollider()[0];
 	Vector2 wPos = wall->GetPos();
 	//壁の高さ、幅
 	float wallW = wallCol.bPosB.x - wallCol.bPosA.x;

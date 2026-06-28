@@ -13,7 +13,7 @@ Base::Base(Vector2 pos, int blockSize)
 Base::~Base()
 {}
 
-void Base::OnCollision(GameObject * other)
+void Base::OnCollision(Layer myLeyer, GameObject* other, Layer otherLayer)
 {
 	if (other->GetTag() == Tag::ATTACK)
 	{

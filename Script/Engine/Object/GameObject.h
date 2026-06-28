@@ -24,8 +24,10 @@ public:
 	GameObject(Tag tag)
 		: destroy(false),
 		dontDestroy(false),
-		myTag(tag)
+		myTag(tag),
+		hModel(-1)
 	{
+		myColliders.clear();
 		ObjectManager::Push(this);
 	}
 	virtual ~GameObject()
@@ -109,25 +111,13 @@ public:
 	/// コライダーを持っているか
 	/// </summary>
 	/// <returns>コライダーがあればtrue</returns>
-	bool HasCollider() { return myCollider.hasObject; }
-
-	/// <summary>
-	/// カプセルコライダーを持っているか
-	/// </summary>
-	/// <returns>カプセルコライダーがあればtrue</returns>
-	bool HasCapsule() { return myCollider.hasCapsule; }
-
-	/// <summary>
-	/// ボックスコライダーを持っているか
-	/// </summary>
-	/// <returns>ボックスコライダーがあればtrue</returns>
-	bool HasBox() { return myCollider.hasBox; }
+	bool HasCollider() { return myColliders.size() > 0; }
 
 	/// <summary>
 	/// コライダーのゲット
 	/// </summary>
 	/// <returns>登録されたコライダー</returns>
-	Collider GetCollider() { return myCollider; }
+	std::vector<Collider> GetCollider() { return myColliders; }
 
 	/// <summary>
 	/// カプセルコライダーのセット
@@ -139,7 +129,9 @@ public:
 	/// <param name="mask">当たりたい対象のマスク（デフォルトなし）</param>
 	void SetCapsule(Vector2 sPos, Vector2 ePos, float rad, Layer layer, uint32_t mask = 0x00000000)
 	{
-		myCollider.SetCapsule(sPos, ePos, rad, layer, mask);
+		Collider col;
+		col.SetCapsule(sPos, ePos, rad, layer, mask);
+		myColliders.push_back(col);
 	}
 
 	/// <summary>
@@ -151,7 +143,9 @@ public:
 	/// <param name="mask">当たりたい対象のマスク（デフォルトなし）</param>
 	void SetBox(Vector2 sPos, Vector2 ePos, Layer layer, uint32_t mask = 0x00000000)
 	{
-		myCollider.SetBox(sPos, ePos, layer, mask);
+		Collider col;
+		col.SetBox(sPos, ePos, layer, mask);
+		myColliders.push_back(col);
 	}
 
 	/// <summary>
@@ -162,7 +156,9 @@ public:
 	/// <param name="mask">当たりたい対象のマスク（デフォルトなし）</param>
 	void SetCenterCircle(float rad,Layer layer, uint32_t mask = 0x00000000)
 	{
-		myCollider.SetCapsule(Vector2(0, 0), Vector2(0, 0), rad, layer, mask);
+		Collider col;
+		col.SetCapsule(Vector2(0, 0), Vector2(0, 0), rad, layer, mask);
+		myColliders.push_back(col);
 	}
 	/// <summary>
 	/// ポジションを中心としたボックスコライダーのセット
@@ -174,14 +170,18 @@ public:
 	{
 		Vector2 p1 = Vector2((float)-rad, (float)-rad);
 		Vector2 p2 = Vector2((float)rad, (float)rad);
-		myCollider.SetBox(p1, p2, layer, mask);
+		Collider col;
+		col.SetBox(p1, p2, layer, mask);
+		myColliders.push_back(col);
 	}
 
 	/// <summary>
 	/// 接触時の処理
 	/// </summary>
-	/// <param name="">接触した相手のポインタ</param>
-	virtual void OnCollision(GameObject*) {}
+	/// <param name="myLeyer">自分のレイヤー</param>
+	/// <param name="other">接触した相手のポインタ</param>
+	/// <param name="otherLayer">接触した相手のレイヤー</param>
+	virtual void OnCollision(Layer myLeyer, GameObject* other, Layer otherLayer) {}
 
 	/// <summary>
 	/// 位置の設定
@@ -212,8 +212,8 @@ private:
 	bool dontDestroy;
 	Tag myTag;
 protected:
-	//コライダー
-	Collider myCollider;
+	//コライダーのリスト
+	std::vector<Collider> myColliders;
 	//モデル保存用ハンドル
 	int hModel = -1;
 	//位置 コリジョン処理の関係でGameObjectに移動

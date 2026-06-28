@@ -58,40 +58,47 @@ void CollidManager::Collision(const std::vector<GameObject*> listA, const std::v
 	{
 		//コライダーがなければスルー
 		if (!objA->HasCollider() || objA->DestroyRequested())continue;
-		Collider colA = objA->GetCollider();
+		const std::vector<Collider>& colAs = objA->GetCollider();
 		for (auto objB : listB)
 		{
 			//コライダーがなければスルー
 			if (!objB->HasCollider() || objB->DestroyRequested())continue;
-			Collider colB = objB->GetCollider();
+			std::vector<Collider> colBs = objB->GetCollider();
 
-			int pattern = CanHit(colA, colB);
-
-			//相互の判定が不可能だったらスルー
-			if (pattern == 0)continue;
-
-			bool isHit = false;
-
-			switch (pattern)
+			for (const auto& colA : colAs)
 			{
-			case 1:
-				isHit = CheckCapsuleCollision(objA, objB);
-				break;
-			case 2:
-				isHit = CheckBoxCollision(objA, objB);
-				break;
-			case 3:
-				isHit = CheckCalsuleBoxCollision(objA, objB);
-				break;
-			case 4:
-				isHit = CheckCalsuleBoxCollision(objB, objA);
-				break;
-			}
+				for (const auto& colB : colBs)
+				{
 
-			if (isHit)
-			{
-				objA->OnCollision(objB);
-				objB->OnCollision(objA);
+					int pattern = CanHit(colA, colB);
+
+					//相互の判定が不可能だったらスルー
+					if (pattern == 0)continue;
+
+					bool isHit = false;
+
+					switch (pattern)
+					{
+					case 1:
+						isHit = CheckCapsuleCollision(objA, colA, objB, colB);
+						break;
+					case 2:
+						isHit = CheckBoxCollision(objA, colA, objB, colB);
+						break;
+					case 3:
+						isHit = CheckCalsuleBoxCollision(objA, colA, objB, colB);
+						break;
+					case 4:
+						isHit = CheckCalsuleBoxCollision(objA, colA, objB, colB);
+						break;
+					}
+
+					if (isHit)
+					{
+						objA->OnCollision(colA.myLeyer,objB,colB.myLeyer);
+						objB->OnCollision(colB.myLeyer,objA,colA.myLeyer);
+					}
+				}
 			}
 		}
 	}
@@ -111,14 +118,12 @@ int CollidManager::CanHit(const Collider& colA, const Collider& colB)
 	else return 0;
 }
 
-bool CollidManager::CheckCapsuleCollision(GameObject* objA, GameObject* objB)
+bool CollidManager::CheckCapsuleCollision(GameObject* objA, Collider colA, GameObject* objB, Collider colB)
 {
-	Collider colA = objA->GetCollider();
 	Vector2 aPos = objA->GetPos();
 	Vector2 a1 = aPos + colA.cPosA;
 	Vector2 a2 = aPos + colA.cPosB;
 
-	Collider colB = objB->GetCollider();
 	Vector2 bPos = objB->GetPos();
 	Vector2 b1 = bPos + colB.cPosA;
 	Vector2 b2 = bPos + colB.cPosB;
@@ -133,14 +138,12 @@ bool CollidManager::CheckCapsuleCollision(GameObject* objA, GameObject* objB)
 	return sqDist <= sqRadius;
 }
 
-bool CollidManager::CheckBoxCollision(GameObject* objA, GameObject* objB)
+bool CollidManager::CheckBoxCollision(GameObject* objA, Collider colA, GameObject* objB, Collider colB)
 {
-	Collider colA = objA->GetCollider();
 	Vector2 aPos = objA->GetPos();
 	Vector2 a1 = aPos + colA.bPosA;
 	Vector2 a2 = aPos + colA.bPosB;
 
-	Collider colB = objB->GetCollider();
 	Vector2 bPos = objB->GetPos();
 	Vector2 b1 = bPos + colB.bPosA;
 	Vector2 b2 = bPos + colB.bPosB;
@@ -151,14 +154,12 @@ bool CollidManager::CheckBoxCollision(GameObject* objA, GameObject* objB)
 	return inX && inY;
 }
 
-bool CollidManager::CheckCalsuleBoxCollision(GameObject* objA, GameObject* objB)
+bool CollidManager::CheckCalsuleBoxCollision(GameObject* objA, Collider colA, GameObject* objB, Collider colB)
 {
-	Collider colA = objA->GetCollider();
 	Vector2 aPos = objA->GetPos();
 	Vector2 a1 = aPos + colA.cPosA;
 	Vector2 a2 = aPos + colA.cPosB;
 
-	Collider colB = objB->GetCollider();
 	Vector2 bPos = objB->GetPos();
 	Vector2 b1 = bPos + colB.bPosA;
 	Vector2 b2 = bPos + colB.bPosB;
@@ -173,40 +174,40 @@ bool CollidManager::CheckCalsuleBoxCollision(GameObject* objA, GameObject* objB)
 void CollidManager::DrawCollider(GameObject* obj)
 {
 	if (!obj->HasCollider())return;
-	if (obj->HasCapsule())
+	const std::vector<Collider>& cols = obj->GetCollider();
+	for (const auto& col : cols)
 	{
-		Collider col = obj->GetCollider();
-		Vector2 pos = obj->GetPos();
-
-		Vector2 p1 = pos + col.cPosA;
-		Vector2 p2 = pos + col.cPosB;
-
-		//始点と終点が同じであれば円として表示
-		//if (Math2D::LengthSq(p1 - p2) <= 0.000f)
-		if (p1 == p2)
+		if(col.hasCapsule)
 		{
-			DrawCircle((int)p1.x, (int)p1.y, (int)col.radius, DEBUG_COL, FALSE);
+			Vector2 pos = obj->GetPos();
+
+			Vector2 p1 = pos + col.cPosA;
+			Vector2 p2 = pos + col.cPosB;
+
+			//始点と終点が同じであれば円として表示
+			//if (Math2D::LengthSq(p1 - p2) <= 0.000f)
+			if (p1 == p2)
+			{
+				DrawCircle((int)p1.x, (int)p1.y, (int)col.radius, DEBUG_COL, FALSE);
+			}
+			//それ以外は2つの円と線分で
+			else
+			{
+				DrawLineAA(p1.x, p1.y, p2.x, p2.y, DEBUG_COL);
+				DrawCircle((int)p1.x, (int)p1.y, (int)col.radius, DEBUG_COL, FALSE);
+				DrawCircle((int)p2.x, (int)p2.y, (int)col.radius, DEBUG_COL, FALSE);
+			}
 		}
-		//それ以外は2つの円と線分で
-		else
+		if(col.hasBox)
 		{
-			DrawLineAA(p1.x, p1.y, p2.x, p2.y, DEBUG_COL);
-			DrawCircle((int)p1.x, (int)p1.y, (int)col.radius, DEBUG_COL, FALSE);
-			DrawCircle((int)p2.x, (int)p2.y, (int)col.radius, DEBUG_COL, FALSE);
+			Vector2 pos = obj->GetPos();
+
+			Vector2 p1 = pos + col.bPosA;
+			Vector2 p2 = pos + col.bPosB;
+
+			DrawBox((int)p1.x, (int)p1.y, (int)p2.x, (int)p2.y, DEBUG_COL, FALSE);
 		}
 	}
-	if (obj->HasBox())
-	{
-		Collider col = obj->GetCollider();
-		Vector2 pos = obj->GetPos();
-
-		Vector2 p1 = pos + col.bPosA;
-		Vector2 p2 = pos + col.bPosB;
-
-		DrawBox((int)p1.x, (int)p1.y, (int)p2.x, (int)p2.y, DEBUG_COL, FALSE);
-	}
-
-
 }
 
 float CollidManager::GetLineMinDist(const Vector2& a1, const Vector2& a2, const Vector2& b1, const Vector2& b2)

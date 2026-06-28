@@ -8,7 +8,7 @@ Bullet::Bullet(Vector2 pos, Vector2 vel,float rad)
 	radius = rad;
 
 	uint32_t mask = (uint32_t)Layer::ENEMY | (uint32_t)Layer::STAGE;
-	SetCenterCircle(Layer::PLAYER_ATTACK, mask);
+	GameObject::SetCenterCircle(50.0f,Layer::PLAYER_ATTACK, mask);
 }
 
 Bullet::~Bullet()
@@ -35,7 +35,7 @@ void Bullet::Draw()
 	}
 }
 
-void Bullet::OnCollision(GameObject * other)
+void Bullet::OnCollision(Layer myLeyer, GameObject* other, Layer otherLayer)
 {
 	//何かに当たったら消える
 	DestroyMe();

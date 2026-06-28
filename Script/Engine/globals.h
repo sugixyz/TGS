@@ -3,8 +3,10 @@
 #include"Tool/Time.h"
 
 //ウィンドウサイズ
-const int WIN_WIDTH = 1920;
-const int WIN_HEIGHT = 1080;
+//const int WIN_WIDTH = 1920;
+const int WIN_WIDTH = 2560;
+//const int WIN_HEIGHT = 1080;
+const int WIN_HEIGHT = 1440;
 //描画ウィンドウの拡大倍率
 const int SCREEN_ZOOM = 1;
 

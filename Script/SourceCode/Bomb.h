@@ -9,7 +9,7 @@ public:
 	~Bomb();
 	void Update() override;
 	void Draw() override;
-	//void OnCollision(GameObject* other) override;
+	//void OnCollision(Layer myLeyer, GameObject* other, Layer otherLayer) override;
 	void Move() override;
 	void IEDestroy();
 private:

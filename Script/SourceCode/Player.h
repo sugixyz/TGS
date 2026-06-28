@@ -12,7 +12,7 @@ public:
 	void Update() override;
 	void Draw() override;
 	void Move() override;
-	void OnCollision(GameObject* other) override;
+	void OnCollision(Layer myLeyer, GameObject* other, Layer otherLayer) override;
 	/// <summary>
 	/// プレイヤーのIDを取得する関数
 	/// </summary>

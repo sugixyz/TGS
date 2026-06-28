@@ -33,25 +33,31 @@ namespace CollidManager
 	/// カプセル同士の接触判定
 	/// </summary>
 	/// <param name="objA">判定するオブジェクトA</param>
+	/// <param name="colA">判定するコライダーA</param>
 	/// <param name="objB">判定するオブジェクトB</param>
+	/// <param name="colB">判定するコライダーB</param>
 	/// <returns>接触していればtrue</returns>
-	bool CheckCapsuleCollision(GameObject* objA, GameObject* objB);
+	bool CheckCapsuleCollision(GameObject* objA,Collider colA, GameObject* objB,Collider colB);
 
 	/// <summary>
 	/// ボックス同士の接触判定
 	/// </summary>
 	/// <param name="objA">判定するオブジェクトA</param>
+	/// <param name="colA">判定するコライダーA</param>
 	/// <param name="objB">判定するオブジェクトB</param>
+	/// <param name="colB">判定するコライダーB</param>
 	/// <returns>接触していればtrue</returns>
-	bool CheckBoxCollision(GameObject* objA, GameObject* objB);
+	bool CheckBoxCollision(GameObject* objA, Collider colA, GameObject* objB, Collider colB);
 
 	/// <summary>
 	/// カプセルとボックスの接触判定
 	/// </summary>
 	/// <param name="objA">判定するオブジェクトA</param>
+	/// <param name="colA">判定するコライダーA</param>
 	/// <param name="objB">判定するオブジェクトB</param>
+	/// <param name="colB">判定するコライダーB</param>
 	/// <returns>接触していればtrue</returns>
-	bool CheckCalsuleBoxCollision(GameObject* objA, GameObject* objB);
+	bool CheckCalsuleBoxCollision(GameObject* objA, Collider colA, GameObject* objB, Collider colB);
 
 	/// <summary>
 	/// コライダーの描画

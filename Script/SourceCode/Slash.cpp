@@ -46,7 +46,7 @@ void Slash::Move()
 	//myCollider.cPosB = moveVec * -1;
 }
 
-void Slash::OnCollision(GameObject* other)
+void Slash::OnCollision(Layer myLeyer, GameObject* other, Layer otherLayer)
 {
 	//当たった相手が壁なら消える
 	if (other->GetTag() == Tag::STAGE)
