@@ -17,7 +17,7 @@ ITEM_OFFSET = 20
 //ギミックのパラメータ
 [Gimmick]
 //インタラクト可能な範囲（半径）
-INTERACT_LENGHT = 60
+INTERACT_LENGHT = 80
 
 
 //武器１（銃）のパラメータ
@@ -49,9 +49,9 @@ AIM_SPEED = 400
 //武器の使用可能回数
 SWORD_NUMBER = 5
 //攻撃の半径
-ATTACK_RADIUS = 50
+ATTACK_RADIUS = 150
 //攻撃時の移動距離
-MOVE_DISTANCE = 200
+MOVE_DISTANCE = 120
 //移動にかかる時間
 MOVE_TIME = 0.1
 

@@ -9,6 +9,8 @@ public:
 	void Draw() override;
 	void Attack(Player* owner) override;
 	void EnhanceWeapon() override;
+private:
+	GameObject* target;
 public:
 	static int SWORD_NUMBER;
 	static float ATTACK_RADIUS;

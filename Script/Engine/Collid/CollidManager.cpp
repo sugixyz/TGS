@@ -16,6 +16,7 @@ void CollidManager::Update()
 	auto stages = FindTagObjects(Tag::STAGE);
 	auto gimmicks = FindTagObjects(Tag::GIMMICK);
 	auto attacks = FindTagObjects(Tag::ATTACK);
+	auto items = FindTagObjects(Tag::ITEM);
 	auto enemys = FindTagObjects(Tag::ENEMY);
 
 	//当たり判定
@@ -31,6 +32,8 @@ void CollidManager::Update()
 	Collision(attacks,stages);
 	//アタックと敵
 	Collision(attacks,enemys);
+	//アイテムと敵
+	Collision(items, enemys);
 }
 
 void CollidManager::Draw()
@@ -42,12 +45,14 @@ void CollidManager::Draw()
 		auto stages = FindTagObjects(Tag::STAGE);
 		auto gimmicks = FindTagObjects(Tag::GIMMICK);
 		auto attacks = FindTagObjects(Tag::ATTACK);
+		auto items = FindTagObjects(Tag::ITEM);
 		auto enemys = FindTagObjects(Tag::ENEMY);
 
 		for (auto p : players)DrawCollider(p);
 		for (auto s : stages)DrawCollider(s);
 		for (auto g : gimmicks)DrawCollider(g);
 		for (auto a : attacks)DrawCollider(a);
+		for (auto i : items)DrawCollider(i);
 		for (auto e : enemys)DrawCollider(e);
 	}
 }

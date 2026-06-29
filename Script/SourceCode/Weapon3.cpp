@@ -12,6 +12,9 @@ Weapon3::Weapon3()
 {
 	type = ItemType::WEAPON3;
 	life = SWORD_NUMBER;
+
+	uint32_t mask = (uint32_t)Layer::ENEMY;
+	SetCenterCircle(ATTACK_RADIUS, Layer::PLAYER_ATTACK, mask);
 }
 
 Weapon3::~Weapon3()
@@ -50,15 +53,6 @@ void Weapon3::Draw()
 
 void Weapon3::Attack(Player * owner)
 {
-	//スティックの方向を取得
-	Vector2 stick = Input::GetStick(owner->GetId());
-	if (stick != Vector2(0, 0))
-	{
-		owner->SetDir(Math2D::Normalize(stick));
-		owner->ItemMove();
-	}
-	SetDir(owner->GetDir());
-
 	//攻撃
 	if (Input::IsPadDown(Pad::A, owner->GetId()))
 	{

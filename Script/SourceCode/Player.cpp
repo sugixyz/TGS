@@ -29,10 +29,6 @@ Player::Player(int index)
 		(uint32_t)Layer::ENEMY |
 		(uint32_t)Layer::ENEMY_ATTACK;
 	SetCenterCircle(Layer::PLAYER, mask);
-
-
-	//デバッグ　テストコライダー
-	GameObject::SetCenterCircle(150.0f, Layer::PLAYER, (uint32_t)Layer::GIMMICK);
 }
 
 Player::~Player()
