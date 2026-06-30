@@ -1,6 +1,8 @@
 #pragma once
 #include"Weapon.h"
 
+class Slash;
+
 class Weapon3 : public Weapon
 {
 public:
@@ -11,7 +13,7 @@ public:
 	void Attack(Player* owner) override;
 	void EnhanceWeapon() override;
 private:
-	GameObject* target;
+	Slash* slash;
 public:
 	static int SWORD_NUMBER;
 	static float ATTACK_RADIUS;

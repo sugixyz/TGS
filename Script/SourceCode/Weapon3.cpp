@@ -12,6 +12,7 @@ Weapon3::Weapon3()
 {
 	type = ItemType::WEAPON3;
 	life = SWORD_NUMBER;
+	slash = nullptr;
 }
 
 Weapon3::~Weapon3()
@@ -19,8 +20,11 @@ Weapon3::~Weapon3()
 
 void Weapon3::Update()
 {
-	//攻撃中じゃないならコライダーをリセット
-	if (!isAttack)myColliders.clear();
+	if (not isAttack && slash != nullptr)
+	{
+		slash->DestroyMe();
+		slash = nullptr;
+	}
 }
 
 void Weapon3::Draw()
@@ -38,13 +42,6 @@ void Weapon3::Draw()
 			float x = position.x;
 			float y = position.y;
 			DrawCircle((int)x, (int)y, (int)ATTACK_RADIUS, COL_RED, TRUE);
-			Vector2 move = position + direction * MOVE_DISTANCE;
-			x = move.x;
-			y = move.y;
-			DrawCircle((int)x, (int)y, (int)ATTACK_RADIUS, COL_RED, TRUE);
-			Vector2 p1 = position;
-			Vector2 p2 = move;
-			DrawLineAA(p1.x, p1.y, p2.x, p2.y, COL_RED, ATTACK_RADIUS * 2);
 		}
 	}
 
@@ -56,25 +53,23 @@ void Weapon3::Draw()
 
 void Weapon3::Attack(Player * owner)
 {
-	if (myColliders.size() == 0)
-	{
-		uint32_t mask = (uint32_t)Layer::ENEMY;
-		SetCenterCircle(ATTACK_RADIUS, Layer::PLAYER_ATTACK, mask);
-	}
+	if (not isAttack)slash = new Slash(owner->GetPos(), ATTACK_RADIUS);
 
 	//攻撃
 	if (Input::IsPadDown(Pad::A, owner->GetId()))
 	{
-		//移動ベクトル
-		Vector2 move = owner->GetDir() * MOVE_DISTANCE;
-		//プレイヤーを攻撃に合わせて移動
-		owner->MoveAttack(move, MOVE_TIME);
-		//斬撃の生成
-		new Slash(owner,position - owner->GetPos(), ATTACK_RADIUS, MOVE_TIME);
-		life--;
-		if (life <= 0)
+		if (slash->GetTarget())
 		{
-			owner->BrokenHasWeapon();
+			Vector2 move = Math2D::Normalize(slash->GetTarget()->GetPos() - owner->GetPos());
+			move *= MOVE_DISTANCE;
+
+			//プレイヤーを攻撃に合わせて移動
+			owner->MoveAttack(move, MOVE_TIME);
+			life--;
+			if (life <= 0)
+			{
+				owner->BrokenHasWeapon();
+			}
 		}
 	}
 

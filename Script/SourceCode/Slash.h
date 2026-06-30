@@ -4,17 +4,15 @@
 class Slash : public Attack
 {
 public:
-	Slash(GameObject* pl,Vector2 move, float rad, float sec);
+	Slash(Vector2 pos,float rad);
 	~Slash();
 	void Update() override;
 	void Draw() override;
-	void Move() override;
 	void OnCollision(Layer myLeyer, GameObject* other, Layer otherLayer) override;
+	GameObject* GetTarget() { return target; }
 private:
-	//攻撃を発動したプレイヤーのポインタ
-	GameObject* owner;
-	//プレイヤーから発生位置がどれだけずれているか
-	Vector2 moveVec;
+	//ターゲットのポインタ
+	GameObject* target;
 	//消えるまでのタイマー
 	Timer dethTimer;
 	//消えるまでの時間
