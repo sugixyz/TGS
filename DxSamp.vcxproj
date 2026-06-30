@@ -205,6 +205,7 @@
     <ClInclude Include="Script\SourceCode\Light.h" />
     <ClInclude Include="Script\SourceCode\Material.h" />
     <ClInclude Include="Script\SourceCode\MaterialWarehouse.h" />
+    <ClInclude Include="Script\SourceCode\Normal.h" />
     <ClInclude Include="Script\SourceCode\Player.h" />
     <ClInclude Include="Script\SourceCode\PointLight.h" />
     <ClInclude Include="Script\SourceCode\Slash.h" />

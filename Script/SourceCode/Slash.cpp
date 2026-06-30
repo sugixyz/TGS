@@ -13,20 +13,11 @@ Slash::Slash(Vector2 pos,float rad)
 Slash::~Slash()
 {}
 
-void Slash::Update()
-{
-	dethTimer.Update();
-	if (dethTimer.isExpired(time))
-	{
-		DestroyMe();
-	}
-}
-
 void Slash::Draw()
 {
 	if (mode == DEBUG || mode == DOUBLE_MODE)
 	{
-		DrawCircle((int)position.x, (int)position.y, (int)radius, COL_BLACK, TRUE);
+		DrawCircle((int)position.x, (int)position.y, (int)radius, COL_RED, TRUE);
 	}
 	if (mode == NORMAL || mode == DOUBLE_MODE)
 	{

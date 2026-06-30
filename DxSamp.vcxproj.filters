@@ -291,5 +291,8 @@
     <ClInclude Include="Script\SourceCode\PointLight.h">
       <Filter>Light</Filter>
     </ClInclude>
+    <ClInclude Include="Script\SourceCode\Normal.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

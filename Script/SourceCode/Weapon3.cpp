@@ -36,13 +36,6 @@ void Weapon3::Draw()
 		Vector2 p2 = Vector2(position.x + sizeHalf, position.y + sizeHalf);
 
 		DrawBoxAA(p1.x, p1.y, p2.x, p2.y, COL_BLUE, TRUE);
-
-		if (isAttack)
-		{
-			float x = position.x;
-			float y = position.y;
-			DrawCircle((int)x, (int)y, (int)ATTACK_RADIUS, COL_RED, TRUE);
-		}
 	}
 
 	if (mode == NORMAL || mode == DOUBLE_MODE)
