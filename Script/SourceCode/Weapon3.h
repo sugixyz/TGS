@@ -6,6 +6,7 @@ class Weapon3 : public Weapon
 public:
 	Weapon3();
 	~Weapon3();
+	void Update() override;
 	void Draw() override;
 	void Attack(Player* owner) override;
 	void EnhanceWeapon() override;

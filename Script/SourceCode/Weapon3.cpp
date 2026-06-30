@@ -12,13 +12,16 @@ Weapon3::Weapon3()
 {
 	type = ItemType::WEAPON3;
 	life = SWORD_NUMBER;
-
-	uint32_t mask = (uint32_t)Layer::ENEMY;
-	SetCenterCircle(ATTACK_RADIUS, Layer::PLAYER_ATTACK, mask);
 }
 
 Weapon3::~Weapon3()
 {}
+
+void Weapon3::Update()
+{
+	//攻撃中じゃないならコライダーをリセット
+	if (!isAttack)myColliders.clear();
+}
 
 void Weapon3::Draw()
 {
@@ -53,6 +56,12 @@ void Weapon3::Draw()
 
 void Weapon3::Attack(Player * owner)
 {
+	if (myColliders.size() == 0)
+	{
+		uint32_t mask = (uint32_t)Layer::ENEMY;
+		SetCenterCircle(ATTACK_RADIUS, Layer::PLAYER_ATTACK, mask);
+	}
+
 	//攻撃
 	if (Input::IsPadDown(Pad::A, owner->GetId()))
 	{
