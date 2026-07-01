@@ -5,9 +5,13 @@ class Enemy : public Character
 {
 public:
 	Enemy(Tag tag) 
-		:Character(tag)
+		:Character(tag),hp(-1)
 	{}
 	virtual ~Enemy() {}
+	/// <summary>
+	/// 攻撃用の共通仮想関数
+	/// </summary>
+	virtual void Attack() {}
 	/// <summary>
 	/// ウィンドウの範囲外に行っていないか
 	/// </summary>
@@ -18,4 +22,6 @@ public:
 		else if (position.y <= -radius * 2)DestroyMe();
 		else if (position.y >= WIN_HEIGHT + radius * 2)DestroyMe();
 	}
+protected:
+	int hp;
 };

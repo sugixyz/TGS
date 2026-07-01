@@ -4,7 +4,7 @@
 class Normal : public Enemy
 {
 public:
-	Normal();
+	Normal(Vector2 pos);
 	~Normal();
 	void Update() override;
 	void Draw() override;

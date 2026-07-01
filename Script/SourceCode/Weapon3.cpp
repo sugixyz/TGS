@@ -53,7 +53,11 @@ void Weapon3::Attack(Player * owner)
 	{
 		if (slash->GetTarget())
 		{
+			slash->GetTarget()->DestroyMe();
+
 			Vector2 move = Math2D::Normalize(slash->GetTarget()->GetPos() - owner->GetPos());
+			owner->SetDir(move);
+
 			move *= MOVE_DISTANCE;
 
 			//プレイヤーを攻撃に合わせて移動
@@ -67,6 +71,7 @@ void Weapon3::Attack(Player * owner)
 	}
 
 	owner->ItemMove();
+	slash->SetPos(owner->GetPos());
 }
 
 void Weapon3::EnhanceWeapon()

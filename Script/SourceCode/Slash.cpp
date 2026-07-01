@@ -13,6 +13,11 @@ Slash::Slash(Vector2 pos,float rad)
 Slash::~Slash()
 {}
 
+void Slash::Update()
+{
+	target = nullptr;
+}
+
 void Slash::Draw()
 {
 	if (mode == DEBUG || mode == DOUBLE_MODE)
