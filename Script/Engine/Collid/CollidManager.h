@@ -3,6 +3,7 @@
 #include"Collider.h"
 
 class GameObject;
+enum class Tag : int;
 
 namespace CollidManager
 {
@@ -15,6 +16,15 @@ namespace CollidManager
 	/// <param name="listA">判定するオブジェクトリストA</param>
 	/// <param name="listB">判定するオブジェクトリストB</param>
 	void Collision(const std::vector<GameObject*> listA, const std::vector<GameObject*> listB);
+
+	/// <summary>
+	/// 指定したタグのオブジェクトとの当たり判定を要求する関数
+	/// </summary>
+	/// <param name="obj">自分のインスタンス</param>
+	/// <param name="col">自分のコライダー</param>
+	/// <param name="tag">判定したい対象のタグ</param>
+	/// <returns>当たっていればtrue</returns>
+	bool CollisionCheckRequest(GameObject* obj, const Collider& col, Tag tag);
 
 	/// <summary>
 	/// 接触可能かどうか
