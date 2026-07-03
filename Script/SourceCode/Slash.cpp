@@ -57,7 +57,7 @@ bool Slash::CheckDuringStage(GameObject* enemy)
 	Collider col;
 	Vector2 start = Vector2();
 	Vector2 end = start + (enemy->GetPos() - this->GetPos());
-	col.SetCapsule(start, end, 1, Layer::PLAYER_ATTACK, (uint32_t)Layer::STAGE);
+	col.SetCapsule(start, end, 20, Layer::PLAYER_ATTACK, (uint32_t)Layer::STAGE);
 	return CollidManager::CollisionCheckRequest(this, col, Tag::STAGE);
 }
 
