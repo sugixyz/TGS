@@ -103,6 +103,7 @@ void Player::ItemMove()
 	if (hasItem != nullptr)
 	{
 		hasItem->SetPos(Vector2(position + direction * ITEM_OFFSET));
+		hasItem->SetDir(direction);
 	}
 }
 
