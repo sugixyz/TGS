@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include"Weapon.h"
 
 class Slash;
@@ -19,4 +19,7 @@ public:
 	static float ATTACK_RADIUS;
 	static float MOVE_DISTANCE;
 	static float MOVE_TIME;
+	static float COOL_TIME;
+	static int ENHANCE_SWORD_NUMBER;
+	static float ENHANCE_COOL_TIME;
 };

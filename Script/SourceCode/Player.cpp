@@ -200,6 +200,9 @@ bool Player::Attack()
 	//もし持っているアイテムが武器じゃないならスルー
 	if (wpn == nullptr)return false;
 
+	//デバッグ
+	if (Input::IsKeyDown(KEY_INPUT_E))wpn->EnhanceWeapon();
+
 	//RBを押していれば攻撃
 	if (Input::IsKeepPadDown(Pad::RB, id))
 	{

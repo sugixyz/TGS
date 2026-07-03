@@ -145,6 +145,50 @@ bool CollidManager::CollisionCheckRequest(GameObject* obj, const Collider& col, 
 	return false;
 }
 
+void CollidManager::CollisionRequest(GameObject* obj, const Collider& col, Tag tag)
+{
+	auto others = FindTagObjects(tag);
+	for (auto other : others)
+	{
+		//コライダーがなければスルー
+		if (!other->HasCollider() || other->DestroyRequested())continue;
+		const std::vector<Collider>& otherCols = other->GetCollider();
+
+		for (const auto& otherCol : otherCols)
+		{
+
+			int pattern = CanHit(col, otherCol);
+
+			//相互の判定が不可能だったらスルー
+			if (pattern == 0)continue;
+
+			bool isHit = false;
+
+			switch (pattern)
+			{
+			case 1:
+				isHit = CheckCapsuleCollision(obj, col, other, otherCol);
+				break;
+			case 2:
+				isHit = CheckBoxCollision(obj, col, other, otherCol);
+				break;
+			case 3:
+				isHit = CheckCalsuleBoxCollision(obj, col, other, otherCol);
+				break;
+			case 4:
+				isHit = CheckCalsuleBoxCollision(other, otherCol, obj, col);
+				break;
+			}
+
+			if (isHit)
+			{
+				obj->OnCollision(col.myLeyer, other, otherCol.myLeyer);
+				other->OnCollision(otherCol.myLeyer, obj, col.myLeyer);
+			}
+		}
+	}
+}
+
 int CollidManager::CanHit(const Collider& colA, const Collider& colB)
 {
 	bool canAHitCap = colA.cLayerMask & static_cast<uint32_t>(colB.myLeyer);

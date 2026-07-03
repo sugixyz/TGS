@@ -1,4 +1,5 @@
 ﻿#include "Bomb.h"
+#include"../Engine/Collid/CollidManager.h"
 
 Bomb::Bomb(Vector2 start, Vector2 end, float rad,float time)
 	:Attack(Tag::ATTACK)
@@ -12,7 +13,6 @@ Bomb::~Bomb()
 
 void Bomb::Update()
 {
-	coroutine.Update();
 	Move();
 	CheckOutRange();
 }
@@ -31,20 +31,22 @@ void Bomb::Draw()
 	}
 }
 
+void Bomb::OnCollision(Layer myLeyer, GameObject* other, Layer otherLayer)
+{
+	if (other->GetTag() == Tag::ENEMY)other->DestroyMe();
+}
+
 void Bomb::Move()
 {
 	moveLerp.Update();
 	//移動が終了したら（ラープが終了していれば）判定生成
 	if (not moveLerp.IsActive())
 	{
-		uint32_t mask = (uint32_t)Layer::ENEMY;
-		SetCenterCircle(Layer::PLAYER_ATTACK, mask);
-		//1フレーム後に削除
-		coroutine.Start([this] {IEDestroy(); });
+		Collider col;
+		Vector2 start = Vector2();
+		Vector2 end = start;
+		col.SetCapsule(start, end, radius, Layer::PLAYER_ATTACK, (uint32_t)Layer::ENEMY);
+		CollidManager::CollisionRequest(this, col, Tag::ENEMY);
+		DestroyMe();
 	}
-}
-
-void Bomb::IEDestroy()
-{
-	DestroyMe();
 }

@@ -148,6 +148,9 @@
     <ClCompile Include="Script\SourceCode\PointLight.cpp">
       <Filter>Light</Filter>
     </ClCompile>
+    <ClCompile Include="Script\SourceCode\Normal.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Script\Engine\Tool\CsvReader.h">

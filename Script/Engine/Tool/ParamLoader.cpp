@@ -50,24 +50,33 @@ void Loader::AllClassParamLoad()
 			}
 			else if (currentSection == "Weapon1")
 			{
-				if		(key == "BULLET_NUMBER")	{ ss >> Weapon1::BULLET_NUMBER; }
-				else if (key == "BULLET_SPEED")		{ ss >> Weapon1::BULLET_SPEED; }
-				else if (key == "ATTACK_RADIUS")	{ ss >> Weapon1::ATTACK_RADIUS; }
+				if		(key == "BULLET_NUMBER")		{ ss >> Weapon1::BULLET_NUMBER; }
+				else if (key == "BULLET_SPEED")			{ ss >> Weapon1::BULLET_SPEED; }
+				else if (key == "ATTACK_RADIUS")		{ ss >> Weapon1::ATTACK_RADIUS; }
+				else if (key == "COOL_TIME")			{ ss >> Weapon1::COOL_TIME; }
+				else if (key == "ENHANCE_BULLET_NUMBER"){ ss >> Weapon1::ENHANCE_BULLET_NUMBER; }
+				else if (key == "ENHANCE_COOL_TIME")	{ ss >> Weapon1::ENHANCE_COOL_TIME; }
 			}
 			else if (currentSection == "Weapon2")
 			{
-				if		(key == "BOMB_NUMBER")	{ ss >> Weapon2::BOMB_NUMBER; }
-				else if	(key == "ATTACK_RANGE")	{ ss >> Weapon2::ATTACK_RANGE; }
-				else if (key == "ATTACK_RADIUS"){ ss >> Weapon2::ATTACK_RADIUS; }
-				else if (key == "FALL_TIME")	{ ss >> Weapon2::FALL_TIME; }
-				else if (key == "AIM_SPEED")	{ ss >> Weapon2::AIM_SPEED; }
+				if		(key == "BOMB_NUMBER")			{ ss >> Weapon2::BOMB_NUMBER; }
+				else if (key == "FALL_TIME")			{ ss >> Weapon2::FALL_TIME; }
+				else if	(key == "ATTACK_RANGE")			{ ss >> Weapon2::ATTACK_RANGE; }
+				else if (key == "ATTACK_RADIUS")		{ ss >> Weapon2::ATTACK_RADIUS; }
+				else if (key == "AIM_SPEED")			{ ss >> Weapon2::AIM_SPEED; }
+				else if (key == "COOL_TIME")			{ ss >> Weapon2::COOL_TIME; }
+				else if (key == "ENHANCE_BOMB_NUMBER")	{ ss >> Weapon2::ENHANCE_BOMB_NUMBER; }
+				else if (key == "ENHANCE_ATTACK_RADIUS") { ss >> Weapon2::ENHANCE_ATTACK_RADIUS; }
 			}
 			else if (currentSection == "Weapon3")
 			{
-				if		(key == "SWORD_NUMBER")		{ ss >> Weapon3::SWORD_NUMBER; }
-				else if (key == "ATTACK_RADIUS")	{ ss >> Weapon3::ATTACK_RADIUS; }
-				else if (key == "MOVE_DISTANCE")	{ ss >> Weapon3::MOVE_DISTANCE; }
-				else if (key == "MOVE_TIME")		{ ss >> Weapon3::MOVE_TIME; }
+				if		(key == "SWORD_NUMBER")			{ ss >> Weapon3::SWORD_NUMBER; }
+				else if (key == "ATTACK_RADIUS")		{ ss >> Weapon3::ATTACK_RADIUS; }
+				else if (key == "MOVE_DISTANCE")		{ ss >> Weapon3::MOVE_DISTANCE; }
+				else if (key == "MOVE_TIME")			{ ss >> Weapon3::MOVE_TIME; }
+				else if (key == "COOL_TIME")			{ ss >> Weapon3::COOL_TIME; }
+				else if (key == "ENHANCE_SWORD_NUMBER") { ss >> Weapon3::ENHANCE_SWORD_NUMBER; }
+				else if (key == "ENHANCE_COOL_TIME")	{ ss >> Weapon3::ENHANCE_COOL_TIME; }
 			}
 			else if (currentSection == "Camera")
 			{

@@ -4,7 +4,6 @@
 Slash::Slash(Vector2 pos,float rad)
 	:Attack(Tag::ATTACK)
 {
-	position = pos;
 	radius = rad;
 
 	uint32_t mask = (uint32_t)Layer::ENEMY | (uint32_t)Layer::STAGE;

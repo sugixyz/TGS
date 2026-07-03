@@ -7,16 +7,28 @@ float Weapon2::ATTACK_RANGE;
 float Weapon2::ATTACK_RADIUS;
 float Weapon2::FALL_TIME;
 float Weapon2::AIM_SPEED;
+float Weapon2::COOL_TIME;
+int Weapon2::ENHANCE_BOMB_NUMBER;
+float Weapon2::ENHANCE_ATTACK_RADIUS;
 
 Weapon2::Weapon2()
 	:Weapon(Tag::ITEM)
 {
 	type = ItemType::WEAPON2;
 	life = BOMB_NUMBER;
+	coolTime = COOL_TIME;
+	attackRadius = ATTACK_RADIUS;
+	isEnhanced = false;
 }
 
 Weapon2::~Weapon2()
 {}
+
+void Weapon2::Update()
+{
+	coolTime -= Time::GetDeltaTime();
+	if (coolTime < 0.0f)coolTime = 0.0f;
+}
 
 void Weapon2::Draw()
 {
@@ -32,7 +44,7 @@ void Weapon2::Draw()
 		{
 			float x = attackPos.x;
 			float y = attackPos.y;
-			DrawCircle((int)x, (int)y, (int)ATTACK_RADIUS, COL_RED, TRUE);
+			DrawCircle((int)x, (int)y, (int)attackRadius, COL_RED, TRUE);
 		}
 	}
 
@@ -68,17 +80,25 @@ void Weapon2::Attack(Player * owner)
 	}
 	SetDir(owner->GetDir());
 
-	if (Input::IsPadDown(Pad::A, owner->GetId()))
+	if (Input::IsPadDown(Pad::A, owner->GetId()) ||
+		Input::IsKeepPadDown(Pad::A, owner->GetId()))
 	{
+		if (coolTime > 0.0f)return;
 		//爆弾を生成
-		new Bomb(position, attackPos, ATTACK_RADIUS, FALL_TIME);
+		new Bomb(position, attackPos, attackRadius, FALL_TIME);
 		life--;
 		if (life <= 0)
 		{
 			owner->BrokenHasWeapon();
 		}
+
+		coolTime = COOL_TIME;
 	}
 }
 
 void Weapon2::EnhanceWeapon()
-{}
+{
+	isEnhanced = true;
+	life = ENHANCE_BOMB_NUMBER;
+	attackRadius = ENHANCE_ATTACK_RADIUS;
+}

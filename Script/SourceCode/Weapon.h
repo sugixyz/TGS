@@ -29,5 +29,11 @@ protected:
 	//アタック中かどうか
 	bool isAttack = false;
 	//残りの使用可能回数
-	int life;
+	int life = 0;
+	//クールタイム
+	float coolTime = 0.0f;
+	//攻撃範囲
+	float attackRadius = 0.0f;
+	//強化済みかどうか
+	bool isEnhanced = false;
 };

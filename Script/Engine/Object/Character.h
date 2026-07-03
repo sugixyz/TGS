@@ -7,7 +7,7 @@ class Character : public GameObject
 {
 public:
 	Character(Tag tag)
-	:GameObject(tag)
+	:GameObject(tag),radius(0)
 	{}
 	virtual ~Character() {}
 	/// <summary>

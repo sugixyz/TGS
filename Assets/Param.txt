@@ -28,12 +28,20 @@ BULLET_NUMBER = 20
 BULLET_SPEED = 2000
 //攻撃の半径
 ATTACK_RADIUS = 5
+//クールタイム
+COOL_TIME = 0.3
+
+//強化後のパラメータ
+//武器の弾数
+ENHANCE_BULLET_NUMBER = 200
+//クールタイム
+ENHANCE_COOL_TIME = 0.1
 
 
 //武器２（爆弾）のパラメータ
 [Weapon2]
 //武器の使用可能回数
-BOMB_NUMBER = 2
+BOMB_NUMBER = 1
 //攻撃の範囲
 ATTACK_RANGE = 600
 //攻撃の半径
@@ -42,6 +50,14 @@ ATTACK_RADIUS = 80
 FALL_TIME = 2
 //エイムの速度
 AIM_SPEED = 400
+//クールタイム
+COOL_TIME = 1.0
+
+//強化後のパラメータ
+//武器の使用可能回数
+ENHANCE_BOMB_NUMBER = 5
+//攻撃の範囲
+ENHANCE_ATTACK_RADIUS = 120
 
 
 //武器３（剣）のパラメータ
@@ -51,9 +67,17 @@ SWORD_NUMBER = 5
 //攻撃の半径
 ATTACK_RADIUS = 150
 //攻撃時の移動距離
-MOVE_DISTANCE = 120
+MOVE_DISTANCE = 150
 //移動にかかる時間
 MOVE_TIME = 0.1
+//クールタイム
+COOL_TIME = 0.5
+
+//強化後のパラメータ
+//武器の使用可能回数
+ENHANCE_SWORD_NUMBER = 15
+//クールタイム
+ENHANCE_COOL_TIME = 0.1
 
 
 //カメラのパラメータ

@@ -6,6 +6,9 @@ int Weapon3::SWORD_NUMBER;
 float Weapon3::ATTACK_RADIUS;
 float Weapon3::MOVE_DISTANCE;
 float Weapon3::MOVE_TIME;
+float Weapon3::COOL_TIME;
+int Weapon3::ENHANCE_SWORD_NUMBER;
+float Weapon3::ENHANCE_COOL_TIME;
 
 Weapon3::Weapon3()
 	:Weapon(Tag::ITEM)
@@ -13,6 +16,9 @@ Weapon3::Weapon3()
 	type = ItemType::WEAPON3;
 	life = SWORD_NUMBER;
 	slash = nullptr;
+	coolTime = COOL_TIME;
+	attackRadius = ATTACK_RADIUS;
+	isEnhanced = false;
 }
 
 Weapon3::~Weapon3()
@@ -20,6 +26,9 @@ Weapon3::~Weapon3()
 
 void Weapon3::Update()
 {
+	coolTime -= Time::GetDeltaTime();
+	if (coolTime < 0.0f)coolTime = 0.0f;
+
 	if (not isAttack && slash != nullptr)
 	{
 		slash->DestroyMe();
@@ -46,26 +55,33 @@ void Weapon3::Draw()
 
 void Weapon3::Attack(Player * owner)
 {
-	if (not isAttack)slash = new Slash(owner->GetPos(), ATTACK_RADIUS);
+	if (not isAttack)slash = new Slash(owner->GetPos(), attackRadius);
 
 	//攻撃
-	if (Input::IsPadDown(Pad::A, owner->GetId()))
+	if (Input::IsPadDown(Pad::A, owner->GetId()) ||
+		Input::IsKeepPadDown(Pad::A, owner->GetId()))
 	{
-		if (slash->GetTarget())
+		if (coolTime <= 0.0f)
 		{
-			slash->GetTarget()->DestroyMe();
-
-			Vector2 move = Math2D::Normalize(slash->GetTarget()->GetPos() - owner->GetPos());
-			owner->SetDir(move);
-
-			move *= MOVE_DISTANCE;
-
-			//プレイヤーを攻撃に合わせて移動
-			owner->MoveAttack(move, MOVE_TIME);
-			life--;
-			if (life <= 0)
+			if (slash->GetTarget() != nullptr)
 			{
-				owner->BrokenHasWeapon();
+				slash->GetTarget()->DestroyMe();
+
+				Vector2 move = Math2D::Normalize(slash->GetTarget()->GetPos() - owner->GetPos());
+				owner->SetDir(move);
+
+				move *= MOVE_DISTANCE;
+
+				//プレイヤーを攻撃に合わせて移動
+				owner->MoveAttack(move, MOVE_TIME);
+				life--;
+				if (life <= 0)
+				{
+					owner->BrokenHasWeapon();
+				}
+
+				if (isEnhanced)coolTime = ENHANCE_COOL_TIME;
+				else coolTime = COOL_TIME;
 			}
 		}
 	}
@@ -75,4 +91,7 @@ void Weapon3::Attack(Player * owner)
 }
 
 void Weapon3::EnhanceWeapon()
-{}
+{
+	isEnhanced = true;
+	life = ENHANCE_SWORD_NUMBER;
+}

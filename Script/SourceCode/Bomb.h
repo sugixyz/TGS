@@ -9,10 +9,8 @@ public:
 	~Bomb();
 	void Update() override;
 	void Draw() override;
-	//void OnCollision(Layer myLeyer, GameObject* other, Layer otherLayer) override;
+	void OnCollision(Layer myLeyer, GameObject* other, Layer otherLayer) override;
 	void Move() override;
-	void IEDestroy();
 private:
 	Lerp<Vector2> moveLerp;
-	Coroutine coroutine;
 };

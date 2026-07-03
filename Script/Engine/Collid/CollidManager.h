@@ -27,6 +27,14 @@ namespace CollidManager
 	bool CollisionCheckRequest(GameObject* obj, const Collider& col, Tag tag);
 
 	/// <summary>
+	/// 指定したタグのオブジェクトとの当たり判定を要求する関数
+	/// </summary>
+	/// <param name="obj">自分のインスタンス</param>
+	/// <param name="col">自分のコライダー</param>
+	/// <param name="tag">判定したい対象のタグ</param>
+	void CollisionRequest(GameObject* obj, const Collider& col, Tag tag);
+
+	/// <summary>
 	/// 接触可能かどうか
 	/// </summary>
 	/// <param name="colA">判定するコライダーA</param>

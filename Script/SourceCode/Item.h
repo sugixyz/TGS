@@ -3,6 +3,7 @@
 
 enum ItemType : uint32_t
 {
+	NONE = 0,
 	MATERIAL1 = 1 << 0,
 	MATERIAL2 = 1 << 1,
 	MATERIAL_ENEMY = 1 << 2,
@@ -27,5 +28,5 @@ public:
 	/// <returns>アイテムのタイプを返す</returns>
 	ItemType GetItemType() { return type; }
 protected:
-	ItemType type;
+	ItemType type = NONE;
 };

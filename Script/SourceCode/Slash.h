@@ -16,11 +16,9 @@ public:
 	GameObject* GetTarget() { return target; }
 private:
 	//ターゲットのポインタ
-	GameObject* target;
+	GameObject* target = nullptr;
 	//消えるまでのタイマー
 	Timer dethTimer;
-	//消えるまでの時間
-	float time;
 private:
 	//ターゲットとの間にステージがあるかどうか
 	bool CheckDuringStage(GameObject* enemy);
