@@ -17,6 +17,8 @@ AiDirector::AiDirector()
 	new Normal(Vector2(WIN_WIDTH / 2, WIN_HEIGHT / 4));
 	new Normal(Vector2(WIN_WIDTH / 2 - 50, WIN_HEIGHT / 4 - 50));
 	new Normal(Vector2(WIN_WIDTH / 2, WIN_HEIGHT / 4 + 100));
+	new Normal(Vector2(WIN_WIDTH / 2 + 50, WIN_HEIGHT / 4 - 100));
+
 	CreateStageObject();
 	CreateBase();
 }

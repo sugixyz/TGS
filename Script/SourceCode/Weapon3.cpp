@@ -3,11 +3,13 @@
 #include"Slash.h"
 
 int Weapon3::SWORD_NUMBER;
+int Weapon3::CONTINUOUS_NUMBER;
 float Weapon3::ATTACK_RADIUS;
 float Weapon3::MOVE_DISTANCE;
 float Weapon3::MOVE_TIME;
 float Weapon3::COOL_TIME;
 int Weapon3::ENHANCE_SWORD_NUMBER;
+int Weapon3::ENHANCE_CONTINUOUS_NUMBER;
 float Weapon3::ENHANCE_COOL_TIME;
 
 Weapon3::Weapon3()
@@ -16,6 +18,8 @@ Weapon3::Weapon3()
 	type = ItemType::WEAPON3;
 	life = SWORD_NUMBER;
 	slash = nullptr;
+	continuousNumber = CONTINUOUS_NUMBER;
+	attackCount = 0;
 	coolTime = COOL_TIME;
 	attackRadius = ATTACK_RADIUS;
 	isEnhanced = false;
@@ -66,6 +70,7 @@ void Weapon3::Attack(Player * owner)
 			if (slash->GetTarget() != nullptr)
 			{
 				slash->GetTarget()->DestroyMe();
+				attackCount++;
 
 				Vector2 move = Math2D::Normalize(slash->GetTarget()->GetPos() - owner->GetPos());
 				owner->SetDir(move);
@@ -80,8 +85,13 @@ void Weapon3::Attack(Player * owner)
 					owner->BrokenHasWeapon();
 				}
 
-				if (isEnhanced)coolTime = ENHANCE_COOL_TIME;
-				else coolTime = COOL_TIME;
+				if (attackCount >= continuousNumber)
+				{
+					if (isEnhanced)coolTime = ENHANCE_COOL_TIME;
+					else coolTime = COOL_TIME;
+
+					attackCount = 0;
+				}
 			}
 		}
 	}
@@ -94,4 +104,5 @@ void Weapon3::EnhanceWeapon()
 {
 	isEnhanced = true;
 	life = ENHANCE_SWORD_NUMBER;
+	continuousNumber = ENHANCE_CONTINUOUS_NUMBER;
 }

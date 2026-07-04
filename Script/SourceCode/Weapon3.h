@@ -14,12 +14,16 @@ public:
 	void EnhanceWeapon() override;
 private:
 	Slash* slash;
+	int continuousNumber = 0;
+	int attackCount = 0;
 public:
 	static int SWORD_NUMBER;
+	static int CONTINUOUS_NUMBER;
 	static float ATTACK_RADIUS;
 	static float MOVE_DISTANCE;
 	static float MOVE_TIME;
 	static float COOL_TIME;
 	static int ENHANCE_SWORD_NUMBER;
+	static int ENHANCE_CONTINUOUS_NUMBER;
 	static float ENHANCE_COOL_TIME;
 };

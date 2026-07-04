@@ -70,13 +70,15 @@ void Loader::AllClassParamLoad()
 			}
 			else if (currentSection == "Weapon3")
 			{
-				if		(key == "SWORD_NUMBER")			{ ss >> Weapon3::SWORD_NUMBER; }
-				else if (key == "ATTACK_RADIUS")		{ ss >> Weapon3::ATTACK_RADIUS; }
-				else if (key == "MOVE_DISTANCE")		{ ss >> Weapon3::MOVE_DISTANCE; }
-				else if (key == "MOVE_TIME")			{ ss >> Weapon3::MOVE_TIME; }
-				else if (key == "COOL_TIME")			{ ss >> Weapon3::COOL_TIME; }
-				else if (key == "ENHANCE_SWORD_NUMBER") { ss >> Weapon3::ENHANCE_SWORD_NUMBER; }
-				else if (key == "ENHANCE_COOL_TIME")	{ ss >> Weapon3::ENHANCE_COOL_TIME; }
+				if		(key == "SWORD_NUMBER")					{ ss >> Weapon3::SWORD_NUMBER; }
+				else if (key == "CONTINUOUS_NUMBER")			{ ss >> Weapon3::CONTINUOUS_NUMBER; }
+				else if (key == "ATTACK_RADIUS")				{ ss >> Weapon3::ATTACK_RADIUS; }
+				else if (key == "MOVE_DISTANCE")				{ ss >> Weapon3::MOVE_DISTANCE; }
+				else if (key == "MOVE_TIME")					{ ss >> Weapon3::MOVE_TIME; }
+				else if (key == "COOL_TIME")					{ ss >> Weapon3::COOL_TIME; }
+				else if (key == "ENHANCE_SWORD_NUMBER")			{ ss >> Weapon3::ENHANCE_SWORD_NUMBER; }
+				else if (key == "ENHANCE_CONTINUOUS_NUMBER")	{ ss >> Weapon3::ENHANCE_CONTINUOUS_NUMBER; }
+				else if (key == "ENHANCE_COOL_TIME")			{ ss >> Weapon3::ENHANCE_COOL_TIME; }
 			}
 			else if (currentSection == "Camera")
 			{

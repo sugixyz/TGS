@@ -64,6 +64,8 @@ ENHANCE_ATTACK_RADIUS = 120
 [Weapon3]
 //武器の使用可能回数
 SWORD_NUMBER = 5
+//連続攻撃回数
+CONTINUOUS_NUMBER = 1
 //攻撃の半径
 ATTACK_RADIUS = 150
 //攻撃時の移動距離
@@ -76,8 +78,10 @@ COOL_TIME = 0.5
 //強化後のパラメータ
 //武器の使用可能回数
 ENHANCE_SWORD_NUMBER = 15
+//連続攻撃回数
+ENHANCE_CONTINUOUS_NUMBER = 2
 //クールタイム
-ENHANCE_COOL_TIME = 0.1
+ENHANCE_COOL_TIME = 0.4
 
 
 //カメラのパラメータ
