@@ -1,6 +1,7 @@
 ﻿#include "Weapon3.h"
 #include"Player.h"
 #include"Slash.h"
+#include"../Engine/Collid/CollidManager.h"
 
 int Weapon3::SWORD_NUMBER;
 int Weapon3::CONTINUOUS_NUMBER;
@@ -17,12 +18,13 @@ Weapon3::Weapon3()
 {
 	type = ItemType::WEAPON3;
 	life = SWORD_NUMBER;
-	slash = nullptr;
 	continuousNumber = CONTINUOUS_NUMBER;
-	attackCount = 0;
 	coolTime = COOL_TIME;
 	attackRadius = ATTACK_RADIUS;
 	isEnhanced = false;
+	attackCount = 0;
+	
+	target = nullptr;
 }
 
 Weapon3::~Weapon3()
@@ -33,11 +35,7 @@ void Weapon3::Update()
 	coolTime -= Time::GetDeltaTime();
 	if (coolTime < 0.0f)coolTime = 0.0f;
 
-	if (not isAttack && slash != nullptr)
-	{
-		slash->DestroyMe();
-		slash = nullptr;
-	}
+	target = nullptr;
 }
 
 void Weapon3::Draw()
@@ -49,6 +47,11 @@ void Weapon3::Draw()
 		Vector2 p2 = Vector2(position.x + sizeHalf, position.y + sizeHalf);
 
 		DrawBoxAA(p1.x, p1.y, p2.x, p2.y, COL_BLUE, TRUE);
+
+		if (isAttack)
+		{
+			DrawCircle((int)position.x, (int)position.y, ATTACK_RADIUS, COL_RED, TRUE);
+		}
 	}
 
 	if (mode == NORMAL || mode == DOUBLE_MODE)
@@ -59,20 +62,17 @@ void Weapon3::Draw()
 
 void Weapon3::Attack(Player * owner)
 {
-	if (not isAttack)slash = new Slash(owner->GetPos(), attackRadius);
-
-	//攻撃
-	if (Input::IsPadDown(Pad::A, owner->GetId()) ||
-		Input::IsKeepPadDown(Pad::A, owner->GetId()))
+	SearchTarget();
+	if (target != nullptr && owner->IsEndMoveLerp())
 	{
-		if (coolTime <= 0.0f)
+		if (Input::IsPadDown(Pad::A, owner->GetId()) ||
+			Input::IsKeepPadDown(Pad::A, owner->GetId()))
 		{
-			if (slash->GetTarget() != nullptr)
+			if (coolTime <= 0.0f)
 			{
-				slash->GetTarget()->DestroyMe();
-				attackCount++;
+				new Slash(target->GetPos(), 1);
 
-				Vector2 move = Math2D::Normalize(slash->GetTarget()->GetPos() - owner->GetPos());
+				Vector2 move = Math2D::Normalize(target->GetPos() - owner->GetPos());
 				owner->SetDir(move);
 
 				move *= MOVE_DISTANCE;
@@ -85,6 +85,7 @@ void Weapon3::Attack(Player * owner)
 					owner->BrokenHasWeapon();
 				}
 
+				attackCount++;
 				if (attackCount >= continuousNumber)
 				{
 					if (isEnhanced)coolTime = ENHANCE_COOL_TIME;
@@ -97,7 +98,27 @@ void Weapon3::Attack(Player * owner)
 	}
 
 	owner->ItemMove();
-	slash->SetPos(owner->GetPos());
+}
+
+void Weapon3::OnCollision(Layer myLayer, GameObject* other, Layer otherLayer)
+{
+	if (other->GetTag() == Tag::ENEMY)
+	{
+		if (CheckDuringStage(other))return;
+
+		if (target == nullptr)
+		{
+			target = other;
+			return;
+		}
+
+		//今インタラクト中のギミックとの距離を計算
+		float iLenghtSq = Math2D::LengthSq(position - target->GetPos());
+		float gLenghtSq = Math2D::LengthSq(position - other->GetPos());
+
+		//距離が近いほうをインタラクトギミックとして保存
+		if (iLenghtSq > gLenghtSq)target = other;
+	}
 }
 
 void Weapon3::EnhanceWeapon()
@@ -105,4 +126,23 @@ void Weapon3::EnhanceWeapon()
 	isEnhanced = true;
 	life = ENHANCE_SWORD_NUMBER;
 	continuousNumber = ENHANCE_CONTINUOUS_NUMBER;
+}
+
+void Weapon3::SearchTarget()
+{
+	Collider col;
+	Vector2 start = Vector2();
+	Vector2 end = start;
+	uint32_t mask = (uint32_t)Layer::ENEMY;
+	col.SetCapsule(start, end, ATTACK_RADIUS, Layer::PLAYER_ATTACK, mask);
+	CollidManager::CollisionRequest(this, col, Tag::ENEMY);
+}
+
+bool Weapon3::CheckDuringStage(GameObject* enemy)
+{
+	Collider col;
+	Vector2 start = Vector2();
+	Vector2 end = start + (enemy->GetPos() - this->GetPos());
+	col.SetCapsule(start, end, 0, Layer::PLAYER_ATTACK, (uint32_t)Layer::STAGE);
+	return CollidManager::CollisionCheckRequest(this, col, Tag::STAGE);
 }

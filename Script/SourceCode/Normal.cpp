@@ -1,11 +1,12 @@
-#include "Normal.h"
+﻿#include "Normal.h"
 
 int Normal::MAX_HP;
 float Normal::SPEED;
 float Normal::RADIUS;
 float Normal::ATTACK_RADIUS;
 float Normal::SENSED_RANGE;
-float Normal::ATTACK_INTERVAL;
+float Normal::COOL_TIME;
+float Normal::DROP_RATE;
 
 Normal::Normal(Vector2 pos)
 	:Enemy(Tag::ENEMY)
@@ -13,12 +14,16 @@ Normal::Normal(Vector2 pos)
 	position = pos;
 	hp = MAX_HP;
 	radius = RADIUS;
-	radius = 25;
 
-	direction = Math2D::DOWN;
+	state = NORMAL;
+
+	Vector2 toDestination = DESTINATION - position;
+	toDestination = Math2D::Normalize(toDestination);
+	direction = toDestination;
+
 	hModel = MV1LoadModel("Assets/Enemy/Enemy.mv1");
 
-	uint32_t mask = (uint32_t)Layer::PLAYER_ATTACK | (uint32_t)Layer::PLAYER;
+	uint32_t mask = (uint32_t)Layer::STAGE | (uint32_t)Layer::PLAYER_ATTACK;
 	SetCenterCircle(Layer::ENEMY, mask);
 }
 
@@ -51,8 +56,23 @@ void Normal::Draw()
 
 void Normal::Move()
 {
+	if (state == ATTACK)return;
+	position += direction * SPEED * gDeltaTime;
 }
 
 void Normal::OnCollision(Layer myLayer, GameObject* other, Layer otherLayer)
 {
+	if (other->GetTag() == Tag::STAGE)
+	{
+		state = ATTACK;
+	}
+	else if (other->GetTag() == Tag::PLAYER)
+	{
+
+	}
+	else if (other->GetTag() == Tag::ATTACK)
+	{
+		hp--;
+		if (hp <= 0)DestroyMe();
+	}
 }

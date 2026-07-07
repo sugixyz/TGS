@@ -31,6 +31,8 @@ void CollidManager::Update()
 	Collision(attacks,stages);
 	//アタックと敵
 	Collision(attacks,enemys);
+	//ステージと敵
+	Collision(stages, enemys);
 }
 
 void CollidManager::Draw()

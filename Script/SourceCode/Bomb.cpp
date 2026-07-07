@@ -33,7 +33,6 @@ void Bomb::Draw()
 
 void Bomb::OnCollision(Layer myLeyer, GameObject* other, Layer otherLayer)
 {
-	if (other->GetTag() == Tag::ENEMY)other->DestroyMe();
 }
 
 void Bomb::Move()

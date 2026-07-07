@@ -11,11 +11,15 @@ public:
 	void Update() override;
 	void Draw() override;
 	void Attack(Player* owner) override;
+	void OnCollision(Layer myLayer, GameObject* other, Layer otherLayer);
 	void EnhanceWeapon() override;
 private:
-	Slash* slash;
+	GameObject* target = nullptr;
 	int continuousNumber = 0;
 	int attackCount = 0;
+private:
+	void SearchTarget();
+	bool CheckDuringStage(GameObject* enemy);
 public:
 	static int SWORD_NUMBER;
 	static int CONTINUOUS_NUMBER;

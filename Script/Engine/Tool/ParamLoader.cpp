@@ -1,5 +1,6 @@
 ﻿#include "ParamLoader.h"
 #include"../../SourceCode/Player.h"
+#include"../../SourceCode/Normal.h"
 #include"../../SourceCode/Gimmick.h"
 #include"../../SourceCode/Weapon1.h"
 #include"../../SourceCode/Weapon2.h"
@@ -43,6 +44,20 @@ void Loader::AllClassParamLoad()
 				else if (key == "SPAWN_POS_2")	{ ss >> Player::SPAWN_POS[1].x >> Player::SPAWN_POS[1].y; }
 				else if (key == "RADIUS")		{ ss >> Player::RADIUS; }
 				else if (key == "ITEM_OFFSET")	{ ss >> Player::ITEM_OFFSET; }
+			}
+			else if (currentSection == "Enemy")
+			{
+				if (key == "DESTINATION") { ss >> Enemy::DESTINATION.x >> Enemy::DESTINATION.y; }
+			}
+			else if (currentSection == "Normal")
+			{
+				if (key == "MAX_HP")				{ ss >> Normal::MAX_HP; }
+				else if (key == "SPEED")			{ ss >> Normal::SPEED; }
+				else if (key == "RADIUS")			{ ss >> Normal::RADIUS; }
+				else if (key == "ATTACK_RADIUS")	{ ss >> Normal::ATTACK_RADIUS; }
+				else if (key == "SENSED_RANGE")		{ ss >> Normal::SENSED_RANGE; }
+				else if (key == "COOL_TIME")		{ ss >> Normal::COOL_TIME; }
+				else if (key == "DROP_RATE")		{ ss >> Normal::DROP_RATE; }
 			}
 			else if (currentSection == "Gimmick")
 			{

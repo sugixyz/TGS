@@ -24,4 +24,6 @@ public:
 	}
 protected:
 	int hp;
+public:
+	inline static Vector2 DESTINATION;
 };

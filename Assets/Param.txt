@@ -14,6 +14,29 @@ RADIUS = 25
 ITEM_OFFSET = 20
 
 
+//敵全体の共通パラメータ
+[Enemy]
+//目的地
+DESTINATION = 960 810
+
+//通常敵のパラメータ
+[Normal]
+//最大HP
+MAX_HP = 2
+//移動速度
+SPEED = 100
+//半径
+RADIUS = 25
+//攻撃範囲
+ATTACK_RADIUS = 50
+//感知範囲
+SENSED_RANGE = 250
+//クールタイム
+COOL_TIME = 1.0
+//ドロップ率
+DROP_RATE = 5
+
+
 //ギミックのパラメータ
 [Gimmick]
 //インタラクト可能な範囲（半径）

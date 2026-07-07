@@ -32,6 +32,11 @@ public:
 	/// <param name="movePos">移動ベクトル</param>
 	/// <param name="sec">移動時間</param>
 	void MoveAttack(Vector2 move,float sec);
+	/// <summary>
+	/// 攻撃時の移動ラープが終了しているかどうか
+	/// </summary>
+	/// <returns>終了していればtrue</returns>
+	bool IsEndMoveLerp() { return not moveLerp.IsActive(); }
 private:
 	int hp;
 	//１Pか２Pか

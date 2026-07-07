@@ -39,8 +39,6 @@ void Bullet::OnCollision(Layer myLeyer, GameObject* other, Layer otherLayer)
 {
 	//何かに当たったら消える
 	DestroyMe();
-
-	if (other->GetTag() == Tag::ENEMY)other->DestroyMe();
 }
 
 void Bullet::Move()

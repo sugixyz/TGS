@@ -116,7 +116,7 @@ void Player::BrokenHasWeapon()
 
 void Player::MoveAttack(Vector2 move,float sec)
 {
-	moveLerp.Start(position, position + move, sec, [this](Vector2 pos) {SetPos(pos);});
+	moveLerp.Request(position, position + move, sec, [this](Vector2 pos) {SetPos(pos);});
 }
 
 void Player::CollisionWall(GameObject* wall)
@@ -159,7 +159,6 @@ void Player::CollisionWall(GameObject* wall)
 		}
 	}
 
-	moveLerp.Reset();
 }
 
 void Player::CollisionGimmick(GameObject* other)
