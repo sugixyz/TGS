@@ -1,6 +1,7 @@
 ﻿#include "SceneManager.h"
 #include "SceneFactory.h"
 #include"../Tool/Event.h"
+#include"../Tool/ParamLoader.h"
 
 /// <summary>
 /// シーンの切り替えを管理するクラス
@@ -28,6 +29,8 @@ void SceneManager::Initialize()
 	// 最初に動くシーンを、SceneFactoryに作ってもらう
 	m_currentScene = m_factory->Create(SCENE_NAME::BOOT);
 	m_exitRequest = false;
+
+	Loader::AllClassParamLoad();
 }
 
 void SceneManager::Update()
@@ -40,6 +43,7 @@ void SceneManager::Update()
 			m_currentScene = nullptr;
 			ObjectManager::DeleteAllGameObject();
 			Event::Instance().ClearAll();
+			Loader::AllClassParamLoad();
 		}
 		m_currentScene = m_factory->Create((SCENE_NAME)*m_nextName); // 次のシーンを作成
 		*m_currentName = *m_nextName;

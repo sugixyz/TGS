@@ -28,7 +28,6 @@ void ObjectManager::Initialize()
 		list.clear();
 	}
 	running = nullptr;
-	Loader::AllClassParamLoad();
 }
 
 void ObjectManager::Update()
@@ -144,8 +143,6 @@ void ObjectManager::DeleteAllGameObject()
 			}
 		}
 	}
-
-	Loader::AllClassParamLoad();
 }
 
 const std::vector<GameObject*>& ObjectManager::GetTagObject(Tag tag)

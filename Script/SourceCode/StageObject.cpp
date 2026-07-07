@@ -1,4 +1,5 @@
 ﻿#include "StageObject.h"
+#include"../Engine/Tool/Model.h"
 
 StageObject::StageObject(VECTOR pos, VECTOR rot, VECTOR sca, int id)
 	:GameObject(Tag::STAGE)
@@ -8,9 +9,9 @@ StageObject::StageObject(VECTOR pos, VECTOR rot, VECTOR sca, int id)
 	scale3 = sca;
 	objId = id;
 
-	char path[50];
-	sprintf_s(path, sizeof(path), "Assets/StageObject/StageObject%02d.mv1", id);
-	hModel = MV1LoadModel(path);
+	char file[30];
+	sprintf_s(file, sizeof(file), "StageObject%02d.mv1", id);
+	hModel = Model::Load(file);
 	assert(hModel > 0);
 }
 

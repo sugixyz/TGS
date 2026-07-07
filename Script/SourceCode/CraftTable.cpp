@@ -3,13 +3,14 @@
 #include"Weapon1.h"
 #include"Weapon2.h"
 #include"Weapon3.h"
+#include"../Engine/Tool/Model.h"
 
 CraftTable::CraftTable(Vector2 pos)
 	:Gimmick(Tag::GIMMICK)
 {
 	position = pos;
-	char path[50] = "Assets/StageObject/CraftTable.mv1";
-	hModel = MV1LoadModel(path);
+	char file[20] = "CraftTable.mv1";
+	hModel = Model::Load(file);
 	assert(hModel > 0);
 
 	uint32_t mask = (uint32_t)Layer::PLAYER;

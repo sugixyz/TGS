@@ -1,5 +1,5 @@
 ﻿#include "Player.h"
-#include"../Engine/Tool/ParamLoader.h"
+#include"../Engine/Tool/Model.h"
 #include"Weapon.h"
 #include"Gimmick.h"
 
@@ -18,9 +18,9 @@ Player::Player(int index)
 	radius = RADIUS;
 	direction = Math2D::UP;
 
-	char path[50];
-	sprintf_s(path, sizeof(path), "Assets/Player/Player%02d.mv1", id + 1);
-	hModel = MV1LoadModel(path);
+	char file[20];
+	sprintf_s(file, sizeof(file), "Player%02d.mv1", id + 1);
+	hModel = Model::Load(file);
 	assert(hModel > 0);
 
 	//自分自身のコライダー

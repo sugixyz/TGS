@@ -5,6 +5,7 @@
 #include"Engine/Object/ObjectManager.h"
 #include"Engine/Scene/SceneManager.h"
 #include"Engine/Collid/CollidManager.h"
+#include"Engine/Tool/Model.h"
 
 /// <summary>
 /// main関数
@@ -61,6 +62,7 @@ void Initialize()
 {
 	ObjectManager::Initialize();
 	SceneManager::Initialize();
+	Model::Initialize();
 }
 
 void Update()
@@ -81,7 +83,9 @@ void Draw()
 
 void Release()
 {
-
+	ObjectManager::Release();
+	SceneManager::Release();
+	Model::Release();
 }
 
 int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _In_ LPSTR lpCmdLine, _In_ int nCmdShow)

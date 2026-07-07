@@ -1,5 +1,6 @@
 ﻿#include "MaterialWarehouse.h"
 #include"Material.h"
+#include"../Engine/Tool/Model.h"
 
 MaterialWarehouse::MaterialWarehouse(Vector2 pos,int id)
 	:Gimmick(Tag::GIMMICK)
@@ -7,9 +8,9 @@ MaterialWarehouse::MaterialWarehouse(Vector2 pos,int id)
 	position = pos;
 	materialId = id;
 
-	char path[50];
-	sprintf_s(path, sizeof(path), "Assets/StageObject/Material%d.mv1", id);
-	hModel = MV1LoadModel(path);
+	char file[20];
+	sprintf_s(file, sizeof(file), "Material%d.mv1", id);
+	hModel = Model::Load(file);
 	assert(hModel > 0);
 
 	uint32_t mask = (uint32_t)Layer::PLAYER;

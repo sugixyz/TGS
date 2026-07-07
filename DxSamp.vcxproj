@@ -146,6 +146,7 @@
     <ClCompile Include="Script\Engine\Tool\CsvReader.cpp" />
     <ClCompile Include="Script\Engine\Tool\DataHolder.cpp" />
     <ClCompile Include="Script\Engine\Tool\Input.cpp" />
+    <ClCompile Include="Script\Engine\Tool\Model.cpp" />
     <ClCompile Include="Script\Engine\Tool\ParamLoader.cpp" />
     <ClCompile Include="Script\SourceCode\AiDirector.cpp" />
     <ClCompile Include="Script\SourceCode\Base.cpp" />
@@ -190,6 +191,7 @@
     <ClInclude Include="Script\Engine\Tool\Input.h" />
     <ClInclude Include="Script\Engine\Tool\Lerp.h" />
     <ClInclude Include="Script\Engine\Tool\Math2D.h" />
+    <ClInclude Include="Script\Engine\Tool\Model.h" />
     <ClInclude Include="Script\Engine\Tool\ParamLoader.h" />
     <ClInclude Include="Script\Engine\Tool\Time.h" />
     <ClInclude Include="Script\SourceCode\AiDirector.h" />
