@@ -10,23 +10,22 @@ namespace
 
 void Model::Initialize()
 {	
-	SetHandle("Player", "Player01.mv1");
-	SetHandle("Player", "Player02.mv1");
-	SetHandle("StageObject", "CraftTable.mv1");
-	SetHandle("StageObject", "Material1.mv1");
-	SetHandle("StageObject", "Material2.mv1");
-	SetHandle("StageObject", "Table.mv1");
-	SetHandle("StageObject", "StageObject01.mv1");
-	SetHandle("StageObject", "StageObject02.mv1");
-	SetHandle("Item", "bom.mv1");
-	SetHandle("Item", "bullet.mv1");
-	SetHandle("Item", "character.mv1");
-	SetHandle("Item", "gun.mv1");
-	SetHandle("Item", "gunpowder.mv1");
-	SetHandle("Item", "ingod.mv1");
-	SetHandle("Item", "sword.mv1");
-	SetHandle("Item", "toulbox.mv1");
-	SetHandle("Enemy", "Enemy.mv1");
+	SetHandle("Player01");
+	SetHandle("Player02");
+	SetHandle("CraftTable");
+	SetHandle("Material01");
+	SetHandle("Material02");
+	SetHandle("Table");
+	SetHandle("StageObject01");
+	SetHandle("StageObject02");
+	SetHandle("Bomb");
+	SetHandle("Bullet");
+	SetHandle("Gun");
+	SetHandle("GunPowder");
+	SetHandle("Ingod");
+	SetHandle("Sword");
+	SetHandle("ToolBox");
+	SetHandle("Enemy");
 
 }
 
@@ -44,12 +43,12 @@ int Model::Load(std::string fileKey)
 	return hModel;
 }
 
-void Model::SetHandle(std::string folder, std::string file)
+void Model::SetHandle(std::string file)
 {
-	char path[50];
+	std::string path;
 	int handle = -1;
-	sprintf_s(path, sizeof(path), "Assets/%s/%s", folder.c_str(), file.c_str());
-	handle = MV1LoadModel(path);
+	path = "Assets/Models/" + file + "/" + file + ".mv1";
+	handle = MV1LoadModel(path.c_str());
 	assert(handle > 0);
-	handles[file] = handle;
+	handles[file + ".mv1"] = handle;
 }

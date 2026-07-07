@@ -93,7 +93,7 @@ void AiDirector::CreateStageObject()
 void AiDirector::CreateBase()
 {
 	std::vector<std::vector<int>> map;
-	char path[50] = "Assets/StageObject/Base.csv";
+	char path[50] = "Assets/Base.csv";
 	CsvReader* csv = new CsvReader(path);
 	int lines = csv->GetLines(); //csvの行数
 	map.resize(lines);

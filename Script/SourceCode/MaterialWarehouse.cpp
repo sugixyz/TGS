@@ -9,7 +9,7 @@ MaterialWarehouse::MaterialWarehouse(Vector2 pos,int id)
 	materialId = id;
 
 	char file[20];
-	sprintf_s(file, sizeof(file), "Material%d.mv1", id);
+	sprintf_s(file, sizeof(file), "Material%02d.mv1", id);
 	hModel = Model::Load(file);
 	assert(hModel > 0);
 

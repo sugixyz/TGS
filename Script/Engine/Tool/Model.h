@@ -6,5 +6,5 @@ namespace Model
 	void Initialize();
 	void Release();
 	int Load(std::string fileKey);
-	void SetHandle(std::string folder, std::string file);
+	void SetHandle(std::string file);
 }
