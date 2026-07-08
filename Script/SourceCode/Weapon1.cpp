@@ -1,6 +1,7 @@
 ﻿#include "Weapon1.h"
 #include"Player.h"
 #include"Bullet.h"
+#include"../Engine/Collid/CollidManager.h"
 
 int Weapon1::BULLET_NUMBER;
 float Weapon1::BULLET_SPEED;
@@ -41,7 +42,7 @@ void Weapon1::Draw()
 		if (isAttack)
 		{
 			Vector2 start = position;
-			Vector2 end = start + direction * Math2D::Length(Vector2(WIN_WIDTH, WIN_HEIGHT));
+			Vector2 end = CalculateLineEnd();
 			DrawLineAA(start.x, start.y, end.x, end.y, COL_RED, attackRadius);
 		}
 	}
@@ -84,4 +85,35 @@ void Weapon1::EnhanceWeapon()
 {
 	isEnhanced = true;
 	life = ENHANCE_BULLET_NUMBER;
+}
+
+Vector2 Weapon1::CalculateLineEnd()
+{
+	float maxLength = 3000.0f;
+
+	float low = 0.0f;
+	float high = maxLength;
+	float finalLenght = maxLength;
+
+	for (int i = 0; i < 12; i++)
+	{
+		float mid = (low + high) / 2.0f;
+		Vector2 checkPos = position + direction * mid;
+
+		Collider col;
+		Vector2 start = Vector2();
+		Vector2 end = start + (checkPos - position);
+		col.SetCapsule(start, end, 0, Layer::PLAYER_ATTACK, (uint32_t)Layer::STAGE);
+		if (CollidManager::CollisionCheckRequest(this, col, Tag::STAGE))
+		{
+			high = mid;
+			finalLenght = mid;
+		}
+		else
+		{
+			low = mid;
+		}
+	}
+
+	return position + direction * finalLenght;
 }

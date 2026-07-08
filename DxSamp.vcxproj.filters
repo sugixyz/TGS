@@ -151,6 +151,9 @@
     <ClCompile Include="Script\SourceCode\Normal.cpp">
       <Filter>Enemy</Filter>
     </ClCompile>
+    <ClCompile Include="Script\Engine\Tool\Model.cpp">
+      <Filter>Engine\Tool</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Script\Engine\Tool\CsvReader.h">
@@ -296,6 +299,9 @@
     </ClInclude>
     <ClInclude Include="Script\SourceCode\Normal.h">
       <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\Engine\Tool\Model.h">
+      <Filter>Engine\Tool</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
