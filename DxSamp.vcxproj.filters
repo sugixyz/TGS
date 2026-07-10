@@ -154,6 +154,12 @@
     <ClCompile Include="Script\Engine\Tool\Model.cpp">
       <Filter>Engine\Tool</Filter>
     </ClCompile>
+    <ClCompile Include="Script\SourceCode\BowZombie.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Script\SourceCode\TitanZombie.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Script\Engine\Tool\CsvReader.h">
@@ -302,6 +308,12 @@
     </ClInclude>
     <ClInclude Include="Script\Engine\Tool\Model.h">
       <Filter>Engine\Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\SourceCode\BowZombie.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\SourceCode\TitanZombie.h">
+      <Filter>Enemy</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -19,7 +19,8 @@ ITEM_OFFSET = 20
 //目的地
 DESTINATION = 960 810
 
-//通常敵のパラメータ
+
+//通常ゾンビのパラメータ
 [NormalZombie]
 //最大HP
 MAX_HP = 2
@@ -35,6 +36,42 @@ SENSED_RANGE = 250
 COOL_TIME = 1.0
 //ドロップ率
 DROP_RATE = 5
+
+
+//弓ゾンビのパラメータ
+[BowZombie]
+//最大HP
+MAX_HP = 2
+//移動速度
+SPEED = 80
+//半径
+RADIUS = 25
+//攻撃範囲
+ATTACK_RADIUS = 25
+//感知範囲
+SENSED_RANGE = 500
+//クールタイム
+COOL_TIME = 2.0
+//ドロップ率
+DROP_RATE = 15
+
+
+//タイタンゾンビのパラメータ
+[TitanZombie]
+//最大HP
+MAX_HP = 15
+//移動速度
+SPEED = 60
+//半径
+RADIUS = 50
+//攻撃範囲
+ATTACK_RADIUS = 100
+//感知範囲
+SENSED_RANGE = 250
+//クールタイム
+COOL_TIME = 4.0
+//ドロップ率
+DROP_RATE = 50
 
 
 //ギミックのパラメータ

@@ -151,6 +151,7 @@
     <ClCompile Include="Script\SourceCode\AiDirector.cpp" />
     <ClCompile Include="Script\SourceCode\Base.cpp" />
     <ClCompile Include="Script\SourceCode\Bomb.cpp" />
+    <ClCompile Include="Script\SourceCode\BowZombie.cpp" />
     <ClCompile Include="Script\SourceCode\Bullet.cpp" />
     <ClCompile Include="Script\SourceCode\Camera.cpp" />
     <ClCompile Include="Script\SourceCode\CraftTable.cpp" />
@@ -163,6 +164,7 @@
     <ClCompile Include="Script\SourceCode\Slash.cpp" />
     <ClCompile Include="Script\SourceCode\StageObject.cpp" />
     <ClCompile Include="Script\SourceCode\Table.cpp" />
+    <ClCompile Include="Script\SourceCode\TitanZombie.cpp" />
     <ClCompile Include="Script\SourceCode\Ui.cpp" />
     <ClCompile Include="Script\SourceCode\Weapon1.cpp" />
     <ClCompile Include="Script\SourceCode\Weapon2.cpp" />
@@ -198,6 +200,7 @@
     <ClInclude Include="Script\SourceCode\Attack.h" />
     <ClInclude Include="Script\SourceCode\Base.h" />
     <ClInclude Include="Script\SourceCode\Bomb.h" />
+    <ClInclude Include="Script\SourceCode\BowZombie.h" />
     <ClInclude Include="Script\SourceCode\Bullet.h" />
     <ClInclude Include="Script\SourceCode\Camera.h" />
     <ClInclude Include="Script\SourceCode\CraftTable.h" />
@@ -214,6 +217,7 @@
     <ClInclude Include="Script\SourceCode\Slash.h" />
     <ClInclude Include="Script\SourceCode\StageObject.h" />
     <ClInclude Include="Script\SourceCode\Table.h" />
+    <ClInclude Include="Script\SourceCode\TitanZombie.h" />
     <ClInclude Include="Script\SourceCode\Ui.h" />
     <ClInclude Include="Script\SourceCode\Weapon.h" />
     <ClInclude Include="Script\SourceCode\Weapon1.h" />

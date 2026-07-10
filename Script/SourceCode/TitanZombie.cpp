@@ -1,14 +1,14 @@
-﻿#include "NormalZombie.h"
+#include "TitanZombie.h"
 
-int NormalZombie::MAX_HP;
-float NormalZombie::SPEED;
-float NormalZombie::RADIUS;
-float NormalZombie::ATTACK_RADIUS;
-float NormalZombie::SENSED_RANGE;
-float NormalZombie::COOL_TIME;
-float NormalZombie::DROP_RATE;
+int TitanZombie::MAX_HP;
+float TitanZombie::SPEED;
+float TitanZombie::RADIUS;
+float TitanZombie::ATTACK_RADIUS;
+float TitanZombie::SENSED_RANGE;
+float TitanZombie::COOL_TIME;
+float TitanZombie::DROP_RATE;
 
-NormalZombie::NormalZombie(Vector2 pos)
+TitanZombie::TitanZombie(Vector2 pos)
 	:Enemy(Tag::ENEMY)
 {
 	position = pos;
@@ -27,18 +27,18 @@ NormalZombie::NormalZombie(Vector2 pos)
 	SetCenterCircle(Layer::ENEMY, mask);
 }
 
-NormalZombie::~NormalZombie()
+TitanZombie::~TitanZombie()
 {
 	MV1DeleteModel(hModel);
 }
 
-void NormalZombie::Update()
+void TitanZombie::Update()
 {
 	Move();
 	Attack();
 }
 
-void NormalZombie::Draw()
+void TitanZombie::Draw()
 {
 	if (mode == DEBUG || mode == DOUBLE_MODE)
 	{
@@ -54,13 +54,13 @@ void NormalZombie::Draw()
 	}
 }
 
-void NormalZombie::Move()
+void TitanZombie::Move()
 {
 	if (state == ATTACK)return;
 	position += direction * SPEED * gDeltaTime;
 }
 
-void NormalZombie::OnCollision(Layer myLayer, GameObject* other, Layer otherLayer)
+void TitanZombie::OnCollision(Layer myLayer, GameObject* other, Layer otherLayer)
 {
 	if (other->GetTag() == Tag::STAGE)
 	{

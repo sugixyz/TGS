@@ -58,7 +58,7 @@ void Weapon1::Attack(Player* owner)
 	Vector2 stick = Input::GetStick(owner->GetId());
 	if (stick != Vector2(0, 0))
 	{
-		owner->SetDir(Math2D::NormalZombieize(stick));
+		owner->SetDir(Math2D::Normalize(stick));
 		owner->ItemMove();
 	}
 	SetDir(owner->GetDir());
