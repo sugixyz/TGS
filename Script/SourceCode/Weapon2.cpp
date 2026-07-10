@@ -67,9 +67,9 @@ void Weapon2::Attack(Player * owner)
 	if (stick != Vector2(0, 0))
 	{
 		//スティックの方向に攻撃位置を変化させる
-		attackPos += Math2D::Normalize(stick) * AIM_SPEED * gDeltaTime;
+		attackPos += Math2D::NormalZombieize(stick) * AIM_SPEED * gDeltaTime;
 		range = Math2D::Length(attackPos - position);
-		Vector2 dir = Math2D::Normalize(attackPos - position);
+		Vector2 dir = Math2D::NormalZombieize(attackPos - position);
 		if (range > ATTACK_RANGE)
 		{
 			range = ATTACK_RANGE;

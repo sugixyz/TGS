@@ -212,7 +212,7 @@ namespace Math2D
 	/// </summary>
 	/// <param name="v">ベクトル</param>
 	/// <returns>( v.x / len , v.y / len )</returns>
-	inline Vector2 Normalize(const Vector2& v)
+	inline Vector2 NormalZombieize(const Vector2& v)
 	{
 		float len = Length(v);
 		if (len < 0.000001f) return { 1.0f, 0.0f }; //エラー ごまかす

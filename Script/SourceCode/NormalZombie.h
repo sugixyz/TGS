@@ -1,11 +1,11 @@
 ﻿#pragma once
 #include"Enemy.h"
 
-class Normal : public Enemy
+class NormalZombie : public Enemy
 {
 public:
-	Normal(Vector2 pos);
-	~Normal();
+	NormalZombie(Vector2 pos);
+	~NormalZombie();
 	void Update() override;
 	void Draw() override;
 	void Move() override;

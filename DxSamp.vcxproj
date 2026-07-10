@@ -157,7 +157,7 @@
     <ClCompile Include="Script\SourceCode\DirectionalLight.cpp" />
     <ClCompile Include="Script\SourceCode\Material.cpp" />
     <ClCompile Include="Script\SourceCode\MaterialWarehouse.cpp" />
-    <ClCompile Include="Script\SourceCode\Normal.cpp" />
+    <ClCompile Include="Script\SourceCode\NormalZombie.cpp" />
     <ClCompile Include="Script\SourceCode\Player.cpp" />
     <ClCompile Include="Script\SourceCode\PointLight.cpp" />
     <ClCompile Include="Script\SourceCode\Slash.cpp" />
@@ -208,7 +208,7 @@
     <ClInclude Include="Script\SourceCode\Light.h" />
     <ClInclude Include="Script\SourceCode\Material.h" />
     <ClInclude Include="Script\SourceCode\MaterialWarehouse.h" />
-    <ClInclude Include="Script\SourceCode\Normal.h" />
+    <ClInclude Include="Script\SourceCode\NormalZombie.h" />
     <ClInclude Include="Script\SourceCode\Player.h" />
     <ClInclude Include="Script\SourceCode\PointLight.h" />
     <ClInclude Include="Script\SourceCode\Slash.h" />

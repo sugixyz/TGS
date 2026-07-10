@@ -71,7 +71,7 @@ void Player::Move()
 	if (stick != Vector2(0, 0))
 	{
 		//スティックの方向に速度分の移動ベクトルを設定
-		direction = Math2D::Normalize(stick);
+		direction = Math2D::NormalZombieize(stick);
 		if (Math2D::Length(stick) >= 0.5f)
 		{
 			velocity = direction * SPEED * gDeltaTime;

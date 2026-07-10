@@ -148,7 +148,7 @@
     <ClCompile Include="Script\SourceCode\PointLight.cpp">
       <Filter>Light</Filter>
     </ClCompile>
-    <ClCompile Include="Script\SourceCode\Normal.cpp">
+    <ClCompile Include="Script\SourceCode\NormalZombie.cpp">
       <Filter>Enemy</Filter>
     </ClCompile>
     <ClCompile Include="Script\Engine\Tool\Model.cpp">
@@ -297,7 +297,7 @@
     <ClInclude Include="Script\SourceCode\PointLight.h">
       <Filter>Light</Filter>
     </ClInclude>
-    <ClInclude Include="Script\SourceCode\Normal.h">
+    <ClInclude Include="Script\SourceCode\NormalZombie.h">
       <Filter>Enemy</Filter>
     </ClInclude>
     <ClInclude Include="Script\Engine\Tool\Model.h">

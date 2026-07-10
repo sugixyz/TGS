@@ -1,14 +1,14 @@
-﻿#include "Normal.h"
+﻿#include "NormalZombie.h"
 
-int Normal::MAX_HP;
-float Normal::SPEED;
-float Normal::RADIUS;
-float Normal::ATTACK_RADIUS;
-float Normal::SENSED_RANGE;
-float Normal::COOL_TIME;
-float Normal::DROP_RATE;
+int NormalZombie::MAX_HP;
+float NormalZombie::SPEED;
+float NormalZombie::RADIUS;
+float NormalZombie::ATTACK_RADIUS;
+float NormalZombie::SENSED_RANGE;
+float NormalZombie::COOL_TIME;
+float NormalZombie::DROP_RATE;
 
-Normal::Normal(Vector2 pos)
+NormalZombie::NormalZombie(Vector2 pos)
 	:Enemy(Tag::ENEMY)
 {
 	position = pos;
@@ -18,7 +18,7 @@ Normal::Normal(Vector2 pos)
 	state = NORMAL;
 
 	Vector2 toDestination = DESTINATION - position;
-	toDestination = Math2D::Normalize(toDestination);
+	toDestination = Math2D::NormalZombieize(toDestination);
 	direction = toDestination;
 
 	hModel = MV1LoadModel("Assets/Enemy/Enemy.mv1");
@@ -27,18 +27,18 @@ Normal::Normal(Vector2 pos)
 	SetCenterCircle(Layer::ENEMY, mask);
 }
 
-Normal::~Normal()
+NormalZombie::~NormalZombie()
 {
 	MV1DeleteModel(hModel);
 }
 
-void Normal::Update()
+void NormalZombie::Update()
 {
 	Move();
 	Attack();
 }
 
-void Normal::Draw()
+void NormalZombie::Draw()
 {
 	if (mode == DEBUG || mode == DOUBLE_MODE)
 	{
@@ -54,13 +54,13 @@ void Normal::Draw()
 	}
 }
 
-void Normal::Move()
+void NormalZombie::Move()
 {
 	if (state == ATTACK)return;
 	position += direction * SPEED * gDeltaTime;
 }
 
-void Normal::OnCollision(Layer myLayer, GameObject* other, Layer otherLayer)
+void NormalZombie::OnCollision(Layer myLayer, GameObject* other, Layer otherLayer)
 {
 	if (other->GetTag() == Tag::STAGE)
 	{

@@ -1,6 +1,6 @@
 ﻿#include "ParamLoader.h"
 #include"../../SourceCode/Player.h"
-#include"../../SourceCode/Normal.h"
+#include"../../SourceCode/NormalZombie.h"
 #include"../../SourceCode/Gimmick.h"
 #include"../../SourceCode/Weapon1.h"
 #include"../../SourceCode/Weapon2.h"
@@ -49,15 +49,15 @@ void Loader::AllClassParamLoad()
 			{
 				if (key == "DESTINATION") { ss >> Enemy::DESTINATION.x >> Enemy::DESTINATION.y; }
 			}
-			else if (currentSection == "Normal")
+			else if (currentSection == "NormalZombie")
 			{
-				if (key == "MAX_HP")				{ ss >> Normal::MAX_HP; }
-				else if (key == "SPEED")			{ ss >> Normal::SPEED; }
-				else if (key == "RADIUS")			{ ss >> Normal::RADIUS; }
-				else if (key == "ATTACK_RADIUS")	{ ss >> Normal::ATTACK_RADIUS; }
-				else if (key == "SENSED_RANGE")		{ ss >> Normal::SENSED_RANGE; }
-				else if (key == "COOL_TIME")		{ ss >> Normal::COOL_TIME; }
-				else if (key == "DROP_RATE")		{ ss >> Normal::DROP_RATE; }
+				if (key == "MAX_HP")				{ ss >> NormalZombie::MAX_HP; }
+				else if (key == "SPEED")			{ ss >> NormalZombie::SPEED; }
+				else if (key == "RADIUS")			{ ss >> NormalZombie::RADIUS; }
+				else if (key == "ATTACK_RADIUS")	{ ss >> NormalZombie::ATTACK_RADIUS; }
+				else if (key == "SENSED_RANGE")		{ ss >> NormalZombie::SENSED_RANGE; }
+				else if (key == "COOL_TIME")		{ ss >> NormalZombie::COOL_TIME; }
+				else if (key == "DROP_RATE")		{ ss >> NormalZombie::DROP_RATE; }
 			}
 			else if (currentSection == "Gimmick")
 			{

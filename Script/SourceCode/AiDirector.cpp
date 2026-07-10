@@ -1,6 +1,6 @@
 ﻿#include "AiDirector.h"
 #include"Player.h"
-#include"Normal.h"
+#include"NormalZombie.h"
 #include"StageObject.h"
 #include"Base.h"
 #include"MaterialWarehouse.h"
@@ -14,10 +14,10 @@ AiDirector::AiDirector()
 {
 	new Player(0);
 	new Player(1);
-	new Normal(Vector2(WIN_WIDTH / 2, WIN_HEIGHT / 4));
-	new Normal(Vector2(WIN_WIDTH / 2 - 50, WIN_HEIGHT / 4 - 50));
-	new Normal(Vector2(WIN_WIDTH / 2, WIN_HEIGHT / 4 + 100));
-	new Normal(Vector2(WIN_WIDTH / 2 + 50, WIN_HEIGHT / 4 - 100));
+	new NormalZombie(Vector2(WIN_WIDTH / 2, WIN_HEIGHT / 4));
+	new NormalZombie(Vector2(WIN_WIDTH / 2 - 50, WIN_HEIGHT / 4 - 50));
+	new NormalZombie(Vector2(WIN_WIDTH / 2, WIN_HEIGHT / 4 + 100));
+	new NormalZombie(Vector2(WIN_WIDTH / 2 + 50, WIN_HEIGHT / 4 - 100));
 
 	CreateStageObject();
 	CreateBase();

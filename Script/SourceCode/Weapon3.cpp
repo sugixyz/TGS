@@ -72,7 +72,7 @@ void Weapon3::Attack(Player * owner)
 			{
 				new Slash(target->GetPos(), 1);
 
-				Vector2 move = Math2D::Normalize(target->GetPos() - owner->GetPos());
+				Vector2 move = Math2D::NormalZombieize(target->GetPos() - owner->GetPos());
 				owner->SetDir(move);
 
 				move *= MOVE_DISTANCE;

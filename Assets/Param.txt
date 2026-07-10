@@ -20,7 +20,7 @@ ITEM_OFFSET = 20
 DESTINATION = 960 810
 
 //通常敵のパラメータ
-[Normal]
+[NormalZombie]
 //最大HP
 MAX_HP = 2
 //移動速度
