@@ -70,13 +70,6 @@ struct Timer
 	/// <returns>フレーム間隔を超えた瞬間にtrue</returns>
 	bool IsEvery(int interval = 1)
 	{
-		//int prevCount = counter--;
-
-		////前回の時間と今回の時間でintervalを跨いでいるか
-		//int currentCount = static_cast<int>(counter / interval);
-		//int prevCount = static_cast<int>(prevCount / interval);
-		//return currentCount > prevCount;
-
 		return (counter % interval == 0);
 	}
 	/// <summary>
@@ -103,6 +96,24 @@ struct Timer
 
 		//前回の時間と今回の時間でtimeを跨いでいるか
 		return (prevCount < frame) && (frame <= counter);
+	}
+	/// <summary>
+	///	指定した時間を超えているか
+	/// </summary>
+	/// <param name="sec">指定時間</param>
+	/// <returns>指定時間を超えていればtrue</returns>
+	bool isOverTime(float sec)
+	{
+		return sec <= timer;
+	}
+	/// <summary>
+	///	指定したフレームを超えているか
+	/// </summary>
+	/// <param name="sec">フレーム時</param>
+	/// <returns>フレーム時間を超えていればtrue</returns>
+	bool isOverTime(int frame)
+	{
+		return frame <= counter;
 	}
 	/// <summary>
 	/// タイマーを停止
