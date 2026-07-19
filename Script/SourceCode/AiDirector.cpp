@@ -8,7 +8,8 @@
 #include"MaterialWarehouse.h"
 #include"CraftTable.h"
 #include"Table.h"
-#include"../Engine/Tool/ParamLoader.h"
+#include<sstream>
+#include<fstream>
 #include"../Engine/Tool/CsvReader.h"
 
 AiDirector::AiDirector()
@@ -28,9 +29,9 @@ AiDirector::AiDirector()
 AiDirector::~AiDirector()
 {}
 
-void AiDirector::LoadParam()
+void AiDirector::Update()
 {
-
+	WaveProcess();
 }
 
 void AiDirector::CreateStageObject()
@@ -123,3 +124,9 @@ void AiDirector::CreateBase()
 		}
 	}
 }
+
+void AiDirector::WaveProcess()
+{}
+
+void AiDirector::CreateArmy()
+{}
