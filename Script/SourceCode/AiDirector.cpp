@@ -18,7 +18,7 @@ AiDirector::AiDirector()
 	new Player(0);
 	new Player(1);
 
-	waveTime.Reset();
+	waveTimer.Reset();
 	nextWaveTime = WAVE_INTERVAL;
 
 	CreateStageObject();
@@ -127,25 +127,38 @@ void AiDirector::CreateBase()
 
 void AiDirector::WaveProcess()
 {
-	waveTime.Update();
+	waveTimer.Update();
+
+	auto enemies = FindTagObjects(Tag::ENEMY);
+	int enemyCount = enemies.size();
 
 	//もし次のウェーブまでの時間を経過したら
-	if (waveTime.isOverTime(nextWaveTime))
+	if (waveTimer.isOverTime(nextWaveTime) && enemyCount == 0)
 	{
 		currentWave++;
 
 		remainingSpawnCount = WAVE_ENEMY_COUNT + (currentWave * ENEMY_INCREASE_RATE);
 
-		nextWaveTime = waveTime.timer + WAVE_INTERVAL;
+		nextWaveTime = waveTimer.timer + WAVE_INTERVAL;
 	}
+
+	if (enemyCount == 0)waveElapsedTime = spawnTimer.timer;
 }
 
 void AiDirector::SpawnLogic()
 {
-	if (remainingSpawnCount <= 0)return;
+	if (remainingSpawnCount <= 0)
+	{
+		return;
+		spawnTimer.Reset();
+	}
 
 	auto enemies = FindTagObjects(Tag::ENEMY);
-	if (enemies.size() >= MAX_ACTIVE_ENEMIES)return;
+	if (enemies.size() >= MAX_ACTIVE_ENEMIES)
+	{
+		return;
+		spawnTimer.Reset();
+	}
 
 	spawnTimer.Update();
 

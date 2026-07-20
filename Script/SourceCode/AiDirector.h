@@ -22,14 +22,21 @@ public:
 	~AiDirector();
 	void Update() override;
 private:
-	Timer waveTime;
+	//ウェーブを管理するタイマー
+	Timer waveTimer;
+	//次のウェーブの開始時間
 	float nextWaveTime;
 
+	//現在何ウェーブ目か
 	int currentWave;
 	//あと何体出すか
 	int remainingSpawnCount;
+	//スポーン間隔を管理するタイマー
 	Timer spawnTimer;
+	//ウェーブの経過時間（殲滅までの時間）
+	float waveElapsedTime;
 
+	//敵それぞれの出現確立を管理する
 	Probability probability;
 private:
 	//ステージオブジェクトを作成
