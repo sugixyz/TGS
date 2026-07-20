@@ -17,10 +17,14 @@ public:
 	/// </summary>
 	virtual void CheckOutRange()
 	{
-		if (position.x <= -radius * 2)DestroyMe();
-		else if (position.x >= WIN_WIDTH + radius * 2)DestroyMe();
-		else if (position.y <= -radius * 2)DestroyMe();
-		else if (position.y >= WIN_HEIGHT + radius * 2)DestroyMe();
+		//if (position.x <= -radius * 2)DestroyMe();
+		//else if (position.x >= WIN_WIDTH + radius * 2)DestroyMe();
+		//else if (position.y <= -radius * 2)DestroyMe();
+		//else if (position.y >= WIN_HEIGHT + radius * 2)DestroyMe();
+
+		Vector2 sub = DESTINATION - position;
+		float lenghtSq = Math2D::LengthSq(sub);
+		if (lenghtSq >= 4000)DestroyMe();
 	}
 protected:
 	int hp;

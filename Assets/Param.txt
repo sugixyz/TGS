@@ -17,13 +17,13 @@ ITEM_OFFSET = 20
 //敵全体の共通パラメータ
 [Enemy]
 //目的地
-DESTINATION = 960 810
+DESTINATION = 1280 1440
 
 
 //通常ゾンビのパラメータ
 [NormalZombie]
 //最大HP
-MAX_HP = 2
+MAX_HP = 1
 //移動速度
 SPEED = 100
 //半径

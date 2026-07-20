@@ -17,10 +17,17 @@ AiDirector::AiDirector()
 {
 	new Player(0);
 	new Player(1);
-	new NormalZombie(Vector2(WIN_WIDTH / 2, WIN_HEIGHT / 4));
-	new BowZombie(Vector2(WIN_WIDTH / 2 - 50, WIN_HEIGHT / 4 - 50));
-	new TitanZombie(Vector2(WIN_WIDTH / 2, WIN_HEIGHT / 4 + 100));
-	new NormalZombie(Vector2(WIN_WIDTH / 2 + 50, WIN_HEIGHT / 4 - 100));
+	//new NormalZombie(Vector2(WIN_WIDTH / 2, WIN_HEIGHT / 4));
+	//new BowZombie(Vector2(WIN_WIDTH / 2 - 50, WIN_HEIGHT / 4 - 50));
+	//new TitanZombie(Vector2(WIN_WIDTH / 2, WIN_HEIGHT / 4 + 100));
+	//new NormalZombie(Vector2(WIN_WIDTH / 2 + 50, WIN_HEIGHT / 4 - 100));
+	
+	waveTime.Reset();
+	nextWave = waveTime.timer + WAVE_INTERVAL;
+	currentCount = 0;
+	nextCount = WAVE_ENEMY_COUNT;
+	waveCoroutine.Reset();
+	armyCoroutine.Reset();
 
 	CreateStageObject();
 	CreateBase();
@@ -126,7 +133,63 @@ void AiDirector::CreateBase()
 }
 
 void AiDirector::WaveProcess()
-{}
+{
+	waveTime.Update();
+	waveCoroutine.Update();
+	armyCoroutine.Update();
 
-void AiDirector::CreateArmy()
-{}
+	//もし次のウェーブまでの時間を経過したら
+	if (waveTime.isOverTime(nextWave))
+	{
+		currentCount = nextCount;
+		nextCount += WAVE_ENEMY_COUNT;
+		nextWave = waveTime.timer + WAVE_INTERVAL;
+		waveCoroutine.Request([this] {IEWave(currentCount); },ARMY_INTERVAL * ARMY_COUNT);
+	}
+}
+
+void AiDirector::IEWave(int enemyCount)
+{
+	if(waveCoroutine.timer.IsEvery(ARMY_INTERVAL) || waveCoroutine.IsEnd())
+	{
+		armyCoroutine.Request([this] {IEArmy(); }, 1.0f);
+	}
+}
+
+void AiDirector::IEArmy()
+{
+	static float num = 0.0f;
+	float createNumber = currentCount * Time::GetDeltaTime();
+	num += createNumber;
+	if (num >= 1.0f)
+	{
+		for (int i = 0; i < (int)num; i++)
+		{
+			CreateEnemy();
+		}
+		num = num - (int)num;
+	}
+
+	if (armyCoroutine.IsEnd())num = 0.0f;
+}
+
+void AiDirector::CreateEnemy()
+{
+	Vector2 pos = CalculateSpawnPoint();
+	new NormalZombie(pos);
+}
+
+Vector2 AiDirector::CalculateSpawnPoint()
+{
+	auto players = FindTagObjects(Tag::PLAYER);
+	Vector2 playerSub = players[1]->GetPos() - players[0]->GetPos();
+	Vector2 playerCenter = players[0]->GetPos() + (playerSub * 0.5f);
+	playerCenter.x = (playerCenter.x - (WIN_WIDTH / 2.0f)) * -1.0f + (WIN_WIDTH / 2.0f);
+	Vector2 vec = playerCenter - Enemy::DESTINATION;
+	vec = Math2D::Normalize(vec);
+	Vector2 pos = Enemy::DESTINATION + vec * 2500;
+	int randValue = GetRand(50) - 25;
+	pos.x += randValue;
+	pos.y += randValue;
+	return pos;
+}
