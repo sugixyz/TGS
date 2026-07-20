@@ -4,9 +4,9 @@
 
 struct Probability
 {
-	int normal;
-	int archer;
-	int titan;
+	int normal = 80;
+	int archer = 18;
+	int titan = 2;
 	int Rate(int target)
 	{
 		int sum = normal + archer + titan;
@@ -23,11 +23,13 @@ public:
 	void Update() override;
 private:
 	Timer waveTime;
-	float nextWave;
-	int currentCount;
-	int nextCount;
-	Coroutine waveCoroutine;
-	Coroutine armyCoroutine;
+	float nextWaveTime;
+
+	int currentWave;
+	//あと何体出すか
+	int remainingSpawnCount;
+	Timer spawnTimer;
+
 	Probability probability;
 private:
 	//ステージオブジェクトを作成
@@ -36,9 +38,8 @@ private:
 	void CreateBase();
 	//ウェーブの処理
 	void WaveProcess();
-	//一定時間ごとに軍隊を生成する関数
-	void IEWave(int enemyCount);
-	void IEArmy();
+	//スポーンのロジック関数
+	void SpawnLogic();
 	//敵の生成
 	void CreateEnemy();
 	//スポーンポイントを計算する関数
@@ -46,8 +47,10 @@ private:
 private:
 	int BASE_BLOCK;
 	int BASE_OFFSET_Y;
-	float WAVE_INTERVAL = 10.0f;
-	int WAVE_ENEMY_COUNT = 5;
-	float ARMY_INTERVAL = 1.5f;
-	int ARMY_COUNT = 3;
+
+	float WAVE_INTERVAL = 15.0f;
+	int WAVE_ENEMY_COUNT = 30;
+	int ENEMY_INCREASE_RATE = 5;
+	float SPAWN_INTERVAL = 0.5f;
+	int MAX_ACTIVE_ENEMIES = 50;
 };
