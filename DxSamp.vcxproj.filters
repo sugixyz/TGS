@@ -315,5 +315,11 @@
     <ClInclude Include="Script\SourceCode\TitanZombie.h">
       <Filter>Enemy</Filter>
     </ClInclude>
+    <ClInclude Include="Script\Engine\Tool\BehaviorTree.h">
+      <Filter>Engine\Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\Engine\Tool\Node.h">
+      <Filter>Engine\Tool</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

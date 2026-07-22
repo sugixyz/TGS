@@ -187,6 +187,7 @@
     <ClInclude Include="Script\Engine\Scene\SceneFactory.h" />
     <ClInclude Include="Script\Engine\Scene\SceneManager.h" />
     <ClInclude Include="Script\Engine\Scene\TitleScene.h" />
+    <ClInclude Include="Script\Engine\Tool\BehaviorTree.h" />
     <ClInclude Include="Script\Engine\Tool\CsvReader.h" />
     <ClInclude Include="Script\Engine\Tool\DataHolder.h" />
     <ClInclude Include="Script\Engine\Tool\Event.h" />
@@ -194,6 +195,7 @@
     <ClInclude Include="Script\Engine\Tool\Lerp.h" />
     <ClInclude Include="Script\Engine\Tool\Math2D.h" />
     <ClInclude Include="Script\Engine\Tool\Model.h" />
+    <ClInclude Include="Script\Engine\Tool\Node.h" />
     <ClInclude Include="Script\Engine\Tool\ParamLoader.h" />
     <ClInclude Include="Script\Engine\Tool\Time.h" />
     <ClInclude Include="Script\SourceCode\AiDirector.h" />
