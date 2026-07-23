@@ -1,30 +1,41 @@
-#pragma once
+﻿#pragma once
 #include"Node.h"
+#include<vector>
 
 class ActionNode : public Node
 {
+public:
 	ActionNode();
 	~ActionNode();
-	NodeResult Tick(const bool& context) override;
+	NodeResult Tick() override;
 };
 
 class ConditionNode : public Node
 {
+public:
 	ConditionNode();
 	~ConditionNode();
-	NodeResult Tick(const bool& context) override;
+	NodeResult Tick() override;
 };
 
 class Sequence : public Node
 {
+public:
 	Sequence();
 	~Sequence();
-	NodeResult Tick(const bool& context) override;
+	NodeResult Tick() override;
+	void AddChildren(Node* child);
+private:
+	std::vector<Node*> children;
 };
 
 class Selector : public Node
 {
+public:
 	Selector();
 	~Selector();
-	
+	NodeResult Tick() override;
+	void AddChildren(Node* child);
+private:
+	std::vector<Node*> children;
 };

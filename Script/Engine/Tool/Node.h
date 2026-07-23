@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 enum class NodeResult
 {
@@ -9,6 +9,7 @@ enum class NodeResult
 
 class Node
 {
+public:
 	virtual ~Node() = default;
-	virtual NodeResult Tick(const bool& context) = 0;
+	virtual NodeResult Tick() = 0;
 };

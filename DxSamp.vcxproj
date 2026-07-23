@@ -143,6 +143,7 @@
     <ClCompile Include="Script\Engine\Scene\SceneFactory.cpp" />
     <ClCompile Include="Script\Engine\Scene\SceneManager.cpp" />
     <ClCompile Include="Script\Engine\Scene\TitleScene.cpp" />
+    <ClCompile Include="Script\Engine\Tool\BehaviorTree.cpp" />
     <ClCompile Include="Script\Engine\Tool\CsvReader.cpp" />
     <ClCompile Include="Script\Engine\Tool\DataHolder.cpp" />
     <ClCompile Include="Script\Engine\Tool\Input.cpp" />
