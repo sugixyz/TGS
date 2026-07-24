@@ -1,18 +1,17 @@
 ﻿#pragma once
 #include "SceneBase.h"
 /// <summary>
-/// ゲームオーバー画面
+/// リザルト画面
 /// </summary>
-class GameOver :
-    public SceneBase
+class InputScene :
+	public SceneBase
 {
 public:
-	GameOver();
-	~GameOver();
+	InputScene();
+	~InputScene();
 	void Update() override;
 	void Draw() override;
 private:
 	//時間管理変数
 	int timer;
 };
-

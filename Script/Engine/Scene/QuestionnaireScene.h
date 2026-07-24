@@ -1,19 +1,17 @@
 ﻿#pragma once
 #include "SceneBase.h"
-
 /// <summary>
-/// クリア画面
+/// リザルト画面
 /// </summary>
-class ClearScene :
-    public SceneBase
+class QuestionnaireScene :
+	public SceneBase
 {
 public:
-	ClearScene();
-	~ClearScene();
+	QuestionnaireScene();
+	~QuestionnaireScene();
 	void Update() override;
 	void Draw() override;
 private:
 	//時間管理変数
 	int timer;
 };
-

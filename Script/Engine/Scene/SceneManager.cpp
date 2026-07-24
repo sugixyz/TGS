@@ -80,7 +80,7 @@ void SceneManager::Release()
 
 void SceneManager::ChangeScene(const SCENE_NAME& sceneName)
 {
-	*m_nextName = sceneName;
+	*m_nextName = static_cast<int>(sceneName);
 }
 
 SceneBase* SceneManager::CurrentScene()

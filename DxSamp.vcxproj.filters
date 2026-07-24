@@ -64,12 +64,6 @@
     <ClCompile Include="Script\Engine\Scene\BootScene.cpp">
       <Filter>Engine\Scene</Filter>
     </ClCompile>
-    <ClCompile Include="Script\Engine\Scene\ClearScene.cpp">
-      <Filter>Engine\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="Script\Engine\Scene\GameOver.cpp">
-      <Filter>Engine\Scene</Filter>
-    </ClCompile>
     <ClCompile Include="Script\Engine\Scene\PlayScene.cpp">
       <Filter>Engine\Scene</Filter>
     </ClCompile>
@@ -160,6 +154,9 @@
     <ClCompile Include="Script\SourceCode\TitanZombie.cpp">
       <Filter>Enemy</Filter>
     </ClCompile>
+    <ClCompile Include="Script\Engine\Tool\BehaviorTree.cpp" />
+    <ClCompile Include="Script\Engine\Scene\InputScene.cpp" />
+    <ClCompile Include="Script\Engine\Scene\QuestionnaireScene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Script\Engine\Tool\CsvReader.h">
@@ -178,12 +175,6 @@
       <Filter>Engine</Filter>
     </ClInclude>
     <ClInclude Include="Script\Engine\Scene\BootScene.h">
-      <Filter>Engine\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Script\Engine\Scene\ClearScene.h">
-      <Filter>Engine\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Script\Engine\Scene\GameOver.h">
       <Filter>Engine\Scene</Filter>
     </ClInclude>
     <ClInclude Include="Script\Engine\Scene\PlayScene.h">
@@ -320,6 +311,12 @@
     </ClInclude>
     <ClInclude Include="Script\Engine\Tool\Node.h">
       <Filter>Engine\Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\Engine\Scene\InputScene.h">
+      <Filter>Engine\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\Engine\Scene\QuestionnaireScene.h">
+      <Filter>Engine\Scene</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -7,14 +7,14 @@
 class SceneFactory;
 class SceneBase;
 
-enum SCENE_NAME
+enum class SCENE_NAME
 {
 	BOOT,
 	TITLE,
+	INPUT,
 	PLAY,
 	RESULT,
-	GAMEOVER,
-	CLEAR
+	QUESTIONNAIRE
 };
 
 namespace SceneManager

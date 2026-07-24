@@ -136,9 +136,9 @@
     <ClCompile Include="Script\Engine\Collid\CollidManager.cpp" />
     <ClCompile Include="Script\Engine\Object\ObjectManager.cpp" />
     <ClCompile Include="Script\Engine\Scene\BootScene.cpp" />
-    <ClCompile Include="Script\Engine\Scene\ClearScene.cpp" />
-    <ClCompile Include="Script\Engine\Scene\GameOver.cpp" />
+    <ClCompile Include="Script\Engine\Scene\InputScene.cpp" />
     <ClCompile Include="Script\Engine\Scene\PlayScene.cpp" />
+    <ClCompile Include="Script\Engine\Scene\QuestionnaireScene.cpp" />
     <ClCompile Include="Script\Engine\Scene\ResultScene.cpp" />
     <ClCompile Include="Script\Engine\Scene\SceneFactory.cpp" />
     <ClCompile Include="Script\Engine\Scene\SceneManager.cpp" />
@@ -180,9 +180,9 @@
     <ClInclude Include="Script\Engine\Object\GameObject.h" />
     <ClInclude Include="Script\Engine\Object\ObjectManager.h" />
     <ClInclude Include="Script\Engine\Scene\BootScene.h" />
-    <ClInclude Include="Script\Engine\Scene\ClearScene.h" />
-    <ClInclude Include="Script\Engine\Scene\GameOver.h" />
+    <ClInclude Include="Script\Engine\Scene\InputScene.h" />
     <ClInclude Include="Script\Engine\Scene\PlayScene.h" />
+    <ClInclude Include="Script\Engine\Scene\QuestionnaireScene.h" />
     <ClInclude Include="Script\Engine\Scene\ResultScene.h" />
     <ClInclude Include="Script\Engine\Scene\SceneBase.h" />
     <ClInclude Include="Script\Engine\Scene\SceneFactory.h" />
