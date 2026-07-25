@@ -154,9 +154,15 @@
     <ClCompile Include="Script\SourceCode\TitanZombie.cpp">
       <Filter>Enemy</Filter>
     </ClCompile>
-    <ClCompile Include="Script\Engine\Tool\BehaviorTree.cpp" />
-    <ClCompile Include="Script\Engine\Scene\InputScene.cpp" />
-    <ClCompile Include="Script\Engine\Scene\QuestionnaireScene.cpp" />
+    <ClCompile Include="Script\Engine\Scene\QuestionnaireScene.cpp">
+      <Filter>Engine\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Script\Engine\Scene\InputScene.cpp">
+      <Filter>Engine\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Script\Engine\Tool\BehaviorTree.cpp">
+      <Filter>Engine\Tool</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Script\Engine\Tool\CsvReader.h">

@@ -8,7 +8,6 @@ namespace {
 /// </summary>
 InputScene::InputScene()
 {
-	timer = 0;
 }
 
 InputScene::~InputScene()
@@ -16,18 +15,14 @@ InputScene::~InputScene()
 
 void InputScene::Update()
 {
-	timer++;
-	if (timer > RESULT_TIME || Input::IsKeyDown(INPUT_KEYBOARD))
+	if (Input::IsKeyDown(KEY_INPUT_N))
 	{
-		timer = 0;
-		SceneManager::ChangeScene(SCENE_NAME::TITLE);
+		SceneManager::ChangeScene(SCENE_NAME::PLAY);
 	}
 }
 
 void InputScene::Draw()
 {
-	int size = GetFontSize();
-	SetFontSize(80);
-	DrawString(100, 100, "Input", GetColor(255, 255, 255));
-	SetFontSize(size);
+	DrawString(100, 100, "InputScene", 0xffffff);
+	DrawString(100, 150, "Push [N]Key To Play", 0xffffff);
 }

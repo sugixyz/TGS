@@ -11,7 +11,4 @@ public:
 	~InputScene();
 	void Update() override;
 	void Draw() override;
-private:
-	//時間管理変数
-	int timer;
 };

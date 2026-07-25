@@ -182,8 +182,18 @@ void AiDirector::CreateEnemy()
 Vector2 AiDirector::CalculateSpawnPoint()
 {
 	auto players = FindTagObjects(Tag::PLAYER);
-	Vector2 playerSub = players[1]->GetPos() - players[0]->GetPos();
-	Vector2 playerCenter = players[0]->GetPos() + (playerSub * 0.5f);
+	int size = players.size();
+	if (size == 0)return Vector2();
+	Vector2 playerCenter;
+	if (size == 2)
+	{
+		Vector2 playerSub = players[1]->GetPos() - players[0]->GetPos();
+		playerCenter = players[0]->GetPos() + (playerSub * 0.5f);
+	}
+	else if(size == 1)
+	{
+		playerCenter = players[0]->GetPos();
+	}
 	playerCenter.x = (playerCenter.x - (WIN_WIDTH / 2.0f)) * -1.0f + (WIN_WIDTH / 2.0f);
 	Vector2 vec = playerCenter - Enemy::DESTINATION;
 	vec = Math2D::Normalize(vec);

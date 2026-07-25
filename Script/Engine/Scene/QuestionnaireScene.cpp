@@ -8,7 +8,6 @@ namespace {
 /// </summary>
 QuestionnaireScene::QuestionnaireScene()
 {
-	timer = 0;
 }
 
 QuestionnaireScene::~QuestionnaireScene()
@@ -16,18 +15,14 @@ QuestionnaireScene::~QuestionnaireScene()
 
 void QuestionnaireScene::Update()
 {
-	timer++;
-	if (timer > RESULT_TIME || Input::IsKeyDown(INPUT_KEYBOARD))
+	if (Input::IsKeyDown(KEY_INPUT_N))
 	{
-		timer = 0;
 		SceneManager::ChangeScene(SCENE_NAME::TITLE);
 	}
 }
 
 void QuestionnaireScene::Draw()
 {
-	int size = GetFontSize();
-	SetFontSize(80);
-	DrawString(100, 100, "Questionnaire", GetColor(255, 255, 255));
-	SetFontSize(size);
+	DrawString(100, 100, "QuestionnaireScene", 0xffffff);
+	DrawString(100, 150, "Push [N]Key To Title", 0xffffff);
 }

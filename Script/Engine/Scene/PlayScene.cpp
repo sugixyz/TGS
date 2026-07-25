@@ -28,7 +28,7 @@ void PlayScene::Update()
 
 	if (Input::IsKeyDown(KEY_INPUT_N))
 	{
-		SceneManager::ChangeScene(SCENE_NAME::TITLE);
+		SceneManager::ChangeScene(SCENE_NAME::RESULT);
 	}
 	if (Input::IsKeyDown(KEY_INPUT_RETURN))
 	{
@@ -43,8 +43,8 @@ void PlayScene::Update()
 
 void PlayScene::Draw()
 {
-	DrawString(100, 0, "PlayScene", 0xffffff);
-	DrawString(100, 20, "Push [N]Key To Title", 0xffffff);
+	DrawString(100, 100, "PlayScene", 0xffffff);
+	DrawString(100, 150, "Push [N]Key To Result", 0xffffff);
 }
 
 void PlayScene::ChangeMode()
