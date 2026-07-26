@@ -163,6 +163,7 @@
     <ClCompile Include="Script\Engine\Tool\BehaviorTree.cpp">
       <Filter>Engine\Tool</Filter>
     </ClCompile>
+    <ClCompile Include="Script\SourceCode\TestEnemy.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Script\Engine\Tool\CsvReader.h">
@@ -324,5 +325,12 @@
     <ClInclude Include="Script\Engine\Scene\QuestionnaireScene.h">
       <Filter>Engine\Scene</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="Script\SourceCode\TestEnemy.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="TGS.rc" />
   </ItemGroup>
 </Project>

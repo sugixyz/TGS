@@ -4,7 +4,13 @@ Sequence::Sequence()
 {}
 
 Sequence::~Sequence()
-{}
+{
+    for (auto child : children)
+    {
+        delete child;
+    }
+    children.clear();
+}
 
 NodeResult Sequence::Tick()
 {
@@ -27,7 +33,13 @@ Selector::Selector()
 {}
 
 Selector::~Selector()
-{}
+{
+    for (auto child : children)
+    {
+        delete child;
+    }
+    children.clear();
+}
 
 NodeResult Selector::Tick()
 {
@@ -35,8 +47,8 @@ NodeResult Selector::Tick()
     {
         NodeResult result = child->Tick();
 
-        if (result == NodeResult::SUCCESS)result;
-        if (result == NodeResult::RUNNING)result;
+        if (result == NodeResult::SUCCESS)return result;
+        if (result == NodeResult::RUNNING)return result;
     }
     return NodeResult::FAILURE;
 }

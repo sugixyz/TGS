@@ -3,6 +3,7 @@
 #include"NormalZombie.h"
 #include"BowZombie.h"
 #include"TitanZombie.h"
+#include"TestEnemy.h"
 #include"StageObject.h"
 #include"Base.h"
 #include"MaterialWarehouse.h"
@@ -18,6 +19,8 @@ AiDirector::AiDirector()
 	new Player(0);
 	new Player(1);
 
+	new TestEnemy({ WIN_WIDTH / 2.0f,WIN_HEIGHT / 2.0f });
+
 	waveTimer.Reset();
 	nextWaveTime = WAVE_INTERVAL;
 
@@ -30,8 +33,8 @@ AiDirector::~AiDirector()
 
 void AiDirector::Update()
 {
-	WaveProcess();
-	SpawnLogic();
+	//WaveProcess();
+	//SpawnLogic();
 }
 
 void AiDirector::CreateStageObject()
