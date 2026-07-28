@@ -1,4 +1,5 @@
 ﻿#include "TestEnemy.h"
+#include"../Engine/Collid/CollidManager.h"
 
 TestEnemy::TestEnemy(Vector2 pos)
     :Enemy(Tag::ENEMY)
@@ -56,6 +57,10 @@ void TestEnemy::Draw()
 NodeResult TestEnemy::AttackAction()
 {
     state = State::ATTACK;
+    Collider col;
+    Vector2 zero(0, 0);
+    col.SetCapsule(zero, zero, radius, Layer::ENEMY_ATTACK, (uint32_t)Layer::PLAYER);
+    CollidManager::CollisionRequest(this, col, Tag::PLAYER);
     return NodeResult::SUCCESS;
 }
 

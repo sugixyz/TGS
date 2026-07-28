@@ -47,6 +47,8 @@ private:
 	GameObject* interactionGimmick = nullptr;
 	//攻撃時移動のラープ
 	Lerp<Vector2> moveLerp;
+	//無敵時間
+	float invincibilityTime;
 private:
 	//壁と接触したときの処理
 	void CollisionWall(GameObject* other);
@@ -59,7 +61,9 @@ private:
 public:
 	static int MAX_HP;
 	static float SPEED;
-	static Vector2 SPAWN_POS[2];
+	static Vector2 SPAWN_POS;
+	static Vector2 SPAWN_OFFSET[2];
 	static float RADIUS;
 	static float ITEM_OFFSET;
+	static float INVINCIBILITY_TIME;
 };

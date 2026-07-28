@@ -5,18 +5,21 @@
 
 int Player::MAX_HP;
 float Player::SPEED;
-Vector2 Player::SPAWN_POS[2];
+Vector2 Player::SPAWN_POS;
+Vector2 Player::SPAWN_OFFSET[2];
 float Player::RADIUS;
 float Player::ITEM_OFFSET;
+float Player::INVINCIBILITY_TIME;
 
 Player::Player(int index)
 	:Character(Tag::PLAYER)
 {
 	id = index;
-	position = SPAWN_POS[id];
+	position = SPAWN_POS + SPAWN_OFFSET[id];
 	hp = MAX_HP;
 	radius = RADIUS;
 	direction = Math2D::UP;
+	invincibilityTime = 0.0f;
 
 	char file[20];
 	sprintf_s(file, sizeof(file), "Player%02d.mv1", id + 1);
@@ -39,6 +42,8 @@ Player::~Player()
 void Player::Update()
 {
 	moveLerp.Update();
+	invincibilityTime -= Time::GetDeltaTime();
+	if (invincibilityTime <= 0.0f)invincibilityTime = 0.0f;
 
 	if (Attack())return;
 	Move();
@@ -95,6 +100,19 @@ void Player::OnCollision(Layer myLeyer, GameObject* other, Layer otherLayer)
 	if (other->GetTag() == Tag::GIMMICK)
 	{
 		CollisionGimmick(other);
+	}
+	if (other->GetTag() == Tag::ENEMY)
+	{
+		if (invincibilityTime <= 0.0f)
+		{
+			hp -= 1;
+			invincibilityTime = INVINCIBILITY_TIME;
+		}
+		if (hp <= 0)
+		{
+			position = SPAWN_POS;
+			hp = MAX_HP;
+		}
 	}
 }
 
