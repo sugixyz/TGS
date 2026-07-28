@@ -97,7 +97,7 @@ COOL_TIME = 0.3
 
 //強化後のパラメータ
 //武器の弾数
-ENHANCE_BULLET_NUMBER = 200
+ENHANCE_BULLET_NUMBER = 40
 //クールタイム
 ENHANCE_COOL_TIME = 0.1
 
@@ -105,7 +105,7 @@ ENHANCE_COOL_TIME = 0.1
 //武器２（爆弾）のパラメータ
 [Weapon2]
 //武器の使用可能回数
-BOMB_NUMBER = 1
+BOMB_NUMBER = 3
 //攻撃の範囲
 ATTACK_RANGE = 600
 //攻撃の半径
@@ -119,7 +119,7 @@ COOL_TIME = 1.0
 
 //強化後のパラメータ
 //武器の使用可能回数
-ENHANCE_BOMB_NUMBER = 5
+ENHANCE_BOMB_NUMBER = 6
 //攻撃の範囲
 ENHANCE_ATTACK_RADIUS = 120
 
@@ -127,7 +127,7 @@ ENHANCE_ATTACK_RADIUS = 120
 //武器３（剣）のパラメータ
 [Weapon3]
 //武器の使用可能回数
-SWORD_NUMBER = 5
+SWORD_NUMBER = 20
 //連続攻撃回数
 CONTINUOUS_NUMBER = 1
 //攻撃の半径
@@ -135,17 +135,17 @@ ATTACK_RADIUS = 150
 //攻撃時の移動距離
 MOVE_DISTANCE = 150
 //移動にかかる時間
-MOVE_TIME = 0.1
+MOVE_TIME = 0.2
 //クールタイム
-COOL_TIME = 0.5
+COOL_TIME = 0.7
 
 //強化後のパラメータ
 //武器の使用可能回数
-ENHANCE_SWORD_NUMBER = 15
+ENHANCE_SWORD_NUMBER = 30
 //連続攻撃回数
 ENHANCE_CONTINUOUS_NUMBER = 2
 //クールタイム
-ENHANCE_COOL_TIME = 0.4
+ENHANCE_COOL_TIME = 0.3
 
 
 //カメラのパラメータ
