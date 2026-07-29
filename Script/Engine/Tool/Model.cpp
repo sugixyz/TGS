@@ -1,4 +1,4 @@
-#include "Model.h"
+﻿#include "Model.h"
 #include<map>
 #include<assert.h>
 #include"DxLib.h"
@@ -47,8 +47,8 @@ void Model::SetHandle(std::string file)
 {
 	std::string path;
 	int handle = -1;
-	path = "Assets/Models/" + file + "/" + file + ".mv1";
+	path = "Assets/Models/" + file + "/" + file + ".fbx";
 	handle = MV1LoadModel(path.c_str());
 	assert(handle > 0);
-	handles[file + ".mv1"] = handle;
+	handles[file + ".fbx"] = handle;
 }
