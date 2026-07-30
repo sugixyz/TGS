@@ -27,20 +27,46 @@ public:
 		float lenghtSq = Math2D::LengthSq(sub);
 		if (lenghtSq >= 4000)DestroyMe();
 	}
+
+	/// <summary>
+	/// モデル描画(共通処理)
+	/// </summary>
+	virtual void Draw() override
+	{
+		Convert2Dto3D();
+		DrawModel();
+	}
 	/// <summary>
 	/// ドロップ率計算
 	/// </summary>
-	virtual void DROP_RATE(Tag tag, Vector2 pos)
+	virtual void DropRate(Vector2 pos)
 	{
 		int rnd = GetRand(99);
 		if (rnd >= dropRate_) return;
 
-		Item* item = new Item(tag);
+		Item* item = new Item(Tag::ITEM);
 		item->SetItemType(MATERIAL_ENEMY);
 		item->SetPos(pos);
 	}
+	/// <summary>
+	/// 撃破時の共通処理(アイテムドロップ＋破棄)
+	/// </summary>
+	virtual void Die()
+	{
+		DropRate(position);
+		DestroyMe();
+	}
+	/// <summary>
+	/// 敵が追いかける目的地の設定(プレイヤー側から毎フレーム呼んでもらう)
+	/// </summary>
+	static void SetDestination(const Vector2& pos) { DESTINATION = pos; }
+	/// <summary>
+	/// 現在の目的地を取得(必要なら)
+	/// </summary>
+	static Vector2 GetDestination() { return DESTINATION; }
 protected:
 	int hp;
+	float speed_ = 100.0f;//移動速度
 	int dropRate_ = 30;//ドロップ率(%)
 public:
 	inline static Vector2 DESTINATION;
