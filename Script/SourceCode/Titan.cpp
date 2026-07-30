@@ -12,6 +12,10 @@ void Titan::Draw()
 {
 }
 
+void Titan::Move()
+{
+}
+
 void Titan::OnCollision(Layer myLeyer, GameObject* other, Layer otherLayer)
 {
 	if (other->GetTag() == Tag::STAGE)

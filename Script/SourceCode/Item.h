@@ -27,6 +27,9 @@ public:
 	/// </summary>
 	/// <returns>アイテムのタイプを返す</returns>
 	ItemType GetItemType() { return type; }
+
+	void SetItemType(ItemType t) { type = t; }
+	void SetPos(Vector2 pos) { position = pos; }
 protected:
 	ItemType type = NONE;
 };

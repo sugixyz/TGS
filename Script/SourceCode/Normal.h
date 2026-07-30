@@ -9,7 +9,7 @@ public:
 	void Initialize();
 	void Update() override;
 	void Draw() override;
-	//void Move() override;
+	void Move() override;
 	void OnCollision(Layer myLeyer, GameObject* other, Layer otherLayer) override;
 private:
 	int hp;

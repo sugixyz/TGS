@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include"../Engine/Object/Character.h"
+#include "Item.h"
 
 class Enemy : public Character
 {
@@ -26,8 +27,21 @@ public:
 		float lenghtSq = Math2D::LengthSq(sub);
 		if (lenghtSq >= 4000)DestroyMe();
 	}
+	/// <summary>
+	/// ドロップ率計算
+	/// </summary>
+	virtual void DROP_RATE(Tag tag, Vector2 pos)
+	{
+		int rnd = GetRand(99);
+		if (rnd >= dropRate_) return;
+
+		Item* item = new Item(tag);
+		item->SetItemType(MATERIAL_ENEMY);
+		item->SetPos(pos);
+	}
 protected:
 	int hp;
+	int dropRate_ = 30;//ドロップ率(%)
 public:
 	inline static Vector2 DESTINATION;
 };
