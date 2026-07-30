@@ -1,5 +1,9 @@
 #include "Normal.h"
 
+void Normal::Initialize()
+{
+}
+
 void Normal::Update()
 {
 }

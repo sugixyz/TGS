@@ -1,8 +1,5 @@
 ﻿#include "AiDirector.h"
 #include"Player.h"
-#include"NormalZombie.h"
-#include"BowZombie.h"
-#include"TitanZombie.h"
 #include"TestEnemy.h"
 #include"StageObject.h"
 #include"Base.h"
@@ -177,9 +174,9 @@ void AiDirector::CreateEnemy()
 	Vector2 pos = CalculateSpawnPoint();
 
 	int randVal = GetRand(100);
-	if (randVal < probability.normal)new NormalZombie(pos);
+	/*if (randVal < probability.normal)new NormalZombie(pos);
 	else if (randVal < probability.normal + probability.archer)new BowZombie(pos);
-	else new TitanZombie(pos);
+	else new TitanZombie(pos);*/
 }
 
 Vector2 AiDirector::CalculateSpawnPoint()

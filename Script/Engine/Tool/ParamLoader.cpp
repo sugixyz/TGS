@@ -1,8 +1,5 @@
 ﻿#include "ParamLoader.h"
 #include"../../SourceCode/Player.h"
-#include"../../SourceCode/NormalZombie.h"
-#include"../../SourceCode/BowZombie.h"
-#include"../../SourceCode/TitanZombie.h"
 #include"../../SourceCode/Gimmick.h"
 #include"../../SourceCode/Weapon1.h"
 #include"../../SourceCode/Weapon2.h"
@@ -51,37 +48,37 @@ void Loader::AllClassParamLoad()
 			}
 			else if (currentSection == "Enemy")
 			{
-				if (key == "DESTINATION") { ss >> Enemy::DESTINATION.x >> Enemy::DESTINATION.y; }
+				//if (key == "DESTINATION") { ss >> Enemy::DESTINATION.x >> Enemy::DESTINATION.y; }
 			}
 			else if (currentSection == "NormalZombie")
 			{
-				if (key == "MAX_HP")				{ ss >> NormalZombie::MAX_HP; }
+				/*if (key == "MAX_HP")				{ ss >> NormalZombie::MAX_HP; }
 				else if (key == "SPEED")			{ ss >> NormalZombie::SPEED; }
 				else if (key == "RADIUS")			{ ss >> NormalZombie::RADIUS; }
 				else if (key == "ATTACK_RADIUS")	{ ss >> NormalZombie::ATTACK_RADIUS; }
 				else if (key == "SENSED_RANGE")		{ ss >> NormalZombie::SENSED_RANGE; }
 				else if (key == "COOL_TIME")		{ ss >> NormalZombie::COOL_TIME; }
-				else if (key == "DROP_RATE")		{ ss >> NormalZombie::DROP_RATE; }
+				else if (key == "DROP_RATE")		{ ss >> NormalZombie::DROP_RATE; }*/
 			}
 			else if (currentSection == "BowZombie")
 			{
-				if (key == "MAX_HP") { ss >> BowZombie::MAX_HP; }
+				/*if (key == "MAX_HP") { ss >> BowZombie::MAX_HP; }
 				else if (key == "SPEED") { ss >> BowZombie::SPEED; }
 				else if (key == "RADIUS") { ss >> BowZombie::RADIUS; }
 				else if (key == "ATTACK_RADIUS") { ss >> BowZombie::ATTACK_RADIUS; }
 				else if (key == "SENSED_RANGE") { ss >> BowZombie::SENSED_RANGE; }
 				else if (key == "COOL_TIME") { ss >> BowZombie::COOL_TIME; }
-				else if (key == "DROP_RATE") { ss >> BowZombie::DROP_RATE; }
+				else if (key == "DROP_RATE") { ss >> BowZombie::DROP_RATE; }*/
 			}
 			else if (currentSection == "TitanZombie")
 			{
-				if (key == "MAX_HP") { ss >> TitanZombie::MAX_HP; }
+				/*if (key == "MAX_HP") { ss >> TitanZombie::MAX_HP; }
 				else if (key == "SPEED") { ss >> TitanZombie::SPEED; }
 				else if (key == "RADIUS") { ss >> TitanZombie::RADIUS; }
 				else if (key == "ATTACK_RADIUS") { ss >> TitanZombie::ATTACK_RADIUS; }
 				else if (key == "SENSED_RANGE") { ss >> TitanZombie::SENSED_RANGE; }
 				else if (key == "COOL_TIME") { ss >> TitanZombie::COOL_TIME; }
-				else if (key == "DROP_RATE") { ss >> TitanZombie::DROP_RATE; }
+				else if (key == "DROP_RATE") { ss >> TitanZombie::DROP_RATE; }*/
 			}
 			else if (currentSection == "Gimmick")
 			{

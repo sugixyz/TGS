@@ -1,11 +1,11 @@
 #pragma once
 #include "Enemy.h"
 
-class Normal : public Enemy
+class Archer : public Enemy
 {
 public:
-	Normal(Tag tag) : Enemy(tag), hp(-1), hModel_(-1) {}
-	~Normal() {}
+	Archer(Tag tag) : Enemy(tag), hp(-1), hModel_(-1) {}
+	~Archer() {}
 	void Initialize();
 	void Update() override;
 	void Draw() override;

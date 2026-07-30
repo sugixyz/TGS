@@ -158,6 +158,12 @@
     <ClCompile Include="Script\SourceCode\Normal.cpp">
       <Filter>Enemy</Filter>
     </ClCompile>
+    <ClCompile Include="Script\SourceCode\Archer.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Script\SourceCode\Titan.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Script\Engine\Tool\CsvReader.h">
@@ -315,6 +321,12 @@
       <Filter>Enemy</Filter>
     </ClInclude>
     <ClInclude Include="Script\SourceCode\Normal.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\SourceCode\Archer.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\SourceCode\Titan.h">
       <Filter>Enemy</Filter>
     </ClInclude>
   </ItemGroup>
