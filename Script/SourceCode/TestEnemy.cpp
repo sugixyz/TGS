@@ -1,5 +1,6 @@
 ﻿#include "TestEnemy.h"
 #include"../Engine/Collid/CollidManager.h"
+#include"../Engine/Tool/Model.h"
 
 TestEnemy::TestEnemy(Vector2 pos)
     :Enemy(Tag::ENEMY)
@@ -27,6 +28,11 @@ TestEnemy::TestEnemy(Vector2 pos)
     radius = 25;
     target = FindTagObject(Tag::PLAYER);
     state = State::PATROL;
+
+    //char file[20];
+    //sprintf_s(file, sizeof(file), "Enemy.fbx");
+    hModel = Model::Load("Enemy.mv1");
+    assert(hModel > 0);
 }
 
 TestEnemy::~TestEnemy()
@@ -50,6 +56,7 @@ void TestEnemy::Draw()
     if (mode == NORMAL || mode == DOUBLE_MODE)
     {
         Convert2Dto3D();
+        scale3 = { 0.01f,0.01f,0.01f };
         DrawModel();
     }
 }
