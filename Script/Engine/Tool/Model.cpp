@@ -49,21 +49,8 @@ void Model::SetHandle(std::string file)
 {
 	std::string path;
 	int handle = -1;
-	path = "Assets/Models/" + file + "/" + file + ".fbx";
-	handle = MV1LoadModel(path.c_str());
-	if (handle != -1)
-	{
-		handles[file + ".fbx"] = handle;
-		assert(handle > 0);
-		return;
-	}
-
 	path = "Assets/Models/" + file + "/" + file + ".mv1";
 	handle = MV1LoadModel(path.c_str());
-	if (handle != -1)
-	{
-		handles[file + ".mv1"] = handle;
-		assert(handle > 0);
-		return;
-	}
+	assert(handle > 0);
+	handles[file + ".mv1"] = handle;
 }
