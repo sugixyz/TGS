@@ -157,6 +157,7 @@
     <ClCompile Include="Script\SourceCode\Camera.cpp" />
     <ClCompile Include="Script\SourceCode\CraftTable.cpp" />
     <ClCompile Include="Script\SourceCode\DirectionalLight.cpp" />
+    <ClCompile Include="Script\SourceCode\Floor.cpp" />
     <ClCompile Include="Script\SourceCode\Material.cpp" />
     <ClCompile Include="Script\SourceCode\MaterialWarehouse.cpp" />
     <ClCompile Include="Script\SourceCode\Normal.cpp" />
@@ -168,6 +169,7 @@
     <ClCompile Include="Script\SourceCode\TestEnemy.cpp" />
     <ClCompile Include="Script\SourceCode\Titan.cpp" />
     <ClCompile Include="Script\SourceCode\Ui.cpp" />
+    <ClCompile Include="Script\SourceCode\Wall.cpp" />
     <ClCompile Include="Script\SourceCode\Weapon1.cpp" />
     <ClCompile Include="Script\SourceCode\Weapon2.cpp" />
     <ClCompile Include="Script\SourceCode\Weapon3.cpp" />
@@ -211,6 +213,7 @@
     <ClInclude Include="Script\SourceCode\CraftTable.h" />
     <ClInclude Include="Script\SourceCode\DirectionalLight.h" />
     <ClInclude Include="Script\SourceCode\Enemy.h" />
+    <ClInclude Include="Script\SourceCode\Floor.h" />
     <ClInclude Include="Script\SourceCode\Gimmick.h" />
     <ClInclude Include="Script\SourceCode\Item.h" />
     <ClInclude Include="Script\SourceCode\Light.h" />
@@ -225,6 +228,7 @@
     <ClInclude Include="Script\SourceCode\TestEnemy.h" />
     <ClInclude Include="Script\SourceCode\Titan.h" />
     <ClInclude Include="Script\SourceCode\Ui.h" />
+    <ClInclude Include="Script\SourceCode\Wall.h" />
     <ClInclude Include="Script\SourceCode\Weapon.h" />
     <ClInclude Include="Script\SourceCode\Weapon1.h" />
     <ClInclude Include="Script\SourceCode\Weapon2.h" />

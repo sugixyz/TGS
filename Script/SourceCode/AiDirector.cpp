@@ -3,6 +3,8 @@
 #include"TestEnemy.h"
 #include"StageObject.h"
 #include"Base.h"
+#include"Floor.h"
+#include"Wall.h"
 #include"MaterialWarehouse.h"
 #include"CraftTable.h"
 #include"Table.h"
@@ -109,18 +111,33 @@ void AiDirector::CreateBase()
 	}
 	delete csv;
 
+	int value;
 	for (int y = 0; y < map.size(); y++) {
 		for (int x = 0; x < map[y].size(); x++) {
 			Vector2 pos = Vector2((float)x, (float)y) * (float)BASE_BLOCK;
 			pos += Vector2(BASE_BLOCK / 2.0f, BASE_BLOCK / 2.0f);
 			pos.y += BASE_OFFSET_Y;
-			if (map[y][x] != -1)new Base(pos, BASE_BLOCK);
-			if (map[y][x] == 1 || map[y][x] == 2)
+			value = map[y][x];
+			if (value != -1)new Base(pos, BASE_BLOCK);
+			switch (value)
 			{
-				new MaterialWarehouse(pos, map[y][x]);
+			case -1:
+				new Floor(pos, BASE_BLOCK);
+				break;
+			case 0:
+				new Wall(pos, BASE_BLOCK);
+				break;
+			case 1:
+			case 2:
+				new MaterialWarehouse(pos, value);
+				break;
+			case 3:
+				new CraftTable(pos);
+				break;
+			case 4:
+				new Table(pos);
+				break;
 			}
-			else if (map[y][x] == 3)new CraftTable(pos);
-			else if (map[y][x] == 4)new Table(pos);
 		}
 	}
 }

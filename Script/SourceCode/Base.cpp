@@ -1,5 +1,4 @@
 ﻿#include "Base.h"
-#include"../Engine/Tool/ParamLoader.h"
 
 Base::Base(Vector2 pos, int blockSize)
 	:GameObject(Tag::STAGE)

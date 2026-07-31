@@ -26,6 +26,8 @@ void Model::Initialize()
 	SetHandle("Sword");
 	SetHandle("ToolBox");
 	SetHandle("Enemy");
+	SetHandle("Wall");
+	SetHandle("Floor");
 
 }
 

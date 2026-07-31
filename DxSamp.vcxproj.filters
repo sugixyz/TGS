@@ -154,7 +154,6 @@
     <ClCompile Include="Script\Engine\Tool\BehaviorTree.cpp">
       <Filter>Engine\Tool</Filter>
     </ClCompile>
-    <ClCompile Include="Script\SourceCode\TestEnemy.cpp" />
     <ClCompile Include="Script\SourceCode\Normal.cpp">
       <Filter>Enemy</Filter>
     </ClCompile>
@@ -164,6 +163,11 @@
     <ClCompile Include="Script\SourceCode\Titan.cpp">
       <Filter>Enemy</Filter>
     </ClCompile>
+    <ClCompile Include="Script\SourceCode\TestEnemy.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Script\SourceCode\Wall.cpp" />
+    <ClCompile Include="Script\SourceCode\Floor.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Script\Engine\Tool\CsvReader.h">
@@ -328,6 +332,12 @@
     </ClInclude>
     <ClInclude Include="Script\SourceCode\Titan.h">
       <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\SourceCode\Wall.h">
+      <Filter>StageObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\SourceCode\Floor.h">
+      <Filter>StageObject</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
