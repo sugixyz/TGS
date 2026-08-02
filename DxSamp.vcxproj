@@ -149,6 +149,7 @@
     <ClCompile Include="Script\Engine\Tool\Input.cpp" />
     <ClCompile Include="Script\Engine\Tool\Model.cpp" />
     <ClCompile Include="Script\Engine\Tool\ParamLoader.cpp" />
+    <ClCompile Include="Script\Engine\Tool\Sound.cpp" />
     <ClCompile Include="Script\SourceCode\AiDirector.cpp" />
     <ClCompile Include="Script\SourceCode\Archer.cpp" />
     <ClCompile Include="Script\SourceCode\Base.cpp" />
@@ -202,6 +203,7 @@
     <ClInclude Include="Script\Engine\Tool\Model.h" />
     <ClInclude Include="Script\Engine\Tool\Node.h" />
     <ClInclude Include="Script\Engine\Tool\ParamLoader.h" />
+    <ClInclude Include="Script\Engine\Tool\Sound.h" />
     <ClInclude Include="Script\Engine\Tool\Time.h" />
     <ClInclude Include="Script\SourceCode\AiDirector.h" />
     <ClInclude Include="Script\SourceCode\Archer.h" />

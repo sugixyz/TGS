@@ -166,8 +166,13 @@
     <ClCompile Include="Script\SourceCode\TestEnemy.cpp">
       <Filter>Enemy</Filter>
     </ClCompile>
-    <ClCompile Include="Script\SourceCode\Wall.cpp" />
-    <ClCompile Include="Script\SourceCode\Floor.cpp" />
+    <ClCompile Include="Script\SourceCode\Wall.cpp">
+      <Filter>StageObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Script\SourceCode\Floor.cpp">
+      <Filter>StageObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Script\Engine\Tool\Sound.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Script\Engine\Tool\CsvReader.h">
@@ -338,6 +343,9 @@
     </ClInclude>
     <ClInclude Include="Script\SourceCode\Floor.h">
       <Filter>StageObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\Engine\Tool\Sound.h">
+      <Filter>Engine\Tool</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
