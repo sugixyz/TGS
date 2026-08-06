@@ -1,6 +1,14 @@
 #include "Normal.h"
+#include"../Engine/Tool/Model.h"
 
-void Normal::Initialize()
+Normal::Normal(Vector2 pos)
+	:Enemy(Tag::ENEMY)
+{
+	hModel = Model::Load("Enemy.mv1");
+	assert(hModel > 0);
+}
+
+Normal::~Normal()
 {
 }
 
@@ -10,24 +18,4 @@ void Normal::Update()
 
 void Normal::Draw()
 {
-}
-
-void Normal::Move()
-{
-	Vector2 dir = DESTINATION - position;
-	dir = Math2D::Normalize(dir);
-	position += dir * speed_;
-}
-
-void Normal::OnCollision(Layer myLeyer, GameObject* other, Layer otherLayer)
-{
-	if (other->GetTag() == Tag::STAGE)
-	{
-	}
-	else if (other->GetTag() == Tag::PLAYER)
-	{
-	}
-	else if (other->GetTag() == Tag::ATTACK)
-	{
-	}
 }

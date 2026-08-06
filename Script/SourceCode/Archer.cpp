@@ -1,6 +1,11 @@
 #include "Archer.h"
 
-void Archer::Initialize()
+Archer::Archer(Vector2 pos)
+	:Enemy(Tag::ENEMY)
+{
+}
+
+Archer::~Archer()
 {
 }
 
@@ -10,21 +15,4 @@ void Archer::Update()
 
 void Archer::Draw()
 {
-}
-
-void Archer::Move()
-{
-}
-
-void Archer::OnCollision(Layer myLeyer, GameObject* other, Layer otherLayer)
-{
-	if (other->GetTag() == Tag::STAGE)
-	{
-	}
-	else if (other->GetTag() == Tag::PLAYER)
-	{
-	}
-	else if (other->GetTag() == Tag::ATTACK)
-	{
-	}
 }

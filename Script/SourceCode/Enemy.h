@@ -42,7 +42,7 @@ public:
 	virtual void DropRate(Vector2 pos)
 	{
 		int rnd = GetRand(99);
-		if (rnd >= dropRate_) return;
+		if (rnd >= dropRate) return;
 
 		Item* item = new Item(Tag::ITEM);
 		item->SetItemType(MATERIAL_ENEMY);
@@ -66,8 +66,8 @@ public:
 	static Vector2 GetDestination() { return DESTINATION; }
 protected:
 	int hp;
-	float speed_ = 100.0f;//移動速度
-	int dropRate_ = 30;//ドロップ率(%)
+	float speed = 100.0f;//移動速度
+	int dropRate = 30;//ドロップ率(%)
 public:
 	inline static Vector2 DESTINATION;
 };

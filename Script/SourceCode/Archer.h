@@ -1,14 +1,18 @@
 #pragma once
 #include "Enemy.h"
 
+enum class State
+{
+	ATTACK,
+	CHASE,
+	PATROL
+};
+
 class Archer : public Enemy
 {
 public:
-	Archer(Tag tag) : Enemy(tag) {}
-	~Archer() {}
-	void Initialize();
+	Archer(Vector2 pos);
+	~Archer();
 	void Update() override;
 	void Draw() override;
-	void Move() override;
-	void OnCollision(Layer myLeyer, GameObject* other, Layer otherLayer) override;
 };
