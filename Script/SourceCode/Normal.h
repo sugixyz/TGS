@@ -1,5 +1,6 @@
 #pragma once
 #include "Enemy.h"
+#include "../Engine/Tool/BehaviorTree.h"
 
 enum class State
 {
@@ -15,4 +16,14 @@ public:
 	~Normal();
 	void Update() override;
 	void Draw() override;
+public:
+	NodeResult AttackAction();
+	bool CanAttack();
+	NodeResult Chase();
+	bool CanChase();
+	NodeResult Patrol();
+private:
+	Selector root;
+	GameObject* target;
+	State state;
 };
