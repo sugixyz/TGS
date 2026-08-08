@@ -23,6 +23,17 @@ Normal::Normal(Vector2 pos)
 	root.AddChildren(chase);
 	root.AddChildren(patrolNode);
 
+    position = pos;
+    hp = 1;
+    speed = 100.0f;
+    radius = 25.0f;
+    attackRadius = 50.0f;
+    sensedRange = 250.0f;
+    coolTime = 1.0f;
+    dropRate = 5.0f;
+    target = FindTagObject(Tag::PLAYER);
+    state = State::PATROL;
+
 	hModel = Model::Load("Enemy.mv1");
 	assert(hModel > 0);
 }
@@ -68,7 +79,7 @@ bool Normal::CanAttack()
     if (!target) return false;
     Vector2 targetPos = target->GetPos();
     float lenghtSq = Math2D::LengthSq(targetPos - position);
-    if (lenghtSq <= 50 * 50)return true;
+    if (lenghtSq <= attackRadius * attackRadius)return true;
     else return false;
 }
 
@@ -83,10 +94,15 @@ NodeResult Normal::Chase()
 
 bool Normal::CanChase()
 {
-    return false;
+    if (!target) return false;
+    Vector2 targetPos = target->GetPos();
+    float lenghtSq = Math2D::LengthSq(targetPos - position);
+    if (lenghtSq <= sensedRange * sensedRange)return true;
+    else return false;
 }
 
 NodeResult Normal::Patrol()
 {
-    return NodeResult();
+    state = State::PATROL;
+    return NodeResult::SUCCESS;
 }
