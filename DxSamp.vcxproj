@@ -224,7 +224,8 @@
     <ClInclude Include="Script\SourceCode\Normal.h" />
     <ClInclude Include="Script\SourceCode\Player.h" />
     <ClInclude Include="Script\SourceCode\PointLight.h" />
-    <ClInclude Include="Script\SourceCode\Ranking.h" />
+    <ClInclude Include="Script\SourceCode\RankData.h" />
+    <ClInclude Include="Script\SourceCode\RankingManager.h" />
     <ClInclude Include="Script\SourceCode\Slash.h" />
     <ClInclude Include="Script\SourceCode\StageObject.h" />
     <ClInclude Include="Script\SourceCode\Table.h" />
