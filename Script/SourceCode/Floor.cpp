@@ -15,7 +15,9 @@ Floor::Floor(Vector2 pos, int blockSize)
 }
 
 Floor::~Floor()
-{}
+{
+	MV1DeleteModel(hModel);
+}
 
 void Floor::Draw()
 {

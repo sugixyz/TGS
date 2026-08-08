@@ -15,7 +15,9 @@ Wall::Wall(Vector2 pos, int blockSize)
 }
 
 Wall::~Wall()
-{}
+{
+	MV1DeleteModel(hModel);
+}
 
 void Wall::Draw()
 {

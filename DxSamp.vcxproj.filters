@@ -49,6 +49,9 @@
     <Filter Include="Light">
       <UniqueIdentifier>{3b33ccb8-1bf5-4b1c-ac6e-1cf4bc91acd9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Ranking">
+      <UniqueIdentifier>{ee100522-ce12-4221-baed-a7521f15c248}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Script\Engine\Tool\CsvReader.cpp">
@@ -172,7 +175,9 @@
     <ClCompile Include="Script\SourceCode\Floor.cpp">
       <Filter>StageObject</Filter>
     </ClCompile>
-    <ClCompile Include="Script\Engine\Tool\Sound.cpp" />
+    <ClCompile Include="Script\Engine\Tool\Sound.cpp">
+      <Filter>Engine\Tool</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Script\Engine\Tool\CsvReader.h">
@@ -346,6 +351,9 @@
     </ClInclude>
     <ClInclude Include="Script\Engine\Tool\Sound.h">
       <Filter>Engine\Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\SourceCode\Ranking.h">
+      <Filter>Ranking</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
