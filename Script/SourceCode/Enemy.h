@@ -65,9 +65,13 @@ public:
 	/// </summary>
 	static Vector2 GetDestination() { return DESTINATION; }
 protected:
-	int hp;
-	float speed = 100.0f;//移動速度
-	int dropRate = 30;//ドロップ率(%)
+	int hp;//体力
+	float speed;//移動速度
+	float radius;//半径
+	float attackRadius;//攻撃範囲
+	float sensedRange;//感知範囲
+	float coolTime;//クールタイム
+	int dropRate;//ドロップ率(%)
 public:
 	inline static Vector2 DESTINATION;
 };
