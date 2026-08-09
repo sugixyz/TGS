@@ -164,6 +164,7 @@
     <ClCompile Include="Script\SourceCode\Normal.cpp" />
     <ClCompile Include="Script\SourceCode\Player.cpp" />
     <ClCompile Include="Script\SourceCode\PointLight.cpp" />
+    <ClCompile Include="Script\SourceCode\RankingManager.cpp" />
     <ClCompile Include="Script\SourceCode\Slash.cpp" />
     <ClCompile Include="Script\SourceCode\StageObject.cpp" />
     <ClCompile Include="Script\SourceCode\Table.cpp" />

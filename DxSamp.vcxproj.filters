@@ -178,6 +178,9 @@
     <ClCompile Include="Script\Engine\Tool\Sound.cpp">
       <Filter>Engine\Tool</Filter>
     </ClCompile>
+    <ClCompile Include="Script\SourceCode\RankingManager.cpp">
+      <Filter>Ranking</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Script\Engine\Tool\CsvReader.h">
@@ -352,7 +355,10 @@
     <ClInclude Include="Script\Engine\Tool\Sound.h">
       <Filter>Engine\Tool</Filter>
     </ClInclude>
-    <ClInclude Include="Script\SourceCode\Ranking.h">
+    <ClInclude Include="Script\SourceCode\RankData.h">
+      <Filter>Ranking</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\SourceCode\RankingManager.h">
       <Filter>Ranking</Filter>
     </ClInclude>
   </ItemGroup>
