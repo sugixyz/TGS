@@ -1,12 +1,15 @@
-#pragma once
+#pragma once　
 #include "Enemy.h"
 #include "../Engine/Tool/BehaviorTree.h"
+#include "Base.h"
 
 enum class State
 {
-	ATTACK,
-	CHASE,
-	PATROL
+	ATTACK,//攻撃
+	CHASE,//プレイヤー追跡
+	SEARCH,//探索
+	STAGE_ATTACK,//ステージ攻撃
+	PATROL//巡回ポイント移動
 };
 
 class Normal : public Enemy
@@ -22,8 +25,15 @@ public:
 	NodeResult Chase();
 	bool CanChase();
 	NodeResult Patrol();
+	NodeResult Search();
+	bool CanSearch();
+	NodeResult StageAttack();
+	bool CanStageAttack();
 private:
 	Selector root;
 	GameObject* target;
+	Base* stageTarget;
 	State state;
+	Vector2 lastKnownPos;
+	bool hasLastKnownPos = false;
 };

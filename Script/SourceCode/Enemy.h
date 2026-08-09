@@ -10,10 +10,6 @@ public:
 	{}
 	virtual ~Enemy() {}
 	/// <summary>
-	/// 攻撃用の共通仮想関数
-	/// </summary>
-	virtual void Attack() {}
-	/// <summary>
 	/// ウィンドウの範囲外に行っていないか
 	/// </summary>
 	virtual void CheckOutRange()
@@ -64,6 +60,11 @@ public:
 	/// 現在の目的地を取得(必要なら)
 	/// </summary>
 	static Vector2 GetDestination() { return DESTINATION; }
+	void MoveToward(const Vector2& targetPos)
+	{
+		direction = Math2D::Normalize(targetPos - position);
+		position += direction * speed * gDeltaTime;
+	}
 protected:
 	int hp;//体力
 	float speed;//移動速度
@@ -71,6 +72,7 @@ protected:
 	float attackRadius;//攻撃範囲
 	float sensedRange;//感知範囲
 	float coolTime;//クールタイム
+	float coolTimeMax = 1.0f;
 	int dropRate;//ドロップ率(%)
 public:
 	inline static Vector2 DESTINATION;
