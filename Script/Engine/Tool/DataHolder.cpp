@@ -9,6 +9,7 @@ DataHolder::DataHolder()
 {
 	DontDestroyOnSceneChange();
 	//ここで変数の初期化
+
 }
 
 DataHolder::~DataHolder()
