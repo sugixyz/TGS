@@ -49,6 +49,9 @@ Normal::Normal(Vector2 pos)
     stageTarget = FindGameObject<Base>(Tag::STAGE);
     state = State::PATROL;
 
+    uint32_t mask = (uint32_t)Layer::PLAYER_ATTACK;
+    SetCenterCircle(Layer::ENEMY, mask);
+
 	hModel = Model::Load("Enemy.mv1");
 	assert(hModel > 0);
 }

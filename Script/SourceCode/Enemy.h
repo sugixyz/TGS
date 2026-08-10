@@ -53,6 +53,17 @@ public:
 		DestroyMe();
 	}
 	/// <summary>
+	/// 被弾処理(共通)
+	/// </summary>
+	virtual void OnCollision(Layer myLayer, GameObject* other, Layer otherLayer) override
+	{
+		if (other->GetTag() == Tag::ATTACK)
+		{
+			hp -= 1;
+			if (hp <= 0) Die();
+		}
+	}
+	/// <summary>
 	/// 敵が追いかける目的地の設定(プレイヤー側から毎フレーム呼んでもらう)
 	/// </summary>
 	static void SetDestination(const Vector2& pos) { DESTINATION = pos; }
@@ -65,6 +76,7 @@ public:
 		direction = Math2D::Normalize(targetPos - position);
 		position += direction * speed * gDeltaTime;
 	}
+	
 protected:
 	int hp;//体力
 	float speed;//移動速度

@@ -7,4 +7,6 @@ public:
 	Base(Vector2 pos,int blockSize);
 	~Base();
 	void OnCollision(Layer myLeyer, GameObject* other, Layer otherLayer) override;
+private:
+	int hp;
 };
