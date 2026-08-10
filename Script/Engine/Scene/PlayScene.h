@@ -12,6 +12,8 @@ public:
 	~PlayScene();
 	void Update() override;
 	void Draw() override;
+	void AddScore();
 private:
 	void ChangeMode();
+	int playScore;
 };
