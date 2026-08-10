@@ -13,5 +13,8 @@ public:
 	~DataHolder();
 
 	//ここに保持しときたい変数を宣言
+	//全体のランキング管理
 	RankingManager ranking;
+	//登録用のランキング変数
+	RankData rankData;
 };

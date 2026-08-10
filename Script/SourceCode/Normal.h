@@ -1,4 +1,4 @@
-#pragma once　
+﻿#pragma once
 #include "Enemy.h"
 #include "../Engine/Tool/BehaviorTree.h"
 #include "Base.h"
