@@ -19,10 +19,14 @@ void QuestionnaireScene::Update()
 	{
 		SceneManager::ChangeScene(SCENE_NAME::TITLE);
 	}
+
+	questions.Update();
 }
 
 void QuestionnaireScene::Draw()
 {
 	DrawString(100, 100, "QuestionnaireScene", 0xffffff);
 	DrawString(100, 150, "Push [N]Key To Title", 0xffffff);
+
+	questions.Draw();
 }

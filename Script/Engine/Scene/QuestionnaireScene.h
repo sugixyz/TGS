@@ -1,5 +1,7 @@
 ﻿#pragma once
 #include "SceneBase.h"
+#include"../../SourceCode/QuestionnaireManager.h"
+
 /// <summary>
 /// リザルト画面
 /// </summary>
@@ -11,4 +13,6 @@ public:
 	~QuestionnaireScene();
 	void Update() override;
 	void Draw() override;
+private:
+	QuestionnaireManager questions;
 };

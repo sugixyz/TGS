@@ -164,6 +164,7 @@
     <ClCompile Include="Script\SourceCode\Normal.cpp" />
     <ClCompile Include="Script\SourceCode\Player.cpp" />
     <ClCompile Include="Script\SourceCode\PointLight.cpp" />
+    <ClCompile Include="Script\SourceCode\QuestionnaireManager.cpp" />
     <ClCompile Include="Script\SourceCode\RankingManager.cpp" />
     <ClCompile Include="Script\SourceCode\Slash.cpp" />
     <ClCompile Include="Script\SourceCode\StageObject.cpp" />
@@ -225,6 +226,8 @@
     <ClInclude Include="Script\SourceCode\Normal.h" />
     <ClInclude Include="Script\SourceCode\Player.h" />
     <ClInclude Include="Script\SourceCode\PointLight.h" />
+    <ClInclude Include="Script\SourceCode\Questionnaire.h" />
+    <ClInclude Include="Script\SourceCode\QuestionnaireManager.h" />
     <ClInclude Include="Script\SourceCode\RankData.h" />
     <ClInclude Include="Script\SourceCode\RankingManager.h" />
     <ClInclude Include="Script\SourceCode\Slash.h" />

@@ -52,6 +52,9 @@
     <Filter Include="Ranking">
       <UniqueIdentifier>{ee100522-ce12-4221-baed-a7521f15c248}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Questionnaire">
+      <UniqueIdentifier>{e3a8aca0-e84a-4ba6-8602-8ab998985433}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Script\Engine\Tool\CsvReader.cpp">
@@ -181,6 +184,7 @@
     <ClCompile Include="Script\SourceCode\RankingManager.cpp">
       <Filter>Ranking</Filter>
     </ClCompile>
+    <ClCompile Include="Script\SourceCode\QuestionnaireManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Script\Engine\Tool\CsvReader.h">
@@ -360,6 +364,12 @@
     </ClInclude>
     <ClInclude Include="Script\SourceCode\RankingManager.h">
       <Filter>Ranking</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\SourceCode\Questionnaire.h">
+      <Filter>Questionnaire</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\SourceCode\QuestionnaireManager.h">
+      <Filter>Questionnaire</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

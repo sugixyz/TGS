@@ -2,10 +2,6 @@
 #include"../Tool/DataHolder.h"
 #include<string>
 
-namespace {
-	//画面遷移までの時間
-	const float RESULT_TIME = 60 * 5.0f;
-}
 /// <summary>
 /// リザルト画面
 /// </summary>
