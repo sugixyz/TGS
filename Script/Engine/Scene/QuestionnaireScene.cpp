@@ -20,6 +20,12 @@ void QuestionnaireScene::Update()
 		SceneManager::ChangeScene(SCENE_NAME::TITLE);
 	}
 
+	//もしアンケート回答終了していればタイトルに
+	if (questions.IsFinished())
+	{
+		SceneManager::ChangeScene(SCENE_NAME::TITLE);
+		return;
+	}
 	questions.Update();
 }
 

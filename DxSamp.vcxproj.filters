@@ -184,7 +184,10 @@
     <ClCompile Include="Script\SourceCode\RankingManager.cpp">
       <Filter>Ranking</Filter>
     </ClCompile>
-    <ClCompile Include="Script\SourceCode\QuestionnaireManager.cpp" />
+    <ClCompile Include="Script\SourceCode\QuestionnaireManager.cpp">
+      <Filter>Questionnaire</Filter>
+    </ClCompile>
+    <ClCompile Include="Script\SourceCode\QuestionnaireSave.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Script\Engine\Tool\CsvReader.h">
@@ -369,6 +372,9 @@
       <Filter>Questionnaire</Filter>
     </ClInclude>
     <ClInclude Include="Script\SourceCode\QuestionnaireManager.h">
+      <Filter>Questionnaire</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\SourceCode\QuestionnaireSave.h">
       <Filter>Questionnaire</Filter>
     </ClInclude>
   </ItemGroup>

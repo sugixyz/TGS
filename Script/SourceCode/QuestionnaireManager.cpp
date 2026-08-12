@@ -1,5 +1,6 @@
 ﻿#include "QuestionnaireManager.h"
 #include"../Engine/Tool/Input.h"
+#include"QuestionnaireSave.h"
 
 namespace
 {
@@ -101,4 +102,7 @@ void QuestionnaireManager::Draw()
 }
 
 void QuestionnaireManager::SaveQuestionnaire()
-{}
+{
+	QuestionnaireSave save;
+	save.SaveData(questions);
+}
