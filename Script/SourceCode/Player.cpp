@@ -30,7 +30,9 @@ Player::Player(int index)
 	uint32_t mask = (uint32_t)Layer::STAGE |
 		(uint32_t)Layer::GIMMICK |
 		(uint32_t)Layer::ENEMY |
-		(uint32_t)Layer::ENEMY_ATTACK;
+		(uint32_t)Layer::ENEMY_ATTACK |
+		(uint32_t)Layer::ENEMY_SENSE | 
+		(uint32_t)Layer::ENEMY_ATTACK_SENSE;
 	SetCenterCircle(Layer::PLAYER, mask);
 }
 
@@ -101,7 +103,7 @@ void Player::OnCollision(Layer myLeyer, GameObject* other, Layer otherLayer)
 	{
 		CollisionGimmick(other);
 	}
-	if (other->GetTag() == Tag::ENEMY)
+	if (other->GetTag() == Tag::ENEMY && otherLayer == Layer::ENEMY)//本体との接触時のみダメージ
 	{
 		if (invincibilityTime <= 0.0f)
 		{

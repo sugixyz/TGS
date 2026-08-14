@@ -11,7 +11,9 @@ enum class Layer : uint32_t
 	STAGE = 1 << 2,
 	GIMMICK = 1 << 3,
 	PLAYER_ATTACK = 1 << 4,
-	ENEMY_ATTACK = 1 << 5
+	ENEMY_ATTACK = 1 << 5,
+	ENEMY_SENSE = 1 << 6,//感知範囲用(追跡のトリガー)
+	ENEMY_ATTACK_SENSE = 1 << 7//攻撃感知範囲用(攻撃のトリガー)
 };
 
 //コライダーの構造体
