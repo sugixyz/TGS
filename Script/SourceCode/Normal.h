@@ -29,6 +29,7 @@ public:
 	bool CanSearch();
 	NodeResult StageAttack();
 	bool CanStageAttack();
+	void OnCollision(Layer myLayer, GameObject* other, Layer otherLayer) override;
 private:
 	Selector root;
 	GameObject* target;
@@ -36,4 +37,6 @@ private:
 	State state;
 	Vector2 lastKnownPos;
 	bool hasLastKnownPos = false;
+	bool isPlayerSensed = false;//感知範囲内にプレイヤーがいるか
+	bool isPlayerInAttackRange = false;//攻撃感知範囲内にプレイヤーがいるか
 };
