@@ -137,7 +137,7 @@ bool Normal::CanChase()
     if (lenghtSq <= sensedRange * sensedRange)return true;
     else return false;*/
     if (!target) return false;
-    if (coolTime > 0.0f) return false;
+    //if (coolTime > 0.0f) return false;
     return isPlayerInAttackRange;
 }
 
