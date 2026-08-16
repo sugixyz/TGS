@@ -35,8 +35,6 @@ private:
 	GameObject* target;
 	Base* stageTarget;
 	State state;
-	Vector2 lastKnownPos;
-	bool hasLastKnownPos = false;
 	bool isPlayerSensed = false;//感知範囲内にプレイヤーがいるか
 	bool isPlayerInAttackRange = false;//攻撃感知範囲内にプレイヤーがいるか
 };

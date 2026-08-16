@@ -52,9 +52,9 @@ Normal::Normal(Vector2 pos)
     uint32_t mask = (uint32_t)Layer::PLAYER_ATTACK;
     SetCenterCircle(Layer::ENEMY, mask);
     uint32_t senseMask = (uint32_t)Layer::PLAYER;
-    SetCenterCircle(Layer::ENEMY_SENSE, senseMask);
+    GameObject::SetCenterCircle(sensedRange, Layer::ENEMY_SENSE, senseMask);
     uint32_t attackSenseMask = (uint32_t)Layer::PLAYER;
-    SetCenterCircle(Layer::ENEMY_ATTACK_SENSE, attackSenseMask);
+    GameObject::SetCenterCircle(attackRadius, Layer::ENEMY_ATTACK_SENSE, attackSenseMask);
 
 	hModel = Model::Load("Enemy.mv1");
 	assert(hModel > 0);
@@ -123,8 +123,6 @@ NodeResult Normal::Chase()
 {
     state = State::CHASE;
     Vector2 targetPos = target->GetPos();
-    lastKnownPos = targetPos;//見えてる間は
-    hasLastKnownPos = true;
     MoveToward(targetPos);
     return NodeResult::SUCCESS;
 }
@@ -138,7 +136,7 @@ bool Normal::CanChase()
     else return false;*/
     if (!target) return false;
     //if (coolTime > 0.0f) return false;
-    return isPlayerInAttackRange;
+    return isPlayerSensed;
 }
 
 NodeResult Normal::Patrol()
@@ -150,20 +148,17 @@ NodeResult Normal::Patrol()
 NodeResult Normal::Search()
 {
     state = State::SEARCH;
-    MoveToward(lastKnownPos);
+    Vector2 stagePos = stageTarget->GetPos();
+    MoveToward(stagePos);//拠点へ直接移動
     return NodeResult::SUCCESS;
 }
 
 bool Normal::CanSearch()
 {
-    if (!hasLastKnownPos) return false;
-    const float arriveThresholdSq = 10.0f * 10.0f;//到着判定の誤差
-    float lengthSq = Math2D::LengthSq(lastKnownPos - position);
-    if (lengthSq <= arriveThresholdSq)
-    {
-        hasLastKnownPos = false;//到着したので索敵終了→次(StageAttack/Patrol)へ
-        return false;
-    }
+    if (!stageTarget) return false;
+    Vector2 stagePos = stageTarget->GetPos();
+    float lengthSq = Math2D::LengthSq(stagePos - position);
+    if (lengthSq <= attackRadius * attackRadius) return false;//すでに攻撃範囲内StageAttackへ
     return true;
 }
 
