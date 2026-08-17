@@ -187,7 +187,15 @@
     <ClCompile Include="Script\SourceCode\QuestionnaireManager.cpp">
       <Filter>Questionnaire</Filter>
     </ClCompile>
-    <ClCompile Include="Script\SourceCode\QuestionnaireSave.cpp" />
+    <ClCompile Include="Script\SourceCode\QuestionnaireSave.cpp">
+      <Filter>Questionnaire</Filter>
+    </ClCompile>
+    <ClCompile Include="Script\SourceCode\WaveSpawner.cpp">
+      <Filter>AiDirector</Filter>
+    </ClCompile>
+    <ClCompile Include="Script\SourceCode\ObjectCreater.cpp">
+      <Filter>AiDirector</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Script\Engine\Tool\CsvReader.h">
@@ -376,6 +384,15 @@
     </ClInclude>
     <ClInclude Include="Script\SourceCode\QuestionnaireSave.h">
       <Filter>Questionnaire</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\SourceCode\ObjectCreater.h">
+      <Filter>AiDirector</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\SourceCode\WaveSpawner.h">
+      <Filter>AiDirector</Filter>
+    </ClInclude>
+    <ClInclude Include="Script\SourceCode\AiData.h">
+      <Filter>AiDirector</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

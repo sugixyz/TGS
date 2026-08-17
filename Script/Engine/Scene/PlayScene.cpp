@@ -27,8 +27,11 @@ PlayScene::PlayScene()
 PlayScene::~PlayScene()
 {
 	DataHolder* data = FindGameObject<DataHolder>(Tag::SYSTEM);
-	data->rankData.score = playScore;
-	data->ranking.AddRankData(data->rankData);
+	if (data != nullptr)
+	{
+		data->rankData.score = playScore;
+		data->ranking.AddRankData(data->rankData);
+	}
 
 	Event::Instance().Get(Id::ADD_SCORE).Remove(static_cast<int>(Id::ADD_SCORE));
 }

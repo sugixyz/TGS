@@ -162,6 +162,7 @@
     <ClCompile Include="Script\SourceCode\Material.cpp" />
     <ClCompile Include="Script\SourceCode\MaterialWarehouse.cpp" />
     <ClCompile Include="Script\SourceCode\Normal.cpp" />
+    <ClCompile Include="Script\SourceCode\ObjectCreater.cpp" />
     <ClCompile Include="Script\SourceCode\Player.cpp" />
     <ClCompile Include="Script\SourceCode\PointLight.cpp" />
     <ClCompile Include="Script\SourceCode\QuestionnaireManager.cpp" />
@@ -174,6 +175,7 @@
     <ClCompile Include="Script\SourceCode\Titan.cpp" />
     <ClCompile Include="Script\SourceCode\Ui.cpp" />
     <ClCompile Include="Script\SourceCode\Wall.cpp" />
+    <ClCompile Include="Script\SourceCode\WaveSpawner.cpp" />
     <ClCompile Include="Script\SourceCode\Weapon1.cpp" />
     <ClCompile Include="Script\SourceCode\Weapon2.cpp" />
     <ClCompile Include="Script\SourceCode\Weapon3.cpp" />
@@ -208,6 +210,7 @@
     <ClInclude Include="Script\Engine\Tool\ParamLoader.h" />
     <ClInclude Include="Script\Engine\Tool\Sound.h" />
     <ClInclude Include="Script\Engine\Tool\Time.h" />
+    <ClInclude Include="Script\SourceCode\AiData.h" />
     <ClInclude Include="Script\SourceCode\AiDirector.h" />
     <ClInclude Include="Script\SourceCode\Archer.h" />
     <ClInclude Include="Script\SourceCode\Attack.h" />
@@ -225,6 +228,7 @@
     <ClInclude Include="Script\SourceCode\Material.h" />
     <ClInclude Include="Script\SourceCode\MaterialWarehouse.h" />
     <ClInclude Include="Script\SourceCode\Normal.h" />
+    <ClInclude Include="Script\SourceCode\ObjectCreater.h" />
     <ClInclude Include="Script\SourceCode\Player.h" />
     <ClInclude Include="Script\SourceCode\PointLight.h" />
     <ClInclude Include="Script\SourceCode\Questionnaire.h" />
@@ -239,6 +243,7 @@
     <ClInclude Include="Script\SourceCode\Titan.h" />
     <ClInclude Include="Script\SourceCode\Ui.h" />
     <ClInclude Include="Script\SourceCode\Wall.h" />
+    <ClInclude Include="Script\SourceCode\WaveSpawner.h" />
     <ClInclude Include="Script\SourceCode\Weapon.h" />
     <ClInclude Include="Script\SourceCode\Weapon1.h" />
     <ClInclude Include="Script\SourceCode\Weapon2.h" />

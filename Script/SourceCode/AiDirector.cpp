@@ -1,222 +1,91 @@
 ﻿#include "AiDirector.h"
-#include"Player.h"
-#include"TestEnemy.h"
-#include"StageObject.h"
+#include"../Engine/Tool/Event.h"
 #include"Base.h"
-#include"Floor.h"
-#include"Wall.h"
-#include"MaterialWarehouse.h"
-#include"CraftTable.h"
-#include"Table.h"
-#include<sstream>
-#include<fstream>
-#include"../Engine/Tool/CsvReader.h"
+#include"ObjectCreater.h"
 
 AiDirector::AiDirector()
 	:GameObject(Tag::SYSTEM)
 {
-	new Player(0);
-	new Player(1);
+	ObjectCreater creater;
+	creater.CreateObject();
 
-	new TestEnemy({ WIN_WIDTH / 2.0f,WIN_HEIGHT / 2.0f });
+	Event::Instance().Get(Id::CRAFT_MELEE_WEAPON).Add([this] {CraftMelleWeapon(); });
+	Event::Instance().Get(Id::CRAFT_LONG_RANGE_WEAPON).Add([this] {CraftLongRangeWeapon(); });
+	Event::Instance().Get(Id::CRAFT_MELEE_WEAPON).Add([this] {CraftEnhancedWeapon(); });
 
-	waveTimer.Reset();
-	nextWaveTime = WAVE_INTERVAL;
+	Event::Instance().Get(Id::DESTROY_MELEE_WEAPON).Add([this] {DestroyMeleeWeapon(); });
+	Event::Instance().Get(Id::DESTROY_LONG_RANGE_WEAPON).Add([this] {DestroyLongRangeWeapon(); });
+	Event::Instance().Get(Id::DESTROY_ENHANCED_WEAPON).Add([this] {DestroyEnhancedWeapon(); });
 
-	CreateStageObject();
-	CreateBase();
+	Event::Instance().Get(Id::BASE_HIT_DAMAGE).Add([this] {BaseHitDamage(); });
+	Event::Instance().Get(Id::END_WAVE).Add([this] {EndWave(); });
 }
 
 AiDirector::~AiDirector()
-{}
-
-void AiDirector::Update()
 {
-	//WaveProcess();
-	//SpawnLogic();
+	Event::Instance().Get(Id::CRAFT_MELEE_WEAPON).Remove((int)Id::CRAFT_MELEE_WEAPON);
+	Event::Instance().Get(Id::CRAFT_LONG_RANGE_WEAPON).Remove((int)Id::CRAFT_LONG_RANGE_WEAPON);
+	Event::Instance().Get(Id::CRAFT_ENHANCED_WEAPON).Remove((int)Id::DESTROY_ENHANCED_WEAPON);
+
+	Event::Instance().Get(Id::DESTROY_MELEE_WEAPON).Remove((int)Id::DESTROY_MELEE_WEAPON);
+	Event::Instance().Get(Id::DESTROY_LONG_RANGE_WEAPON).Remove((int)Id::DESTROY_LONG_RANGE_WEAPON);
+	Event::Instance().Get(Id::DESTROY_ENHANCED_WEAPON).Remove((int)Id::DESTROY_ENHANCED_WEAPON);
+
+	Event::Instance().Get(Id::BASE_HIT_DAMAGE).Remove((int)Id::BASE_HIT_DAMAGE);
+	Event::Instance().Get(Id::END_WAVE).Remove((int)Id::END_WAVE);
 }
 
-void AiDirector::CreateStageObject()
+void AiDirector::CraftMelleWeapon()
 {
-	char path[50] = "Assets/ObjectData.txt";
-	std::ifstream file(path);
-	//ファイルがなければスルー
-	if (!file.is_open())return;
-
-	std::string line;
-	int objNum = 0;
-	while (std::getline(file, line))
-	{
-		//もし空行か、コメントだったらスルー
-		if (line.empty() || line.rfind("//", 0) == 0)continue;
-		//文字が入っていればチェックをしてループを抜ける
-		std::stringstream ss(line);
-		std::string key, eq;
-		if (ss >> key >> eq)
-		{
-			if (key == "OBJ_NUM") { ss >> objNum; }
-			else if (key == "BASE_BLOCK") { ss >> BASE_BLOCK; }
-			else if(key == "BASE_OFFSET_Y")
-			{
-				ss >> BASE_OFFSET_Y;
-				break;
-			}
-		}
-	}
-	int id = 0;
-	VECTOR pos;
-	VECTOR rot;
-	VECTOR sca;
-	//オブジェクトの数分ループ
-	for (int i = 0; i < objNum; i++)
-	{
-		if (file.eof())break;
-
-		while (std::getline(file, line))
-		{
-			//もし空行か、コメントだったらスルー
-			if (line.empty() || line.rfind("//", 0) == 0)continue;
-			//文字が入っていればチェックをしてループを抜ける
-			std::stringstream ss(line);
-			std::string key, eq;
-			if (ss >> key >> eq)
-			{
-				if (key == "ID") { ss >> id; }
-				else if (key == "POS") { ss >> pos.x >> pos.y >> pos.z; }
-				else if (key == "ROT") { ss >> rot.x >> rot.y >> rot.z; }
-				else if (key == "SCA")
-				{
-					ss >> sca.x >> sca.y >> sca.z;
-					new StageObject(pos, rot, sca, id);
-					break;
-				}
-			}
-		}
-	}
+	gameState.meleeWeaponStock++;
+	gameState.weaponStock++;
+	gameState.craftCount++;
 }
 
-void AiDirector::CreateBase()
+void AiDirector::CraftLongRangeWeapon()
 {
-	std::vector<std::vector<int>> map;
-	char path[50] = "Assets/Base.csv";
-	CsvReader* csv = new CsvReader(path);
-	int lines = csv->GetLines(); //csvの行数
-	map.resize(lines);
-	for (int y = 0; y < lines; y++) { //1行ずつ読む
-		int cols = csv->GetColumns(y);
-		map[y].resize(cols);
-		for (int x = 0; x < cols; x++) {
-			map[y][x] = csv->GetInt(y, x);
-		}
-	}
-	delete csv;
-
-	int value;
-	for (int y = 0; y < map.size(); y++) {
-		for (int x = 0; x < map[y].size(); x++) {
-			Vector2 pos = Vector2((float)x, (float)y) * (float)BASE_BLOCK;
-			pos += Vector2(BASE_BLOCK / 2.0f, BASE_BLOCK / 2.0f);
-			pos.y += BASE_OFFSET_Y;
-			value = map[y][x];
-			if (value != -1)new Base(pos, BASE_BLOCK);
-			switch (value)
-			{
-			case -1:
-				new Floor(pos, BASE_BLOCK);
-				break;
-			case 0:
-				new Wall(pos, BASE_BLOCK);
-				break;
-			case 1:
-			case 2:
-				new MaterialWarehouse(pos, value);
-				break;
-			case 3:
-				new CraftTable(pos);
-				break;
-			case 4:
-				new Table(pos);
-				break;
-			}
-		}
-	}
+	gameState.longRangeWeaponStock++;
+	gameState.weaponStock++;
+	gameState.craftCount++;
 }
 
-void AiDirector::WaveProcess()
+void AiDirector::CraftEnhancedWeapon()
 {
-	waveTimer.Update();
-
-	auto enemies = FindTagObjects(Tag::ENEMY);
-	int enemyCount = enemies.size();
-
-	//もし次のウェーブまでの時間を経過したら
-	if (waveTimer.isOverTime(nextWaveTime) && enemyCount == 0)
-	{
-		currentWave++;
-
-		remainingSpawnCount = WAVE_ENEMY_COUNT + (currentWave * ENEMY_INCREASE_RATE);
-
-		nextWaveTime = waveTimer.timer + WAVE_INTERVAL;
-	}
-
-	if (enemyCount == 0)waveElapsedTime = spawnTimer.timer;
+	gameState.enhancedWeaponStock++;
+	gameState.weaponStock++;
+	gameState.craftCount++;
 }
 
-void AiDirector::SpawnLogic()
+void AiDirector::DestroyMeleeWeapon()
 {
-	if (remainingSpawnCount <= 0)
-	{
-		return;
-		spawnTimer.Reset();
-	}
-
-	auto enemies = FindTagObjects(Tag::ENEMY);
-	if (enemies.size() >= MAX_ACTIVE_ENEMIES)
-	{
-		return;
-		spawnTimer.Reset();
-	}
-
-	spawnTimer.Update();
-
-	if (spawnTimer.IsEvery(SPAWN_INTERVAL))
-	{
-		CreateEnemy();
-		remainingSpawnCount--;
-	}
+	gameState.meleeWeaponStock--;
+	gameState.weaponStock--;
 }
 
-void AiDirector::CreateEnemy()
+void AiDirector::DestroyLongRangeWeapon()
 {
-	Vector2 pos = CalculateSpawnPoint();
-
-	int randVal = GetRand(100);
-	/*if (randVal < probability.normal)new NormalZombie(pos);
-	else if (randVal < probability.normal + probability.archer)new BowZombie(pos);
-	else new TitanZombie(pos);*/
+	gameState.longRangeWeaponStock--;
+	gameState.weaponStock--;
 }
 
-Vector2 AiDirector::CalculateSpawnPoint()
+void AiDirector::DestroyEnhancedWeapon()
 {
-	auto players = FindTagObjects(Tag::PLAYER);
-	int size = players.size();
-	if (size == 0)return Vector2();
-	Vector2 playerCenter;
-	if (size == 2)
-	{
-		Vector2 playerSub = players[1]->GetPos() - players[0]->GetPos();
-		playerCenter = players[0]->GetPos() + (playerSub * 0.5f);
-	}
-	else if(size == 1)
-	{
-		playerCenter = players[0]->GetPos();
-	}
-	playerCenter.x = (playerCenter.x - (WIN_WIDTH / 2.0f)) * -1.0f + (WIN_WIDTH / 2.0f);
-	Vector2 vec = playerCenter - Enemy::DESTINATION;
-	vec = Math2D::Normalize(vec);
-	Vector2 pos = Enemy::DESTINATION + vec * 2500;
-	int randVal = GetRand(50) - 25;
-	pos.x += randVal;
-	pos.y += randVal;
-	return pos;
+	gameState.enhancedWeaponStock--;
+	gameState.weaponStock--;
+}
+
+void AiDirector::BaseHitDamage()
+{
+	Base* base = FindGameObject<Base>(Tag::STAGE);
+	gameState.baseHP = base->GetHp();
+}
+
+void AiDirector::EndWave()
+{
+	gameState.waveEndTime = gGameTimer.timer;
+}
+
+WaveParameters AiDirector::CalculateNextWaveParameters()
+{
+	return WaveParameters();
 }
