@@ -1,12 +1,12 @@
-#pragma once
+﻿#pragma once
 #include "Enemy.h"
 
-enum class State
-{
-	ATTACK,
-	CHASE,
-	PATROL
-};
+//enum class State
+//{
+//	ATTACK,
+//	CHASE,
+//	PATROL
+//};
 
 class Archer : public Enemy
 {

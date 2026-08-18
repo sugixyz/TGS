@@ -3,10 +3,14 @@
 #include"AiData.h"
 #include"../Engine/Tool/Time.h"
 
-enum class State
+enum class WaveState
 {
-	InWave,
-	EndWave
+	//ウェーブ開始前のインターバル
+	INTERVAL	,
+	//ウェーブ進行中
+	IN_WAVE,
+	//ウェーブ終了
+	END_WAVE
 };
 
 class WaveSpawner : public GameObject
@@ -15,16 +19,36 @@ public:
 	WaveSpawner();
 	~WaveSpawner();
 	void Update() override;
+	/// <summary>
+	/// パラメータを受け取ってウェーブを開始する関数
+	/// </summary>
+	/// <param name="parameters">今回のウェーブのパラメータ</param>
 	void StartWave(const WaveParameters& parameters);
+	/// <summary>
+	/// ウェーブの状態を取得する
+	/// </summary>
+	/// <returns>ウェーブの状態</returns>
+	WaveState GetWaveState() { return waveState; }
 private:
-	State state;
+	//現在のウェーブの状態
+	WaveState waveState;
+	//ウェーブに用いるパラメータ
 	WaveParameters waveParameters;
+	//ウェーブ中のタイマー
 	Timer waveTimer;
-	Timer spawnTimer;
+	//インターバル中のタイマー
+	Timer intervalTimer;
 private:
+	//各状態毎のアップデート
+	void IntervalUpdate();
+	void InWaveUpdate();
+	void EndWaveUpdate();
 	//ウェーブ中の処理
 	void WaveProcess();
-private:
+	//敵をスポーンさせる（1体）
+	void SpawnEnemy();
+	//敵の集団をスポーンさせる
+	void SpawnArmy();
 	//スポーンポイントを計算する関数
 	Vector2 CalculateSpawnPoint();
 };

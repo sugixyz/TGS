@@ -3,6 +3,20 @@
 //ゲーム、プレイヤーの状態の構造体
 struct GameStateData
 {
+	GameStateData()
+		:killTime(0.0f),
+		weaponStock(0),
+		meleeWeaponStock(0),
+		longRangeWeaponStock(0),
+		enhancedWeaponStock(0),
+		craftCount(0),
+		baseHp(0),
+		remainingEnemies(0),
+		waveStartTime(0.0f),
+		waveEndTime(0.0f),
+		remainingTime(0.0f)
+	{}
+
 	//殲滅までにかかった時間
 	float killTime;
 	//武器所持数
@@ -16,31 +30,33 @@ struct GameStateData
 	//クラフト回数
 	int craftCount;
 	//拠点HP
-	int baseHP;
+	int baseHp;
 	//前ウェーブからの残存敵数
 	int remainingEnemies;
+	//ウェーブの開始した時間
+	float waveStartTime;
 	//ウェーブの終了した時間
 	float waveEndTime;
-	//次のウェーブの開始時間
-	float nextWaveTime;
+	//ウェーブの継続時間
+	float remainingTime;
 };
 
 //次のウェーブのパラメータ
 struct WaveParameters
 {
 	//このウェーブで湧かせる数
-	int totalSpawnCount = 10;
+	int totalSpawnCount = 20;
 	//スポーン間隔
 	float spawnInterval = 1.0f;
 	//最大同時存在数（敵の上限）
-	int maxConcurrentEnemies = 30;
+	int maxConcurrentEnemies = 40;
 	//ウェーブの制限時間
-	float waveTimeLimit = 20.0f;
+	float waveTimeLimit = 40.0f;
 	//次のウェーブまでの間隔
-	float nextWaveInterval = 20.0f;
+	float nextWaveInterval = 15.0f;
 
 	//敵の出現比率
-	float normalRatio = 0.6f;
-	float archerRatio = 0.35f;
-	float titanRatio = 0.05f;
+	float normalRatio = 10;
+	float archerRatio = 9;
+	float titanRatio = 1;
 };

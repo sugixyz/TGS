@@ -1,6 +1,7 @@
 ﻿#include "ObjectCreater.h"
 #include"Player.h"
 #include"TestEnemy.h"
+#include"Normal.h"
 #include"StageObject.h"
 #include"Base.h"
 #include"Floor.h"
@@ -29,6 +30,8 @@ void ObjectCreater::CreatePlayer()
 {
 	new Player(0);
 	new Player(1);
+
+	//new TestEnemy(Vector2(WIN_WIDTH / 2.0f, WIN_HEIGHT / 2.0f));
 }
 
 void ObjectCreater::CreateStageObject()

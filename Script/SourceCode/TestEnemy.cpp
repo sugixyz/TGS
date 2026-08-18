@@ -27,7 +27,7 @@ TestEnemy::TestEnemy(Vector2 pos)
     hp = 1;
     radius = 25;
     target = FindTagObject(Tag::PLAYER);
-    state = State::PATROL;
+    state = TestState::PATROL;
 
     //char file[20];
     //sprintf_s(file, sizeof(file), "Enemy.fbx");
@@ -63,7 +63,7 @@ void TestEnemy::Draw()
 
 NodeResult TestEnemy::AttackAction()
 {
-    state = State::ATTACK;
+    state = TestState::ATTACK;
     Collider col;
     Vector2 zero(0, 0);
     col.SetCapsule(zero, zero, radius, Layer::ENEMY_ATTACK, (uint32_t)Layer::PLAYER);
@@ -81,7 +81,7 @@ bool TestEnemy::CanAttack()
 
 NodeResult TestEnemy::Chase()
 {
-    state = State::CHASE;
+    state = TestState::CHASE;
     Vector2 targetPos = target->GetPos();
     direction = Math2D::Normalize(targetPos - position);
     position += direction * 20 * gDeltaTime;
@@ -98,7 +98,7 @@ bool TestEnemy::CanChase()
 
 NodeResult TestEnemy::Patrol()
 {
-    state = State::PATROL;
+    state = TestState::PATROL;
     return NodeResult::SUCCESS;
 }
 
@@ -106,10 +106,10 @@ void TestEnemy::DrawStateText()
 {
     switch (state)
     {
-    case State::ATTACK:
+    case TestState::ATTACK:
         DrawString(100, 300, "ATTACK", 0xffff00);
         break;
-    case State::CHASE:
+    case TestState::CHASE:
         DrawString(100, 300, "CHASE", 0xffff00);
         break;
     default:

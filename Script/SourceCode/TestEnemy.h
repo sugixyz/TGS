@@ -2,7 +2,7 @@
 #include"Enemy.h"
 #include"../Engine/Tool/BehaviorTree.h"
 
-enum class State
+enum class TestState
 {
 	ATTACK,
 	CHASE,
@@ -25,7 +25,7 @@ public:
 private:
 	Selector root;
 	GameObject* target;
-	State state;
+	TestState state;
 private:
 	void DrawStateText();
 };

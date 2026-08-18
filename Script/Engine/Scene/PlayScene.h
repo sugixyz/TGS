@@ -5,6 +5,9 @@
 /// プレイ画面
 /// </summary>
 
+class WaveSpawner;
+class AiDirector;
+
 class PlayScene : public SceneBase
 {
 public:
@@ -12,8 +15,9 @@ public:
 	~PlayScene();
 	void Update() override;
 	void Draw() override;
-	void AddScore();
 private:
 	void ChangeMode();
 	int playScore;
+	WaveSpawner* waveSpawner;
+	AiDirector* aiDirector;
 };

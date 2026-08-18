@@ -36,13 +36,33 @@ public:
 	/// </summary>
 	void BaseHitDamage();
 	/// <summary>
+	/// ウェーブが開始したときに呼ぶ関数
+	/// </summary>
+	void StartWave();
+	/// <summary>
 	/// ウェーブが終了したときに呼ぶ関数
 	/// </summary>
 	void EndWave();
+	/// <summary>
+	/// 次のウェーブのパラメータを計算する
+	/// </summary>
+	/// <returns>ウェーブの情報パラメータ</returns>
+	WaveParameters CalculateNextWaveParameters();
+	/// <summary>
+	/// 現在のゲームの状況を取得する
+	/// </summary>
+	/// <returns>現在のゲームの状況</returns>
+	GameStateData GetGameStateData() { return gameState; }
 private:
 	GameStateData gameState;
 	//WaveParameters waveParameters;
 private:
-	//次のウェーブのパラメータを計算する
-	WaveParameters CalculateNextWaveParameters();	
+	//残りタイムによる評価
+	void EvaluateRemainingTime(WaveParameters& params);
+	//武器のストックによる評価
+	void EvaluateWeaponStock(WaveParameters& params);
+	//武器のクラフトによる評価
+	void EvaluateCraftWeapon(WaveParameters& params);
+	//拠点のHPによる評価
+	void EvaluateBaseHp(WaveParameters& params);
 };
