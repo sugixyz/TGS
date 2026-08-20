@@ -18,6 +18,7 @@ enum class Tag
 	ENEMY,
 	ITEM,
 	ATTACK,
+	ENEMY_ATTACK,//アーチャー用
 	UI,
 	SIZE
 };

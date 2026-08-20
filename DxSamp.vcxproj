@@ -152,6 +152,7 @@
     <ClCompile Include="Script\Engine\Tool\Sound.cpp" />
     <ClCompile Include="Script\SourceCode\AiDirector.cpp" />
     <ClCompile Include="Script\SourceCode\Archer.cpp" />
+    <ClCompile Include="Script\SourceCode\Arrow.cpp" />
     <ClCompile Include="Script\SourceCode\Base.cpp" />
     <ClCompile Include="Script\SourceCode\Bomb.cpp" />
     <ClCompile Include="Script\SourceCode\Bullet.cpp" />
@@ -213,6 +214,7 @@
     <ClInclude Include="Script\SourceCode\AiData.h" />
     <ClInclude Include="Script\SourceCode\AiDirector.h" />
     <ClInclude Include="Script\SourceCode\Archer.h" />
+    <ClInclude Include="Script\SourceCode\Arrow.h" />
     <ClInclude Include="Script\SourceCode\Attack.h" />
     <ClInclude Include="Script\SourceCode\Base.h" />
     <ClInclude Include="Script\SourceCode\Bomb.h" />

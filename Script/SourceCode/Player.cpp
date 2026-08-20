@@ -103,7 +103,22 @@ void Player::OnCollision(Layer myLeyer, GameObject* other, Layer otherLayer)
 	{
 		CollisionGimmick(other);
 	}
-	if (other->GetTag() == Tag::ENEMY && otherLayer == Layer::ENEMY)//本体との接触時のみダメージ
+	bool hitByEnemyBody = (other->GetTag() == Tag::ENEMY && otherLayer == Layer::ENEMY);
+	bool hitByArrow = (other->GetTag() == Tag::ENEMY_ATTACK);
+	//if (other->GetTag() == Tag::ENEMY && otherLayer == Layer::ENEMY)//本体との接触時のみダメージ
+	//{
+	//	if (invincibilityTime <= 0.0f)
+	//	{
+	//		hp -= 1;
+	//		invincibilityTime = INVINCIBILITY_TIME;
+	//	}
+	//	if (hp <= 0)
+	//	{
+	//		position = SPAWN_POS;
+	//		hp = MAX_HP;
+	//	}
+	//}
+	if (hitByEnemyBody || hitByArrow)
 	{
 		if (invincibilityTime <= 0.0f)
 		{
