@@ -21,7 +21,7 @@ public:
 
 		Vector2 sub = DESTINATION - position;
 		float lenghtSq = Math2D::LengthSq(sub);
-		if (lenghtSq >= 4000)DestroyMe();
+		if (lenghtSq >= 4000 * 4000)DestroyMe();
 	}
 
 	/// <summary>

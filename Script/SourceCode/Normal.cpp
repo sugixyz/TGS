@@ -62,6 +62,7 @@ Normal::Normal(Vector2 pos)
 
 Normal::~Normal()
 {
+    int a;
 }
 
 void Normal::Update()
