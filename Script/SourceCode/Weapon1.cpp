@@ -2,6 +2,7 @@
 #include"Player.h"
 #include"Bullet.h"
 #include"../Engine/Collid/CollidManager.h"
+#include"../Engine/Tool/Event.h"
 
 int Weapon1::BULLET_NUMBER;
 float Weapon1::BULLET_SPEED;
@@ -18,10 +19,20 @@ Weapon1::Weapon1()
 	coolTime = COOL_TIME;
 	attackRadius = ATTACK_RADIUS;
 	isEnhanced = false;
+
+	Event::Instance().Get(Id::CRAFT_MELEE_WEAPON).Invoke();
 }
 
 Weapon1::~Weapon1()
-{}
+{
+	auto stages = FindTagObjects(Tag::STAGE);
+	int size = stages.size();
+	if (size > 0)
+	{
+		Event::Instance().Get(Id::DESTROY_LONG_RANGE_WEAPON).Invoke();
+		if (isEnhanced)Event::Instance().Get(Id::DESTROY_ENHANCED_WEAPON).Invoke();
+	}
+}
 
 void Weapon1::Update()
 {
@@ -85,6 +96,8 @@ void Weapon1::EnhanceWeapon()
 {
 	isEnhanced = true;
 	life = ENHANCE_BULLET_NUMBER;
+
+	Event::Instance().Get(Id::CRAFT_ENHANCED_WEAPON).Invoke();
 }
 
 Vector2 Weapon1::CalculateLineEnd()

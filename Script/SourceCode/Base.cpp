@@ -1,4 +1,5 @@
 ﻿#include "Base.h"
+#include"../Engine/Tool/Event.h"
 
 Base::Base(Vector2 pos, int blockSize)
 	:GameObject(Tag::STAGE)
@@ -25,6 +26,7 @@ void Base::OnCollision(Layer myLeyer, GameObject* other, Layer otherLayer)
 	if (otherLayer == Layer::ENEMY_ATTACK)//近接の攻撃コライダーも矢も、どちらもこのレイヤーで統一
 	{
 		hp -= 1;
+		Event::Instance().Get(Id::BASE_HIT_DAMAGE).Invoke();
 		if (hp <= 0) DestroyMe();
 	}
 }

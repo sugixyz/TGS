@@ -3,6 +3,8 @@
 #include"AiData.h"
 #include"../Engine/Tool/Time.h"
 
+enum class EnemyType;
+
 enum class WaveState
 {
 	//ウェーブ開始前のインターバル
@@ -46,9 +48,13 @@ private:
 	//ウェーブ中の処理
 	void WaveProcess();
 	//敵をスポーンさせる（1体）
-	void SpawnEnemy();
+	void SpawnEnemy(Vector2 pos);
 	//敵の集団をスポーンさせる
 	void SpawnArmy();
-	//スポーンポイントを計算する関数
-	Vector2 CalculateSpawnPoint();
+	//プレイヤーの位置からスポーンポイントを計算する関数
+	Vector2 CalculateSpawnPointToPlayer();
+	//ランダムなスポーンポイントを計算する関数
+	Vector2 CalculateSpawnPointToRandom();
+	//出現確率をもとに敵を選出する関数
+	EnemyType SelectEnemyTypeByRatio();
 };

@@ -6,6 +6,18 @@
 #include"../Engine/Object/ObjectManager.h"
 #include"../Engine/Tool/Event.h"
 
+namespace
+{
+	const float SPAWN_DISTANCE = 2500;
+}
+
+enum class EnemyType
+{
+	NORMAL,
+	ARCHER,
+	TITAN
+};
+
 WaveSpawner::WaveSpawner()
 	:GameObject(Tag::SYSTEM)
 {
@@ -78,7 +90,8 @@ void WaveSpawner::WaveProcess()
 		if (canSpawn && underLimit)
 		{
 			//敵を生成
-			SpawnEnemy();
+			Vector2 spawnPos = CalculateSpawnPointToRandom();
+			SpawnEnemy(spawnPos);
 			waveParameters.totalSpawnCount--;
 		}
 	}
@@ -96,16 +109,31 @@ void WaveSpawner::WaveProcess()
 	}
 }
 
-void WaveSpawner::SpawnEnemy()
+void WaveSpawner::SpawnEnemy(Vector2 pos)
 {
-	new Normal(Vector2(0,0));
-	//new TestEnemy(Vector2(WIN_WIDTH / 2.0f, WIN_HEIGHT / 2.0f));
+	//EnemyType spawnEnemy = SelectEnemyTypeByRatio();
+	//switch (spawnEnemy)
+	//{
+	//case EnemyType::NORMAL:
+	//	new Normal(pos);
+	//	break;
+	//case EnemyType::ARCHER:
+	//	new Archer(pos);
+	//	break;
+	//case EnemyType::TITAN:
+	//	new Titan(pos);
+	//	break;
+	//}
+
+	new Normal(pos);
 }
 
 void WaveSpawner::SpawnArmy()
-{}
+{
 
-Vector2 WaveSpawner::CalculateSpawnPoint()
+}
+
+Vector2 WaveSpawner::CalculateSpawnPointToPlayer()
 {
 	auto players = FindTagObjects(Tag::PLAYER);
 	int size = players.size();
@@ -123,10 +151,52 @@ Vector2 WaveSpawner::CalculateSpawnPoint()
 	playerCenter.x = (playerCenter.x - (WIN_WIDTH / 2.0f)) * -1.0f + (WIN_WIDTH / 2.0f);
 	Vector2 vec = playerCenter - Enemy::DESTINATION;
 	vec = Math2D::Normalize(vec);
-	Vector2 pos = Enemy::DESTINATION + vec * 2500;
+	Vector2 pos = Enemy::DESTINATION + vec * SPAWN_DISTANCE;
 	int randVal = GetRand(50) - 25;
 	pos.x += randVal;
 	pos.y += randVal;
 	return pos;
+}
+
+Vector2 WaveSpawner::CalculateSpawnPointToRandom()
+{
+
+	//0～180のランダムな角度を計算
+	int randomDegree = rand() % 181;
+	float randomRadian = randomDegree * (DX_PI_F / 180.0f);
+
+	Vector2 vec;
+	vec.x = cos(randomRadian);
+	vec.y = -sin(randomRadian);
+
+	Vector2 spawnPos = Enemy::DESTINATION + vec * SPAWN_DISTANCE;
+
+	return spawnPos;
+}
+
+EnemyType WaveSpawner::SelectEnemyTypeByRatio()
+{
+	int normalRatio = waveParameters.normalRatio;
+	int archerRatio = waveParameters.archerRatio;
+	int titanRatio = waveParameters.titanRatio;
+	//比率の合計
+	int totalWeight = normalRatio + archerRatio + titanRatio;
+
+	//もし合計が0以下ならノーマルを返す
+	if (totalWeight <= 0)return EnemyType::NORMAL;
+
+	//ランダムな値を出す
+	int randValue = rand() % totalWeight;
+
+	//値によって敵の種類を決定
+	if ((randValue -= normalRatio) < 0)
+	{
+		return EnemyType::NORMAL;
+	}
+	if ((randValue -= archerRatio) < 0)
+	{
+		return EnemyType::ARCHER;
+	}
+	return EnemyType::TITAN;
 }
 

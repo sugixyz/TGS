@@ -1,6 +1,7 @@
 ﻿#include "Weapon2.h"
 #include"Player.h"
 #include"Bomb.h"
+#include"../Engine/Tool/Event.h"
 
 int Weapon2::BOMB_NUMBER;
 float Weapon2::ATTACK_RANGE;
@@ -19,10 +20,20 @@ Weapon2::Weapon2()
 	coolTime = COOL_TIME;
 	attackRadius = ATTACK_RADIUS;
 	isEnhanced = false;
+
+	Event::Instance().Get(Id::CRAFT_MELEE_WEAPON).Invoke();
 }
 
 Weapon2::~Weapon2()
-{}
+{
+	auto stages = FindTagObjects(Tag::STAGE);
+	int size = stages.size();
+	if (size > 0)
+	{
+		Event::Instance().Get(Id::DESTROY_LONG_RANGE_WEAPON).Invoke();
+		if (isEnhanced)Event::Instance().Get(Id::DESTROY_ENHANCED_WEAPON).Invoke();
+	}
+}
 
 void Weapon2::Update()
 {
@@ -101,4 +112,6 @@ void Weapon2::EnhanceWeapon()
 	isEnhanced = true;
 	life = ENHANCE_BOMB_NUMBER;
 	attackRadius = ENHANCE_ATTACK_RADIUS;
+
+	Event::Instance().Get(Id::CRAFT_ENHANCED_WEAPON).Invoke();
 }
