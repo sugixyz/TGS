@@ -2,6 +2,7 @@
 #include"Player.h"
 #include"Slash.h"
 #include"../Engine/Collid/CollidManager.h"
+#include"../Engine/Tool/Event.h"
 
 int Weapon3::SWORD_NUMBER;
 int Weapon3::CONTINUOUS_NUMBER;
@@ -25,10 +26,20 @@ Weapon3::Weapon3()
 	attackCount = 0;
 	
 	target = nullptr;
+
+	Event::Instance().Get(Id::CRAFT_LONG_RANGE_WEAPON).Invoke();
 }
 
 Weapon3::~Weapon3()
-{}
+{
+	auto stages = FindTagObjects(Tag::STAGE);
+	int size = stages.size();
+	if (size > 0)
+	{
+		Event::Instance().Get(Id::DESTROY_LONG_RANGE_WEAPON).Invoke();
+		if (isEnhanced)Event::Instance().Get(Id::DESTROY_ENHANCED_WEAPON).Invoke();
+	}
+}
 
 void Weapon3::Update()
 {
@@ -126,6 +137,8 @@ void Weapon3::EnhanceWeapon()
 	isEnhanced = true;
 	life = ENHANCE_SWORD_NUMBER;
 	continuousNumber = ENHANCE_CONTINUOUS_NUMBER;
+
+	Event::Instance().Get(Id::CRAFT_ENHANCED_WEAPON).Invoke();
 }
 
 void Weapon3::SearchTarget()
