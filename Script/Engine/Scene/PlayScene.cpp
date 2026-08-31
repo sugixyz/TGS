@@ -22,7 +22,7 @@ PlayScene::PlayScene()
 	
 	new Camera();
 	new DirectionalLight();
-	new PointLight(VGet(0, 0, 0), 5);
+	//new PointLight(VGet(0, 0, 0), 5);
 }
 
 PlayScene::~PlayScene()
