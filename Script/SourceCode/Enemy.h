@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include"../Engine/Object/Character.h"
 #include "Item.h"
+#include "../Engine/Collid/CollidManager.h"
 
 class Enemy : public Character
 {
@@ -76,7 +77,16 @@ public:
 		direction = Math2D::Normalize(targetPos - position);
 		position += direction * speed * gDeltaTime;
 	}
-	
+protected:
+	bool HasLineOfSight(const Vector2& targetPos)
+	{
+		Collider col;
+		Vector2 start(0, 0);
+		Vector2 end = targetPos - position;//自分を原点とした相対ベクトル
+		col.SetCapsule(start, end, 0, Layer::ENEMY_ATTACK, (uint32_t)Layer::STAGE);
+		//壁(Tag::STAGE)に当たったら射線が通ってない
+		return !CollidManager::CollisionCheckRequest(this, col, Tag::STAGE);
+	}
 protected:
 	int hp;//体力
 	float speed;//移動速度
