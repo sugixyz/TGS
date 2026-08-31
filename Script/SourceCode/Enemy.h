@@ -86,6 +86,8 @@ protected:
 	float coolTime;//クールタイム
 	float coolTimeMax = 1.0f;
 	int dropRate;//ドロップ率(%)
+	int attackDamage = 1;//攻撃力
 public:
 	inline static Vector2 DESTINATION;
+	int GetAttackDamage() const { return attackDamage; }
 };

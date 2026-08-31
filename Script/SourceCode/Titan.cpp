@@ -3,6 +3,9 @@
 Titan::Titan(Vector2 pos)
 	:Enemy(Tag::ENEMY)
 {
+	dropRate = 100;
+	attackDamage = 5;
+	float explosionRadius = attackRadius;
 }
 
 Titan::~Titan()
