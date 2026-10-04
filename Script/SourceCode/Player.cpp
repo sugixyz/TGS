@@ -23,6 +23,9 @@ Player::Player(int index)
 
 	char file[20];
 	sprintf_s(file, sizeof(file), "Player%02d.mv1", id + 1);
+	//sprintf_s(file, sizeof(file), "PlayerPbr.mv1");
+	//scale3 = { 0.01f,0.01f,0.01f };
+
 	hModel = Model::Load(file);
 	assert(hModel > 0);
 

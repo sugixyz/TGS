@@ -11,6 +11,12 @@ namespace
 void Model::Initialize()
 {	
 	SetHandle("Player01");
+
+	//試し
+	SetHandle("PlayerBase");
+	SetHandle("PlayerPbr");
+	SetHandle("PlayerShaded");
+
 	SetHandle("Player02");
 	SetHandle("CraftTable");
 	SetHandle("Material01");
