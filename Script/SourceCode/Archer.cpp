@@ -91,7 +91,7 @@ NodeResult Archer::PlayerAttackAction()
 	coolTime = coolTimeMax;
 
 	Vector2 targetPos = target->GetPos();
-	new Arrow(position, targetPos, 0.6f);//0.6秒で着弾(仮の飛翔時間)
+	new Arrow(position, targetPos, 0.6f, Tag::PLAYER);//0.6秒で着弾(仮の飛翔時間)
 	return NodeResult::SUCCESS;
 }
 
@@ -108,7 +108,7 @@ NodeResult Archer::StageAttackAction()
 	coolTime = coolTimeMax;
 
 	Vector2 stagePos = stageTarget->GetPos();
-	new Arrow(position, stagePos, 0.8f);//拠点は少し飛翔時間長め(仮)
+	new Arrow(position, stagePos, 0.8f, Tag::STAGE);//拠点は少し飛翔時間長め(仮)
 	return NodeResult::SUCCESS;
 }
 

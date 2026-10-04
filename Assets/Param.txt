@@ -151,9 +151,9 @@ ENHANCE_COOL_TIME = 0.3
 //カメラのパラメータ
 [Camera]
 //カメラの位置
-CAM_POS = 0 10 -5
+CAM_POS = -4 10 -7
 //カメラのターゲット
-CAM_TARGET = 0 0 0
+CAM_TARGET = -4 0 0
 
 
 //平行光源のパラメータ
